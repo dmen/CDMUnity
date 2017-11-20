@@ -1,0 +1,236 @@
+fileFormatVersion: 2
+guid: dd8186c64d4890547bd4886ef75f3874
+timeCreated: 1510583412
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cylinder003
+    100002: Cylinder004
+    100004: Cylinder005
+    100006: Cylinder006
+    100008: Cylinder007
+    100010: Cylinder008
+    100012: Cylinder009
+    100014: foot002
+    100016: foot003
+    100018: foot004
+    100020: knob_middle002
+    100022: knob_middle003
+    100024: knob_middle004
+    100026: knob_upper002
+    100028: knob_upper003
+    100030: knob_upper004
+    100032: leg002
+    100034: leg003
+    100036: leg004
+    100038: Line003
+    100040: Line004
+    100042: Line005
+    100044: middle002
+    100046: middle003
+    100048: middle004
+    100050: //RootNode
+    100052: upper002
+    100054: upper003
+    100056: upper004
+    400000: Cylinder003
+    400002: Cylinder004
+    400004: Cylinder005
+    400006: Cylinder006
+    400008: Cylinder007
+    400010: Cylinder008
+    400012: Cylinder009
+    400014: foot002
+    400016: foot003
+    400018: foot004
+    400020: knob_middle002
+    400022: knob_middle003
+    400024: knob_middle004
+    400026: knob_upper002
+    400028: knob_upper003
+    400030: knob_upper004
+    400032: leg002
+    400034: leg003
+    400036: leg004
+    400038: Line003
+    400040: Line004
+    400042: Line005
+    400044: middle002
+    400046: middle003
+    400048: middle004
+    400050: //RootNode
+    400052: upper002
+    400054: upper003
+    400056: upper004
+    2300000: Cylinder003
+    2300002: Cylinder004
+    2300004: Cylinder005
+    2300006: Cylinder006
+    2300008: Cylinder007
+    2300010: Cylinder008
+    2300012: Cylinder009
+    2300014: foot002
+    2300016: foot003
+    2300018: foot004
+    2300020: knob_middle002
+    2300022: knob_middle003
+    2300024: knob_middle004
+    2300026: knob_upper002
+    2300028: knob_upper003
+    2300030: knob_upper004
+    2300032: Line003
+    2300034: Line004
+    2300036: Line005
+    2300038: middle002
+    2300040: middle003
+    2300042: middle004
+    2300044: upper002
+    2300046: upper003
+    2300048: upper004
+    2300050: //RootNode
+    3300000: Cylinder003
+    3300002: Cylinder004
+    3300004: Cylinder005
+    3300006: Cylinder006
+    3300008: Cylinder007
+    3300010: Cylinder008
+    3300012: Cylinder009
+    3300014: foot002
+    3300016: foot003
+    3300018: foot004
+    3300020: knob_middle002
+    3300022: knob_middle003
+    3300024: knob_middle004
+    3300026: knob_upper002
+    3300028: knob_upper003
+    3300030: knob_upper004
+    3300032: Line003
+    3300034: Line004
+    3300036: Line005
+    3300038: middle002
+    3300040: middle003
+    3300042: middle004
+    3300044: upper002
+    3300046: upper003
+    3300048: upper004
+    3300050: //RootNode
+    4300000: Cylinder003
+    4300002: Line003
+    4300004: foot002
+    4300006: knob_middle002
+    4300008: knob_upper002
+    4300010: middle002
+    4300012: upper002
+    4300014: Cylinder004
+    4300016: Cylinder005
+    4300018: Line004
+    4300020: foot003
+    4300022: knob_middle003
+    4300024: knob_upper003
+    4300026: middle003
+    4300028: upper003
+    4300030: Cylinder006
+    4300032: Line005
+    4300034: foot004
+    4300036: knob_middle004
+    4300038: knob_upper004
+    4300040: middle004
+    4300042: upper004
+    4300044: Cylinder007
+    4300046: Cylinder008
+    4300048: Cylinder009
+    4300050: tripod
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blackPlas-tripod
+    second: {fileID: 2100000, guid: 95a71d0f079a74542858d0f754cc3d05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tripodFoot
+    second: {fileID: 2100000, guid: d6b2979f91dcdc4459dc45dbcb1ebe50, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: tripodKnob
+    second: {fileID: 2100000, guid: c7a7b693d5fbec641b6b113d8a482194, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

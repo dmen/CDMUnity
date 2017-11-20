@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eyeVR", "eyeVR.csproj", "{1E8A76FA-6FBC-630D-7FDC-79F76FC32035}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eyeVR.Plugins", "eyeVR.Plugins.csproj", "{C2236528-0F5E-386C-69DE-663E895C090E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eyeVR.Editor", "eyeVR.Editor.csproj", "{8841D9C7-62F1-2861-6B75-33F31592C876}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E8A76FA-6FBC-630D-7FDC-79F76FC32035}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E8A76FA-6FBC-630D-7FDC-79F76FC32035}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E8A76FA-6FBC-630D-7FDC-79F76FC32035}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E8A76FA-6FBC-630D-7FDC-79F76FC32035}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2236528-0F5E-386C-69DE-663E895C090E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2236528-0F5E-386C-69DE-663E895C090E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2236528-0F5E-386C-69DE-663E895C090E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2236528-0F5E-386C-69DE-663E895C090E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8841D9C7-62F1-2861-6B75-33F31592C876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8841D9C7-62F1-2861-6B75-33F31592C876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8841D9C7-62F1-2861-6B75-33F31592C876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8841D9C7-62F1-2861-6B75-33F31592C876}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
