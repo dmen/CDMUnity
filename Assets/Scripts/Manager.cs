@@ -104,7 +104,7 @@ public class Manager : MonoBehaviour
             eyeVideoScreen.GetComponent<VideoPlayer>().Stop();
             eyeVideoScreen.SetActive(false);
 
-            //open door
+            //open door - animation event at end of clip will call
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");
         }
 
@@ -123,6 +123,13 @@ public class Manager : MonoBehaviour
 
         }
         
+    }
+
+
+    public void nodeWaitComplete()
+    {
+        nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
+        moveToNextNode();
     }
     
 

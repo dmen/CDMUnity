@@ -417,6 +417,7 @@
     <Compile Include="Assets\PostProcessing\Runtime\Utils\RenderTextureFactory.cs" />
     <Compile Include="Assets\PostProcessing\Utilities\CustomMotionTexture\ExampleWheelController.cs" />
     <Compile Include="Assets\Scripts\EditorPath.cs" />
+    <Compile Include="Assets\Scripts\HallDoor.cs" />
     <Compile Include="Assets\Scripts\IntroManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\NodeData.cs" />

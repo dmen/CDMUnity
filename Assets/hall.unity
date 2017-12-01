@@ -279,7 +279,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 6602b999929d445458b22793bce6f130, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6602b999929d445458b22793bce6f130, type: 3}
@@ -355,7 +355,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 221795210}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.8, y: 0, z: -0.61}
+  m_LocalPosition: {x: 9.07, y: 0, z: 0.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 498680026}
@@ -372,7 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 6
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 3
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 6
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 6
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 6
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -2113,7 +2113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 6
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -3993,7 +3993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 3
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -4176,7 +4176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToNextNode: 0
-  nodeName: 
+  nodeName: end
   ease: 0
   waitAtNode: 0
 --- !u!1001 &1430607560
@@ -4281,7 +4281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 7
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -4325,7 +4325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 6
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -4369,7 +4369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 7
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -4631,7 +4631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 3
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -4980,7 +4980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07bb3f5da704e4b4cb6d86998d7ad79c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextNode: 0
+  timeToNextNode: 6
   nodeName: 
   ease: 0
   waitAtNode: 0
@@ -5135,6 +5135,7 @@ GameObject:
   - component: {fileID: 1938415804}
   - component: {fileID: 1938415803}
   - component: {fileID: 1938415805}
+  - component: {fileID: 1938415806}
   m_Layer: 0
   m_Name: hallDoor
   m_TagString: Untagged
@@ -5218,6 +5219,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1938415806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938415801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8641b38b030ead34796a3b6781c25449, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1946137652
 Prefab:
   m_ObjectHideFlags: 0
