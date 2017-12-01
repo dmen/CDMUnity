@@ -1,18 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 
 
 public class Manager : MonoBehaviour
 {
-    private EditorPathScript pathToFollow;
+    private EditorPath pathToFollow;
     private GameObject thePlayer;
-    private int currentPathNodeIndex = 0;
+    private int currentPathNodeIndex;
 
     private GameObject[] theLights;
 
     private ReflectionProbe hallProbe;
     private ReflectionProbe roomProbe;
+
+    private GameObject eyeVideoScreen;//rect attached to camera
+    private NodeData lastNodeData;
+    private NodeData nextNodeData;
 
 
     void Awake()
@@ -24,17 +29,25 @@ public class Manager : MonoBehaviour
     void Start()
     {
         thePlayer = GameObject.Find("Player");//Main camera is a child
-        pathToFollow = GameObject.Find("PathForCamera").GetComponent<EditorPathScript>();
+        pathToFollow = GameObject.Find("PathForCamera").GetComponent<EditorPath>();
         theLights = GameObject.FindGameObjectsWithTag("aLight");
 
+        eyeVideoScreen = GameObject.Find("videoScreen");
+        eyeVideoScreen.SetActive(false);
+
         hallProbe = GameObject.Find("hallProbe").GetComponent<ReflectionProbe>();
-        roomProbe = GameObject.Find("roomProbe").GetComponent<ReflectionProbe>();
+        //roomProbe = GameObject.Find("roomProbe").GetComponent<ReflectionProbe>();
 
         hallProbe.RenderProbe();
-        roomProbe.RenderProbe();
+        //roomProbe.RenderProbe();
 
-        moveToNextNode();
-        
+        currentPathNodeIndex = 1;
+
+        //last node will give us time of flight to 
+        lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
+        //data from the node the camera will move TO
+        nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
+        moveToNextNode();        
     }
 
 
@@ -59,35 +72,58 @@ public class Manager : MonoBehaviour
 
         //need to re-render the probes so the reflection is dimmed
         hallProbe.RenderProbe();
-        roomProbe.RenderProbe();
+        //roomProbe.RenderProbe();
     }
 
 
+    /**
+     * Tweens the camera to the next node
+     * Calls nodeReached() when complete
+     */
     void moveToNextNode()
     {
-        LeanTween.move(thePlayer, pathToFollow.path_objs[currentPathNodeIndex].position, 5f).setEase(LeanTweenType.easeInOutQuad).setOnComplete(nodeReached);
+        LeanTween.move(thePlayer, pathToFollow.pathNodes[currentPathNodeIndex].transform.position, lastNodeData.timeToNextNode).setEase(lastNodeData.ease ? LeanTweenType.easeInOutQuad : LeanTweenType.linear).setOnComplete(nodeReached);                
     }
 
 
+    /**
+     * Node tween is complete
+     * we've arrvied at next node
+     */
     void nodeReached()
     {
+        if(nextNodeData.nodeName == "eyeStart")
+        {           
+            eyeVideoScreen.GetComponent<VideoPlayer>().Play();
+            eyeVideoScreen.SetActive(true);
+        }
+
+
+        if (nextNodeData.nodeName == "door")
+        {
+            eyeVideoScreen.GetComponent<VideoPlayer>().Stop();
+            eyeVideoScreen.SetActive(false);
+
+            //open door
+            GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");
+        }
+
         currentPathNodeIndex++;
-
-        if(currentPathNodeIndex == 2)
+        lastNodeData = nextNodeData;
+        if (!nextNodeData.waitAtNode)
         {
-            setLightLevel(.1f, 1f);
+            if (currentPathNodeIndex < pathToFollow.pathNodes.Count)
+            {                
+                nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
+                moveToNextNode();
+            }
         }
-
-        //turn the lights back up at the end
-        if (currentPathNodeIndex == 6)//pathToFollow.path_objs.Count
+        else
         {
-            setLightLevel(1f, 1f);
-        }
 
-        if (currentPathNodeIndex < pathToFollow.path_objs.Count)
-        {
-            moveToNextNode();
         }
+        
     }
+    
 
 }

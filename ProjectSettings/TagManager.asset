@@ -6,6 +6,7 @@ TagManager:
   tags:
   - gridCube
   - aLight
+  - pathNode
   layers:
   - Default
   - TransparentFX
