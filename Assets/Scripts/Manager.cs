@@ -20,10 +20,6 @@ public class Manager : MonoBehaviour
     private NodeData nextNodeData;
 
 
-    void Awake()
-    {
-        Application.targetFrameRate = 60;
-    }
 
 
     void Start()

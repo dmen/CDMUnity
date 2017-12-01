@@ -23,6 +23,14 @@ public class IntroManager : MonoBehaviour
 
     private bool voComplete;
 
+
+
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
+
     void Start()
     {
         voComplete = false;
