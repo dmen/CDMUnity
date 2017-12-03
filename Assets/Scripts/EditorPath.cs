@@ -6,6 +6,31 @@ public class EditorPath : MonoBehaviour
 {
     public List<GameObject> pathNodes;
 
+    private void Awake()
+    {
+        pathNodes = new List<GameObject>();
+        pathNodes.Add(GameObject.Find("node0"));
+        pathNodes.Add(GameObject.Find("nodep5"));
+        pathNodes.Add(GameObject.Find("node1"));
+        pathNodes.Add(GameObject.Find("node2"));
+        pathNodes.Add(GameObject.Find("node3"));
+        pathNodes.Add(GameObject.Find("node4"));
+        pathNodes.Add(GameObject.Find("node5"));
+        pathNodes.Add(GameObject.Find("node6"));
+        pathNodes.Add(GameObject.Find("node7"));
+        pathNodes.Add(GameObject.Find("node8"));
+        pathNodes.Add(GameObject.Find("node9"));
+        pathNodes.Add(GameObject.Find("node10"));
+        pathNodes.Add(GameObject.Find("node11"));
+        pathNodes.Add(GameObject.Find("node12"));
+        pathNodes.Add(GameObject.Find("node13"));
+        pathNodes.Add(GameObject.Find("node14"));
+    }
+
+    /**
+     * This only fires in Editor
+     * and only when Scene view is showing
+     */
     void OnDrawGizmos()
     {
         pathNodes = new List<GameObject>();
@@ -26,7 +51,7 @@ public class EditorPath : MonoBehaviour
         pathNodes.Add(GameObject.Find("node13"));
         pathNodes.Add(GameObject.Find("node14"));
 
-        for(int i = 0; i < pathNodes.Count; i++)
+        for (int i = 0; i < pathNodes.Count; i++)
         {
             Vector3 pos = pathNodes[i].transform.position;
 

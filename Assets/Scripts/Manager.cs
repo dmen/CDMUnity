@@ -92,6 +92,9 @@ public class Manager : MonoBehaviour
         {           
             eyeVideoScreen.GetComponent<VideoPlayer>().Play();
             eyeVideoScreen.SetActive(true);
+
+            //video screen at 0,3,.4 - to start - above player - this lets white flash happen where it can't be seen
+            LeanTween.moveLocalY(eyeVideoScreen, 0f, 0f).setDelay(.2f);
         }
 
 
@@ -100,12 +103,13 @@ public class Manager : MonoBehaviour
             eyeVideoScreen.GetComponent<VideoPlayer>().Stop();
             eyeVideoScreen.SetActive(false);
 
-            //open door - animation event at end of clip will call
+            //open door - animation event at end of clip will call nodeWaitComplete()
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");
         }
 
         currentPathNodeIndex++;
         lastNodeData = nextNodeData;
+
         if (!nextNodeData.waitAtNode)
         {
             if (currentPathNodeIndex < pathToFollow.pathNodes.Count)

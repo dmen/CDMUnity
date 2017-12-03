@@ -1,5 +1,5 @@
 <?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
-<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c140 79.160302, 2017/03/02-16:59:38        " rdfhash="4EEC7927E7BFE244522022BE20B11113" merged="0">
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c140 79.160302, 2017/03/02-16:59:38        " rdfhash="89DC90C444CBEB117873D1480A35EE46" merged="0">
  <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
   <rdf:Description rdf:about=""
     xmlns:xmpMM="http://ns.adobe.com/xap/1.0/mm/"
@@ -10,11 +10,11 @@
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:creatorAtom="http://ns.adobe.com/creatorAtom/1.0/"
     xmlns:stDim="http://ns.adobe.com/xap/1.0/sType/Dimensions#"
-   xmpMM:InstanceID="xmp.iid:18ea6a4f-e872-0847-8cc2-9c2c5bc25aa7"
+   xmpMM:InstanceID="xmp.iid:995c25d9-4324-be4f-93fe-f5398f6941ad"
    xmpMM:DocumentID="843db6ae-0698-5cb4-840a-d44a00000045"
-   xmpMM:OriginalDocumentID="xmp.did:bf70a9ee-cf75-354f-ac1f-157153ccee0e"
-   xmp:MetadataDate="2017-12-02T08:16:43-06:00"
-   xmp:ModifyDate="2017-12-02T08:16:43-06:00"
+   xmpMM:OriginalDocumentID="xmp.did:9413528a-5cfe-5e4f-b9af-5728f201072b"
+   xmp:MetadataDate="2017-12-03T07:23:01-06:00"
+   xmp:ModifyDate="2017-12-03T07:23:01-06:00"
    xmp:CreatorTool="Adobe Premiere Pro CC 2017.1 (Windows)"
    xmp:CreateDate="2017-11-22T04:41:37-06:00"
    xmpDM:videoFrameRate="30.000000"
@@ -27,25 +27,25 @@
     <rdf:Seq>
      <rdf:li
       stEvt:action="saved"
-      stEvt:instanceID="3f6f902c-aa90-fcf5-270b-540a00000072"
-      stEvt:when="2017-12-02T08:16:43-06:00"
+      stEvt:instanceID="16e1dc92-605b-0395-8e0b-b9ba00000072"
+      stEvt:when="2017-12-03T07:23:01-06:00"
       stEvt:softwareAgent="Adobe Premiere Pro CC 2017.1 (Windows)"
       stEvt:changed="/"/>
      <rdf:li
       stEvt:action="created"
-      stEvt:instanceID="xmp.iid:f066d269-09da-284f-9b16-a77231b55b6a"
-      stEvt:when="2017-12-02T08:16:15-06:00"
+      stEvt:instanceID="xmp.iid:5873ff47-92fe-6d48-85e2-9ae1cc7356f1"
+      stEvt:when="2017-12-03T07:22:19-06:00"
       stEvt:softwareAgent="Adobe Premiere Pro CC 2017.1 (Windows)"/>
      <rdf:li
       stEvt:action="saved"
-      stEvt:instanceID="xmp.iid:c802613a-bdeb-1549-a036-01adca6a9228"
-      stEvt:when="2017-12-02T08:16:43-06:00"
+      stEvt:instanceID="xmp.iid:54c8dac8-6f4f-4341-bb1f-b3071f629180"
+      stEvt:when="2017-12-03T07:23:01-06:00"
       stEvt:softwareAgent="Adobe Premiere Pro CC 2017.1 (Windows)"
       stEvt:changed="/"/>
      <rdf:li
       stEvt:action="saved"
-      stEvt:instanceID="xmp.iid:18ea6a4f-e872-0847-8cc2-9c2c5bc25aa7"
-      stEvt:when="2017-12-02T08:16:43-06:00"
+      stEvt:instanceID="xmp.iid:995c25d9-4324-be4f-93fe-f5398f6941ad"
+      stEvt:when="2017-12-03T07:23:01-06:00"
       stEvt:softwareAgent="Adobe Premiere Pro CC 2017.1 (Windows)"
       stEvt:changed="/metadata"/>
     </rdf:Seq>
@@ -108,9 +108,9 @@
      <rdf:li>
       <rdf:Description
        xmp:CreateDate="2017-11-16T20:26:01Z"
-       xmp:ModifyDate="2017-12-02T08:08:56-06:00"
+       xmp:ModifyDate="2017-12-03T06:44:23-06:00"
        xmp:CreatorTool="Adobe After Effects CC 2015 (Macintosh)"
-       xmp:MetadataDate="2017-12-02T08:08:56-06:00"
+       xmp:MetadataDate="2017-12-03T06:44:23-06:00"
        xmpDM:startTimeScale="30"
        xmpDM:startTimeSampleSize="1"
        xmpDM:videoFrameRate="30.000000"
@@ -152,7 +152,7 @@
         <rdf:li
          stEvt:action="saved"
          stEvt:instanceID="010a2d82-e00e-304e-259c-00f30000008e"
-         stEvt:when="2017-12-02T08:08:56-06:00"
+         stEvt:when="2017-12-03T06:44:23-06:00"
          stEvt:softwareAgent="Adobe Premiere Pro CC 2017.1 (Windows)"
          stEvt:changed="/"/>
        </rdf:Seq>
@@ -173,9 +173,9 @@
      <rdf:li>
       <rdf:Description
        xmp:CreateDate="2017-11-16T20:28:56Z"
-       xmp:ModifyDate="2017-12-02T08:08:56-06:00"
+       xmp:ModifyDate="2017-12-03T06:44:23-06:00"
        xmp:CreatorTool="Adobe After Effects CC 2015 (Macintosh)"
-       xmp:MetadataDate="2017-12-02T08:08:56-06:00"
+       xmp:MetadataDate="2017-12-03T06:44:23-06:00"
        xmpDM:startTimeScale="30"
        xmpDM:startTimeSampleSize="1"
        xmpDM:videoFrameRate="30.000000"
@@ -217,7 +217,7 @@
         <rdf:li
          stEvt:action="saved"
          stEvt:instanceID="a427086e-413d-c5dd-a0fc-051e00000088"
-         stEvt:when="2017-12-02T08:08:56-06:00"
+         stEvt:when="2017-12-03T06:44:23-06:00"
          stEvt:softwareAgent="Adobe Premiere Pro CC 2017.1 (Windows)"
          stEvt:changed="/"/>
        </rdf:Seq>
@@ -238,9 +238,9 @@
     </rdf:Bag>
    </xmpMM:Pantry>
    <xmpMM:DerivedFrom
-    stRef:instanceID="xmp.iid:f066d269-09da-284f-9b16-a77231b55b6a"
-    stRef:documentID="xmp.did:f066d269-09da-284f-9b16-a77231b55b6a"
-    stRef:originalDocumentID="xmp.did:f066d269-09da-284f-9b16-a77231b55b6a"/>
+    stRef:instanceID="xmp.iid:5873ff47-92fe-6d48-85e2-9ae1cc7356f1"
+    stRef:documentID="xmp.did:5873ff47-92fe-6d48-85e2-9ae1cc7356f1"
+    stRef:originalDocumentID="xmp.did:5873ff47-92fe-6d48-85e2-9ae1cc7356f1"/>
    <creatorAtom:windowsAtom
     creatorAtom:extension=".prproj"
     creatorAtom:invocationFlags="/L"
