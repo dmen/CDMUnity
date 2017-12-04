@@ -128,6 +128,11 @@ public class Manager : MonoBehaviour
 
     public void nodeWaitComplete()
     {
+        //door has been opened - dim the lights and proceed
+        if (nextNodeData.nodeName == "door")
+        {
+           // setLightLevel(.2f, 2f);
+        }
         nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
         moveToNextNode();
     }
