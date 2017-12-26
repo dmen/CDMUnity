@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
-
+using System;
 
 public class Manager : MonoBehaviour
 {
@@ -19,7 +19,7 @@ public class Manager : MonoBehaviour
     private NodeData lastNodeData;
     private NodeData nextNodeData;
 
-
+    private AudioManager audioManager;
 
 
     void Start()
@@ -31,6 +31,8 @@ public class Manager : MonoBehaviour
         eyeVideoScreen = GameObject.Find("videoScreen");
         eyeVideoScreen.SetActive(false);
 
+        audioManager = GetComponent<AudioManager>();
+
         hallProbe = GameObject.Find("hallProbe").GetComponent<ReflectionProbe>();
         //roomProbe = GameObject.Find("roomProbe").GetComponent<ReflectionProbe>();
 
@@ -38,8 +40,7 @@ public class Manager : MonoBehaviour
         //roomProbe.RenderProbe();
 
         currentPathNodeIndex = 1;
-
-        //last node will give us time of flight to 
+        //last node will give us time of flight to the next node
         lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
         //data from the node the camera will move TO
         nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
@@ -52,8 +53,8 @@ public class Manager : MonoBehaviour
         //current light intensity
         float oldLevel = theLights[0].GetComponent<Light>().intensity;
 
-        LeanTween.color(GameObject.Find("ceilingUpper"), new Color(newLightLevel, newLightLevel, newLightLevel, 1f), changeTime);
-        LeanTween.color(GameObject.Find("hallFloor"), new Color(newLightLevel, newLightLevel, newLightLevel, 1f), changeTime);
+        LeanTween.color(GameObject.Find("ceilingUpper"), new Color(Mathf.Clamp01(newLightLevel), Mathf.Clamp01(newLightLevel), Mathf.Clamp01(newLightLevel), 1f), changeTime);
+        LeanTween.color(GameObject.Find("hallFloor"), new Color(Mathf.Clamp01(newLightLevel), Mathf.Clamp01(newLightLevel), Mathf.Clamp01(newLightLevel), 1f), changeTime);
 
         LeanTween.value(thePlayer, setLights, oldLevel, newLightLevel, changeTime);
     }
@@ -88,13 +89,21 @@ public class Manager : MonoBehaviour
      */
     void nodeReached()
     {
-        if(nextNodeData.nodeName == "eyeStart")
+        if (nextNodeData.nodeName == "intro")
+        {
+            audioManager.playIntro(introComplete);
+        }
+
+        if (nextNodeData.nodeName == "eyeStart")
         {           
             eyeVideoScreen.GetComponent<VideoPlayer>().Play();
             eyeVideoScreen.SetActive(true);
 
             //video screen at 0,3,.4 - to start - above player - this lets white flash happen where it can't be seen
             LeanTween.moveLocalY(eyeVideoScreen, 0f, 0f).setDelay(.2f);
+
+            //TODO: this will be based on VO timing...
+            LeanTween.delayedCall(4f, brightTheLights);
         }
 
 
@@ -105,6 +114,12 @@ public class Manager : MonoBehaviour
 
             //open door - animation event at end of clip will call nodeWaitComplete()
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");
+            normalLightLevel();
+        }
+
+        if (nextNodeData.nodeName == "roomIntro")
+        {
+
         }
 
         currentPathNodeIndex++;
@@ -120,12 +135,29 @@ public class Manager : MonoBehaviour
         }
         else
         {
-
+            //wait at node
         }
         
     }
 
+    void introComplete()
+    {
+        GameObject.Find("introDoor").GetComponent<Animator>().SetTrigger("openDoor");
+    }
 
+    void normalLightLevel()
+    {
+        setLightLevel(1f, 1f);
+    }
+    void brightTheLights()
+    {
+        setLightLevel(2.4f, .5f);
+    }
+
+
+    /**
+     * Called from animation event on hall door open
+     */
     public void nodeWaitComplete()
     {
         //door has been opened - dim the lights and proceed
