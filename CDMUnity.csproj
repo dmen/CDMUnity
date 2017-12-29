@@ -383,6 +383,7 @@
     <Compile Include="Assets\Scripts\ButtonStart.cs" />
     <Compile Include="Assets\Scripts\EditorPath.cs" />
     <Compile Include="Assets\Scripts\HallDoor.cs" />
+    <Compile Include="Assets\Scripts\IntroDoor.cs" />
     <Compile Include="Assets\Scripts\IntroManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\NodeData.cs" />

@@ -17,7 +17,7 @@ public class HallDoor : MonoBehaviour
      */
     void doorIsOpen()
     {
-        theManager.nodeWaitComplete();
+        theManager.hallDoorWaitComplete();
     }
 	
 }

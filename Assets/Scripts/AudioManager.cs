@@ -7,31 +7,42 @@ using UnityEngine;
 using System;
 using System.Collections;
 
+
 public class AudioManager : MonoBehaviour 
 {
 	private AudioSource intro;
+
     private Action callback;
     private AudioSource sourcePlaying;
+    private bool isPlaying;
+
 
 	void Start () 
 	{
-		intro = GameObject.Find ("audIntro").GetComponent<AudioSource> ();
+        isPlaying = false;
 	}
 	
-	public void playIntro(Action act)
+
+	public void playAudio(string aud, Action act)
 	{
         callback = act;
-        sourcePlaying = intro;
-		intro.Play ();
-	}
+        sourcePlaying = GameObject.Find(aud).GetComponent<AudioSource>();
+        isPlaying = true;
+        sourcePlaying.Play ();
+	}    
+
 
     private void Update()
     {
-        float progress = Mathf.Clamp01(sourcePlaying.time / sourcePlaying.clip.length);
-
-        if (progress == 1f)
+        if (isPlaying)
         {
-            callback();
+            float progress = Mathf.Clamp01(sourcePlaying.time / sourcePlaying.clip.length);
+
+            if (progress == 1f)
+            {
+                isPlaying = false;
+                callback();
+            }
         }
     }
 

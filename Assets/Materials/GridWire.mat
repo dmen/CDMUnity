@@ -101,19 +101,20 @@ Material:
     - _V_WIRE_DynamicMaskInvert: -1
     - _V_WIRE_DynamicMaskSmooth: 1
     - _V_WIRE_DynamicMaskType: 1
-    - _V_WIRE_EmissionStrength: 7.56
+    - _V_WIRE_EmissionStrength: 7
     - _V_WIRE_FixedSize: 0
     - _V_WIRE_FresnelBias: 0
     - _V_WIRE_FresnelEnumID: 0
     - _V_WIRE_FresnelInvert: 0
     - _V_WIRE_FresnelPow: 1
+    - _V_WIRE_ImprovedBlendEnumID: 0
     - _V_WIRE_IncludeLightEnumID: 0
     - _V_WIRE_ReflectionEnumID: 0
     - _V_WIRE_Reflection_Fresnel_Bias: -1
     - _V_WIRE_Reflection_Roughness: 0.3
     - _V_WIRE_Reflection_Strength: 0.5
     - _V_WIRE_RenderingOptions_ODLEnumID: 0
-    - _V_WIRE_Size: 1
+    - _V_WIRE_Size: 4.26
     - _V_WIRE_Source_Options: 0
     - _V_WIRE_SpecularEnumID: 0
     - _V_WIRE_Tag: 0
@@ -131,10 +132,10 @@ Material:
     - _V_WIRE_WireVertexColor: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.08620688, g: 0.08620688, b: 0.08620688, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _V_WIRE_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _V_WIRE_Color: {r: 0.011916847, g: 0.31719822, b: 0.8103448, a: 1}
     - _V_WIRE_MainTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _V_WIRE_SourceTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _V_WIRE_WireTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
