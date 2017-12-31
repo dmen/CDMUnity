@@ -52,7 +52,7 @@ public class Manager : MonoBehaviour
         //data from the node the camera will move TO
         nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
         normalLightLevel();
-        moveToNextNode();        
+        //moveToNextNode();        
     }
 
 
