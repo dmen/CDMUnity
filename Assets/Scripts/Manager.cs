@@ -12,6 +12,7 @@ public class Manager : MonoBehaviour
     private int currentPathNodeIndex;
 
     private GameObject[] theLights;
+    private Light gridLight;
 
     private ReflectionProbe hallProbe;
     private ReflectionProbe roomProbe;
@@ -31,6 +32,8 @@ public class Manager : MonoBehaviour
         thePlayer = GameObject.Find("Player");//Main camera is a child
         pathToFollow = GameObject.Find("PathForCamera").GetComponent<EditorPath>();
         theLights = GameObject.FindGameObjectsWithTag("aLight");
+
+        gridLight = GameObject.Find("gridLight").GetComponent<Light>();
 
         eyeVideoScreen = GameObject.Find("videoScreen");
         eyeVideoScreen.SetActive(false);
@@ -52,7 +55,7 @@ public class Manager : MonoBehaviour
         //data from the node the camera will move TO
         nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
         normalLightLevel();
-        //moveToNextNode();        
+        moveToNextNode();        
     }
 
 
@@ -68,6 +71,19 @@ public class Manager : MonoBehaviour
     }
 
 
+    void blueGridLight()
+    {
+        LeanTween.value(thePlayer, setGridLight, 0f, 2f, .5f);
+    }
+
+    void setGridLight(float val)
+    {
+        gridLight.intensity = val;
+        //need to re-render the probes so the reflection is modified
+        hallProbe.RenderProbe();
+    }
+
+
     void setLights(float val)
     {
         foreach(GameObject l in theLights)
@@ -75,9 +91,8 @@ public class Manager : MonoBehaviour
             l.GetComponent<Light>().intensity = val;
         }
 
-        //need to re-render the probes so the reflection is dimmed
+        //need to re-render the probes so the reflection is modified
         hallProbe.RenderProbe();
-        //roomProbe.RenderProbe();
     }
 
 
@@ -137,16 +152,20 @@ public class Manager : MonoBehaviour
         if (nextNodeData.nodeName == "enterRoom")
         {
             //dim the lights
-            setLightLevel(.1f, 2f);
+            //setLightLevel(.1f, 2f);
+            //ligths already dimmed in hallDoorWaitComplete()
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
             audioManager.playAudio("aud7", vo2Complete);//vo2Complete is emty
-            gridNormal();
-        }
+                                                        // gridNormal();
 
+                                                        //end y: -1.503f
+            GameObject grid = GameObject.Find("grid");
+            LeanTween.move(grid, new Vector3(3.389f, -1.503f, 2.728f), .5f).setEase(LeanTweenType.easeOutBack);
+            blueGridLight();
+        }
 
         currentPathNodeIndex++;
         lastNodeData = nextNodeData;
-       
 
         if (!nextNodeData.waitAtNode)
         {
@@ -232,12 +251,8 @@ public class Manager : MonoBehaviour
      */
     public void hallDoorWaitComplete()
     {
-        //door has been opened - dim the lights and proceed
-        if (nextNodeData.nodeName == "door")
-        {
-           // setLightLevel(.2f, 2f);
-        }
-       
+        //door has been opened - dim the lights and proceed        
+        setLightLevel(.1f, 5f);
         moveToNextNode();
     }
 
