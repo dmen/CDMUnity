@@ -23,6 +23,7 @@ public class Manager : MonoBehaviour
 
     private AudioManager audioManager;
 
+    private GameObject blurCanvas;
     private Material blurMat;
     private Material gridMat;
 
@@ -43,7 +44,8 @@ public class Manager : MonoBehaviour
         hallProbe = GameObject.Find("hallProbe").GetComponent<ReflectionProbe>();
         //roomProbe = GameObject.Find("roomProbe").GetComponent<ReflectionProbe>();
 
-        blurMat = GameObject.Find("blurImage").GetComponent<Image>().material;
+        blurCanvas = GameObject.Find("blurImage");
+        blurMat = blurCanvas.GetComponent<Image>().material;
         gridMat = GameObject.Find("grid").GetComponent<Renderer>().material;
 
         hallProbe.RenderProbe();
@@ -54,6 +56,8 @@ public class Manager : MonoBehaviour
         lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
         //data from the node the camera will move TO
         nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
+
+        blurCanvas.SetActive(false);
         normalLightLevel();
         moveToNextNode();        
     }
@@ -74,6 +78,10 @@ public class Manager : MonoBehaviour
     void blueGridLight()
     {
         LeanTween.value(thePlayer, setGridLight, 0f, 2f, .5f);
+    }
+    void unBlueGridLight()
+    {
+        LeanTween.value(thePlayer, setGridLight, 2f, 0f, .5f);
     }
 
     void setGridLight(float val)
@@ -127,7 +135,7 @@ public class Manager : MonoBehaviour
             eyeVideoScreen.SetActive(true);
 
             //video screen at 0,3,.4 - to start - above player - this lets white flash happen where it can't be seen
-            LeanTween.moveLocalY(eyeVideoScreen, 0f, 0f).setDelay(.2f);
+            LeanTween.moveLocalY(eyeVideoScreen, 0f, 0f).setDelay(.25f);
 
             //TODO: this will be based on VO timing...
             LeanTween.delayedCall(8.7f, brightTheLights);
@@ -142,23 +150,18 @@ public class Manager : MonoBehaviour
         {
             eyeVideoScreen.GetComponent<VideoPlayer>().Stop();
             eyeVideoScreen.SetActive(false);
+            blurCanvas.SetActive(false);
 
-            //open door - animation event at end of clip will call nodeWaitComplete()
-            GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");
-            normalLightLevel();
+            //open door - animation event at end of clip will call hallDoorWaitComplete()
+            GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");            
         }
 
 
         if (nextNodeData.nodeName == "enterRoom")
-        {
-            //dim the lights
-            //setLightLevel(.1f, 2f);
-            //ligths already dimmed in hallDoorWaitComplete()
+        {            
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
-            audioManager.playAudio("aud7", vo2Complete);//vo2Complete is emty
-                                                        // gridNormal();
+            audioManager.playAudio("aud7", gridIntroComplete);
 
-                                                        //end y: -1.503f
             GameObject grid = GameObject.Find("grid");
             LeanTween.move(grid, new Vector3(3.389f, -1.503f, 2.728f), .5f).setEase(LeanTweenType.easeOutBack);
             blueGridLight();
@@ -194,6 +197,13 @@ public class Manager : MonoBehaviour
     {
 
     }
+    void gridIntroComplete()
+    {
+        normalLightLevel();
+        unBlueGridLight();
+        gridNormal();
+        //add the arrows
+    }
 
     void normalLightLevel()
     {
@@ -206,12 +216,13 @@ public class Manager : MonoBehaviour
 
     void addBlur()
     {
-        LeanTween.value(thePlayer, setBlur, 0f, 4f, 1f);        
+        blurCanvas.SetActive(true);
+        LeanTween.value(thePlayer, setBlur, 0f, 8f, 1f);        
     }
 
     void removeBlur()
     {
-        LeanTween.value(thePlayer, setBlur, 4f, 0f, 1f);
+        LeanTween.value(thePlayer, setBlur, 8f, 0f, 1f);
         moveToNextNode();
         audioManager.playAudio("aud6", vo2Complete);
         LeanTween.moveLocalY(eyeVideoScreen, 3f, 0f).setDelay(.2f);//move back above player

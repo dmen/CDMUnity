@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Panel_BlurLayer
-  m_Shader: {fileID: 4800000, guid: 6d6b33fbd55b8b943ba8c64c9eafb89f, type: 3}
-  m_ShaderKeywords: REPROCESS_ON _EMISSION _REPROCESSHOR_ON _WOLDSPACE_ON
+  m_Shader: {fileID: 4800000, guid: a9ab38b9edabaec41b9f90d3cd482fbe, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA REPROCESS_ON _EMISSION _REPROCESSHOR_ON _WOLDSPACE_ON
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -73,7 +73,7 @@ Material:
     m_Floats:
     - Reprocess: 1
     - _AlphaAsBlurSize: 0
-    - _BlurSize: 1
+    - _BlurSize: 141
     - _BumpAmt: 128
     - _BumpScale: 1
     - _ColorMask: 357.3
@@ -84,7 +84,7 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _LightAdj: 0
-    - _Lightness: -0.5
+    - _Lightness: 0.09
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1

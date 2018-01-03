@@ -12,6 +12,8 @@ namespace GaussianBlur_LiveBlur
         void FixedUpdate () 
         {
             yRotataion += speed;
+
+            // yRotataion = Mathf.Sin(Time.time) * 10f;
             gameObject.transform.rotation = Quaternion.Euler(0f,yRotataion,0f);
         }
     }

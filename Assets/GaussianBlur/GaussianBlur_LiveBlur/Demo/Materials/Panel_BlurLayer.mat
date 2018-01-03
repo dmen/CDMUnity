@@ -88,10 +88,10 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _PanelHeight: 768
-    - _PanelWidth: 256
-    - _PanelX: 128
-    - _PanelY: 384
+    - _PanelHeight: 744
+    - _PanelWidth: 248
+    - _PanelX: 124
+    - _PanelY: 372
     - _Parallax: 0.02
     - _Q0: 0
     - _Q1: 0
@@ -102,8 +102,8 @@ Material:
     - _RenderBlurTex: -1
     - _Reprocess: 1
     - _ReprocessHor: 1
-    - _ScreenHeight: 768
-    - _ScreenWidth: 1024
+    - _ScreenHeight: 744
+    - _ScreenWidth: 992
     - _Size: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
