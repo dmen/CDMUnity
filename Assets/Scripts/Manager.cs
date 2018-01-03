@@ -217,12 +217,12 @@ public class Manager : MonoBehaviour
     void addBlur()
     {
         blurCanvas.SetActive(true);
-        LeanTween.value(thePlayer, setBlur, 0f, 8f, 1f);        
+        LeanTween.value(thePlayer, setBlur, 0f, 3f, 1f);        
     }
 
     void removeBlur()
     {
-        LeanTween.value(thePlayer, setBlur, 8f, 0f, 1f);
+        LeanTween.value(thePlayer, setBlur, 3f, 0f, 1f);
         moveToNextNode();
         audioManager.playAudio("aud6", vo2Complete);
         LeanTween.moveLocalY(eyeVideoScreen, 3f, 0f).setDelay(.2f);//move back above player

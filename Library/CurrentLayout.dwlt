@@ -111,7 +111,7 @@ MonoBehaviour:
   m_MinSize: {x: 917, y: 442}
   m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 48
+  controlID: 85
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_MinSize: {x: 202, y: 442}
   m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 108
+  controlID: 12
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -447,9 +447,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.9881182, y: -5.933996, z: 11.031192}
+    m_Target: {x: -1.0836706, y: -3.1394072, z: 9.512368}
     speed: 2
-    m_Value: {x: -3.9881182, y: -5.933996, z: 11.031192}
+    m_Value: {x: -1.0836706, y: -3.1394072, z: 9.512368}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -472,9 +472,9 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.257631, y: 0.35856098, z: -0.103648126, w: 0.8912449}
+    m_Target: {x: -0.12511897, y: -0.5086365, z: 0.074999355, w: -0.8485335}
     speed: 2
-    m_Value: {x: 0.257631, y: 0.35856098, z: -0.103648126, w: 0.8912449}
+    m_Value: {x: -0.12511899, y: -0.50863653, z: 0.07499936, w: -0.8485336}
   m_Size:
     m_Target: 12.788348
     speed: 2
@@ -570,7 +570,7 @@ MonoBehaviour:
     height: 926
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
+    m_SelectedIDs: 620a0000
     m_LastClickedID: 0
     m_ExpandedIDs: a6fbffff000000004a3b0000fe3b00006a3c0000
     m_RenameOverlay:
@@ -633,18 +633,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/vid
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/vid
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\dmennenoh\Documents\GitHub\CDMUnity
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 44390000
-    m_LastClickedID: 14660
+    m_SelectedIDs: 7c390000
+    m_LastClickedID: 14716
     m_ExpandedIDs: 00000000d82c0000062d0000fa2d0000402e0000aa2e0000f22e00004c2f0000562f0000dc3000005a340000783400008e37000006390000923900006440000066400000684000006a4000006c4000006e40000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 2cf50000ca310000dc380000ba3100003a4100000e2e0000122e000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
