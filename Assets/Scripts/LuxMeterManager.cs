@@ -12,9 +12,9 @@ public class LuxMeterManager : MonoBehaviour
     const LeanTweenType ease = LeanTweenType.easeOutBack;
 
 
-	void Start ()
+	void Awake ()
     {
-        luxMeter = GameObject.Find("LUXMeter").GetComponent<CanvasGroup>();
+        luxMeter = GetComponent<CanvasGroup>();
         player = GameObject.Find("Player");
         arrowTran = GameObject.Find("luxArrow").GetComponent<RectTransform>();
 	}
@@ -22,13 +22,21 @@ public class LuxMeterManager : MonoBehaviour
 
     public void hideMeter()
     {
-        LeanTween.alphaCanvas(luxMeter, 0f, 1f);
+        //luxMeter.alpha = 0f;
+        LeanTween.value(player, setMeterAlpha, 1f, 0f, 1f);
     }
 
 
     public void showMeter()
     {
-        LeanTween.alphaCanvas(luxMeter, 1f, 1f);
+        //luxMeter.alpha = 1f;
+        LeanTween.value(player, setMeterAlpha, 1f, 0f, 1f);
+    }
+
+
+    void setMeterAlpha(float val)
+    {
+        luxMeter.alpha = val;
     }
 
 
