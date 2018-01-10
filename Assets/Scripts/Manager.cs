@@ -27,6 +27,10 @@ public class Manager : MonoBehaviour
     private Material blurMat;
     private Material gridMat;
 
+    private ArrowManager arrowManager;
+    private GridObjectsManager gridObjectsManager;
+    private LuxMeterManager luxMeterManager;
+
 
     void Start()
     {
@@ -48,6 +52,10 @@ public class Manager : MonoBehaviour
         blurMat = blurCanvas.GetComponent<Image>().material;
         gridMat = GameObject.Find("grid").GetComponent<Renderer>().material;
 
+        arrowManager = GameObject.Find("arrows").GetComponent<ArrowManager>();
+        gridObjectsManager = GameObject.Find("gridObjects").GetComponent<GridObjectsManager>();
+        luxMeterManager = GameObject.Find("LUXMeter").GetComponent<LuxMeterManager>();
+
         hallProbe.RenderProbe();
         //roomProbe.RenderProbe();
 
@@ -57,9 +65,17 @@ public class Manager : MonoBehaviour
         //data from the node the camera will move TO
         nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
 
+        luxMeterManager.hideMeter();
         blurCanvas.SetActive(false);
-        normalLightLevel();
+        LeanTween.delayedCall(2f, openIntroDoor);
+        normalLightLevel();        
         moveToNextNode();        
+    }
+
+
+    void openIntroDoor()
+    {
+        GameObject.Find("introDoor").GetComponent<Animator>().SetTrigger("openDoor");
     }
 
 
@@ -122,10 +138,8 @@ public class Manager : MonoBehaviour
     {
         if (nextNodeData.nodeName == "intro")
         {
-            audioManager.playAudio("audIntro", introComplete);//introComplete function will be called when audio is finished
-        }
-
-       
+            audioManager.playAudio("vo_1", introComplete);//introComplete function will be called when audio is finished
+        }       
 
         if (nextNodeData.nodeName == "eyeStart")
         {
@@ -160,12 +174,22 @@ public class Manager : MonoBehaviour
         if (nextNodeData.nodeName == "enterRoom")
         {            
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
-            audioManager.playAudio("aud7", gridIntroComplete);
+            audioManager.playAudio("vo_7", vo2Complete);//12.5sec
 
-            GameObject grid = GameObject.Find("grid");
-            LeanTween.move(grid, new Vector3(3.389f, -1.503f, 2.728f), .5f).setEase(LeanTweenType.easeOutBack);
+            gridObjectsManager.showGrid();
             blueGridLight();
+
+            LeanTween.delayedCall(6f, gridIntroComplete);
         }
+
+
+        if (nextNodeData.nodeName == "courseStart")
+        {
+            audioManager.playAudio("vo_28", playAud29);//7.6sec
+        }
+
+        
+
 
         currentPathNodeIndex++;
         lastNodeData = nextNodeData;
@@ -189,30 +213,189 @@ public class Manager : MonoBehaviour
     //callback from AudioManager when intro VO completes
     void introComplete()
     {
-        //this will call introDoorWaitComplete when finished - by trigger on anim clip
-        GameObject.Find("introDoor").GetComponent<Animator>().SetTrigger("openDoor");
+        Debug.Log("introcomplete");
     }
+
+
     //audio manager callback
     void vo2Complete()
     {
 
     }
+
+
+    //audioManager callback - called when aud7 is finished
     void gridIntroComplete()
     {
         normalLightLevel();
         unBlueGridLight();
         gridNormal();
         //add the arrows
+        arrowManager.showArrows(arrowsFinished);
     }
+
+
+    //called by arrowManager callback when last arrow completes animating
+    void arrowsFinished()
+    {
+        LeanTween.delayedCall(3f, playAud8);
+    }
+    void playAud8()
+    { 
+        audioManager.playAudio("vo_8", playAud9);//11.5sec
+        LeanTween.delayedCall(7f, addTheNoodle);
+    }
+    void addTheNoodle()
+    {
+        gridObjectsManager.showNoodle();
+    }
+
+    //foam circle on labstand / bush
+    void playAud9()
+    {
+        audioManager.playAudio("vo_9", playAud10);//9.9sec
+        gridObjectsManager.showFoamCircle();
+    }
+    //there was also a stop sign
+    void playAud10()
+    {
+        audioManager.playAudio("vo_10", playAud11);//6.8sec
+        gridObjectsManager.showStopSign();
+    }
+    //black squares represented holes in the ground
+    void playAud11()
+    {
+        audioManager.playAudio("vo_11", playAud12);//3.3sec
+        gridObjectsManager.showBlackHoles();
+    }
+    //astroturf as grassy patches
+    void playAud12()
+    {
+        audioManager.playAudio("vo_12", playAud13);//2.7sec
+        gridObjectsManager.showGrass();
+    }
+    //and raised blocks to mimick a step...
+    void playAud13()
+    {
+        audioManager.playAudio("vo_13", playAud14);//3.7sec
+        gridObjectsManager.showRaisedBlocks();
+    }
+    //additional objects were added...
+    void playAud14()
+    {
+        audioManager.playAudio("vo_14", playAud15);//7.5sec
+        gridObjectsManager.showRemaining();
+    }
+
+    //to siumlate the real world... lux levels
+    //begin to build lux meter
+    void playAud15()
+    {
+        audioManager.playAudio("vo_15", playAud16);//21.2sec
+        luxMeterManager.showMeter();
+    }
+
+    //the 7 lux levels ranged from 1 to 400
+    void playAud16()
+    {
+        audioManager.playAudio("vo_16", playAud17);//3.5sec
+        //TODO - fade in the numbers
+    }
+    //400 lux, the brightest setting... office
+    void playAud17()
+    {
+        audioManager.playAudio("vo_17", playAud18);//4.8sec
+        luxMeterManager.lux400();
+        setLightLevel(.9f, 2f);
+    }
+    //250 lux, mimicked interior of elevator
+    void playAud18()
+    {
+        audioManager.playAudio("vo_18", playAud19);//4.3sec
+        luxMeterManager.lux250();
+        setLightLevel(.75f, 2f);
+    }
+    //the next level, 125 lux
+    void playAud19()
+    {
+        audioManager.playAudio("vo_19", playAud20);//4.3sec
+        luxMeterManager.lux125();
+        setLightLevel(.52f, 2f);
+    }
+    //50 lux, an outdoor train station at night
+    void playAud20()
+    {
+        audioManager.playAudio("vo_20", playAud21);//3.3sec
+        luxMeterManager.lux50();
+        setLightLevel(.36f, 2f);
+    }
+    //10 lux, an outdoor train station at night
+    void playAud21()
+    {
+        audioManager.playAudio("vo_21", playAud22);//4.06sec
+        luxMeterManager.lux10();
+        setLightLevel(.25f, 2f);
+    }
+    //4 lux was equivalent to a parking lot at night
+    void playAud22()
+    {
+        audioManager.playAudio("vo_22", playAud23);//3.1sec
+        luxMeterManager.lux4();
+        setLightLevel(.1f, 2f);
+    }
+    //1 lux, darkest - moonless summer night
+    void playAud23()
+    {
+        audioManager.playAudio("vo_23", playAud24);//4.8sec
+        luxMeterManager.lux1();
+        setLightLevel(.05f, 2f);
+    }
+    //each lux level assigned score code
+    void playAud24()
+    {
+        normalLightLevel();
+        audioManager.playAudio("vo_24", playAud25);//10.2sec
+    }
+    //to make sure individuals didn't memorize...
+    void playAud25()
+    {
+        luxMeterManager.hideMeter();
+        audioManager.playAudio("vo_25", playAud26);//6.2sec
+    }
+    //A validation study was performed
+    void playAud26()
+    {
+        audioManager.playAudio("vo_26", playAud27);//19.6sec
+    }
+    //OK, now let's take a walk through the course
+    void playAud27()
+    {
+        audioManager.playAudio("vo_27", vo2Complete);//3.15sec
+        moveToNextNode();//will move to node courseStart - and play aud28
+    }
+    //completed a new configuration with the other eye patched
+    void playAud29()
+    {
+        audioManager.playAudio("vo_29", playAud30);//3.4sec
+        moveToNextNode();
+    }
+    //and then again using both eyes
+    void playAud30()
+    {
+        audioManager.playAudio("vo_30", vo2Complete);//3.4sec
+    }
+
+
 
     void normalLightLevel()
     {
-        setLightLevel(.9f, 2f);
+        setLightLevel(1f, 2f);
     }
     void brightTheLights()
     {
         setLightLevel(2.4f, .5f);
     }
+   
 
     void addBlur()
     {
@@ -224,7 +407,8 @@ public class Manager : MonoBehaviour
     {
         LeanTween.value(thePlayer, setBlur, 3f, 0f, 1f);
         moveToNextNode();
-        audioManager.playAudio("aud6", vo2Complete);
+        audioManager.playAudio("vo_6", vo2Complete);
+        LeanTween.delayedCall(25f, gridObjectsManager.showFootSteps);
         LeanTween.moveLocalY(eyeVideoScreen, 3f, 0f).setDelay(.2f);//move back above player
     }
 
@@ -268,14 +452,7 @@ public class Manager : MonoBehaviour
     }
 
 
-    /**
-     * Called from IntroDoor.cs
-     */
-    public void introDoorWaitComplete()
-    {
-        audioManager.playAudio("aud2", vo2Complete);
-        moveToNextNode();
-    }
+   
 
 
 }

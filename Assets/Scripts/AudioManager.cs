@@ -10,25 +10,24 @@ using System.Collections;
 
 public class AudioManager : MonoBehaviour 
 {
-	private AudioSource intro;
-
     private Action callback;
-    private AudioSource sourcePlaying;
+    private AudioSource source;
     private bool isPlaying;
 
 
 	void Start () 
 	{
+        source = GameObject.Find("playerAudio").GetComponent<AudioSource>();
         isPlaying = false;
 	}
 	
 
 	public void playAudio(string aud, Action act)
-	{
+	{       
         callback = act;
-        sourcePlaying = GameObject.Find(aud).GetComponent<AudioSource>();
         isPlaying = true;
-        sourcePlaying.Play ();
+        source.clip = Resources.Load<AudioClip>("sound/" + aud);
+        source.Play();
 	}    
 
 
@@ -36,7 +35,7 @@ public class AudioManager : MonoBehaviour
     {
         if (isPlaying)
         {
-            float progress = Mathf.Clamp01(sourcePlaying.time / sourcePlaying.clip.length);
+            float progress = Mathf.Clamp01(source.time / source.clip.length);
 
             if (progress == 1f)
             {
@@ -44,6 +43,7 @@ public class AudioManager : MonoBehaviour
                 callback();
             }
         }
+        
     }
 
 }

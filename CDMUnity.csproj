@@ -379,12 +379,15 @@
     <Compile Include="Assets\Lighting Effects\Scripts\SimpleFlareSystem\ShaftVolume.cs" />
     <Compile Include="Assets\Lighting Effects\Scripts\SimpleFlareSystem\SimpleFlare.cs" />
     <Compile Include="Assets\Lighting Effects\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\ArrowManager.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\ButtonStart.cs" />
     <Compile Include="Assets\Scripts\EditorPath.cs" />
+    <Compile Include="Assets\Scripts\GridObjectsManager.cs" />
     <Compile Include="Assets\Scripts\HallDoor.cs" />
     <Compile Include="Assets\Scripts\IntroDoor.cs" />
     <Compile Include="Assets\Scripts\IntroManager.cs" />
+    <Compile Include="Assets\Scripts\LuxMeterManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\NodeData.cs" />
     <Compile Include="Assets\Scripts\SkipButtonScript.cs" />

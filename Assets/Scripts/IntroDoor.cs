@@ -17,7 +17,7 @@ public class IntroDoor : MonoBehaviour
      */
     void doorIsOpen()
     {
-        theManager.introDoorWaitComplete();
+        //theManager.introDoorWaitComplete();
     }
 	
 }

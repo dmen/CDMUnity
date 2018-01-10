@@ -7,6 +7,7 @@ TagManager:
   - gridCube
   - aLight
   - pathNode
+  - arrow
   layers:
   - Default
   - TransparentFX
