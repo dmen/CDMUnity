@@ -65,7 +65,7 @@ public class Manager : MonoBehaviour
         //data from the node the camera will move TO
         nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
 
-        luxMeterManager.hideMeter();
+        luxMeterManager.hideMeter(true);
         blurCanvas.SetActive(false);
         LeanTween.delayedCall(2f, openIntroDoor);
         normalLightLevel();        
@@ -382,10 +382,34 @@ public class Manager : MonoBehaviour
     //and then again using both eyes
     void playAud30()
     {
-        audioManager.playAudio("vo_30", vo2Complete);//3.4sec
+        audioManager.playAudio("vo_30", playAud31);//9.75sec
+    }
+    //to insure consistent evaluation every test...
+    void playAud31()
+    {
+        audioManager.playAudio("vo_31", playAud32);//19.13sec
     }
 
-
+    //individuals were graded based on accuracy - did they collide...
+    void playAud32()
+    {
+        audioManager.playAudio("vo_32", playAud33);//13.2sec
+    }
+    //in order to pass they had to complete the course...
+    void playAud33()
+    {
+        audioManager.playAudio("vo_33", playAud34);//7.6sec
+    }
+    //this allowed us to compare the lowest level..
+    void playAud34()
+    {
+        audioManager.playAudio("vo_34", playAud35);//7.14sec
+    }
+    //thank you for visiting our lab
+    void playAud35()
+    {
+        audioManager.playAudio("vo_35", vo2Complete);//6.15sec
+    }
 
     void normalLightLevel()
     {
@@ -425,7 +449,7 @@ public class Manager : MonoBehaviour
         // _V_WIRE_Color,            _Color            _V_WIRE_Size
         LeanTween.value(thePlayer, setWireCol, new Color(.012f, .324f, .828f), new Color(0, 0, 0), 3f);
         LeanTween.value(thePlayer, setGridCol, new Color(0,0,0), new Color(1,1,1), 3f);
-        LeanTween.value(thePlayer, setWireSize, 4.26f, 1f, 3f);
+        LeanTween.value(thePlayer, setWireSize, 4.26f, 1.5f, 3f);
     }
     void setWireCol(Color col)
     {

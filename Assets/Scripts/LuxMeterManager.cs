@@ -19,18 +19,23 @@ public class LuxMeterManager : MonoBehaviour
         arrowTran = GameObject.Find("luxArrow").GetComponent<RectTransform>();
 	}
 
-
-    public void hideMeter()
+    
+    public void hideMeter(bool fast = false)
     {
-        //luxMeter.alpha = 0f;
-        LeanTween.value(player, setMeterAlpha, 1f, 0f, 1f);
+        if (fast)
+        {
+            luxMeter.alpha = 0f;
+        }
+        else
+        {
+            LeanTween.value(player, setMeterAlpha, 1f, 0f, 1f);
+        }        
     }
 
 
     public void showMeter()
     {
-        //luxMeter.alpha = 1f;
-        LeanTween.value(player, setMeterAlpha, 1f, 0f, 1f);
+        LeanTween.value(player, setMeterAlpha, 0f, 1f, 1f);
     }
 
 
