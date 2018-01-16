@@ -53,6 +53,7 @@ public class GridObjectsManager : MonoBehaviour
         step5 = GameObject.Find("step5");
         step6 = GameObject.Find("step6");
         step7 = GameObject.Find("step7");
+
         grid = GameObject.Find("grid");
         noodle = GameObject.Find("noodle");
         stick = GameObject.Find("stick");

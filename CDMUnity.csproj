@@ -383,6 +383,8 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\ButtonStart.cs" />
     <Compile Include="Assets\Scripts\EditorPath.cs" />
+    <Compile Include="Assets\Scripts\ExitButtonScript.cs" />
+    <Compile Include="Assets\Scripts\ExitManager.cs" />
     <Compile Include="Assets\Scripts\GridObjectsManager.cs" />
     <Compile Include="Assets\Scripts\HallDoor.cs" />
     <Compile Include="Assets\Scripts\IntroDoor.cs" />
@@ -390,6 +392,7 @@
     <Compile Include="Assets\Scripts\LuxMeterManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\NodeData.cs" />
+    <Compile Include="Assets\Scripts\ReplayButtonScript.cs" />
     <Compile Include="Assets\Scripts\SkipButtonScript.cs" />
     <Compile Include="Assets\Scripts\StartButtonScript.cs" />
     <Compile Include="Assets\VacuumShaders\The Amazing Wireframe Shader\Example Scenes\Files\Example_2\Scriptes\Example_2_Mask.cs" />

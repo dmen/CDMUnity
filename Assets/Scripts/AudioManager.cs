@@ -12,36 +12,67 @@ public class AudioManager : MonoBehaviour
 {
     private Action callback;
     private AudioSource source;
+    private AudioSource sfxSource;
+    private AudioClip clip;
+    private AudioClip sfxClip;
+    private bool onlyVOPlaying;
     private bool isPlaying;
+    private float startTime;
+    private float endTime;
+
+    private float sfxStartDelay;
 
 
 	void Start () 
 	{
+        //audio sources attached to the camera
         source = GameObject.Find("playerAudio").GetComponent<AudioSource>();
+        sfxSource = GameObject.Find("playerSFX").GetComponent<AudioSource>();
+
         isPlaying = false;
 	}
 	
 
-	public void playAudio(string aud, Action act)
+	public void playAudio(string aud, Action act, string sfx = "", float delayToPlaySFX = 0f)
 	{       
         callback = act;
         isPlaying = true;
-        source.clip = Resources.Load<AudioClip>("sound/" + aud);
-        source.Play();
-	}    
+        clip = Resources.Load<AudioClip>("sound/" + aud);       
+        startTime = Time.time;
 
+        if (sfx != "")
+        {
+            sfxClip = Resources.Load<AudioClip>("sound/" + sfx);
+            onlyVOPlaying = false;
+            endTime = startTime + sfxClip.length + delayToPlaySFX;
+            //play the vo then start the sfx at the delay time
+            source.PlayOneShot(clip);
+            LeanTween.delayedCall(delayToPlaySFX, playSFX);            
+        }
+        else
+        {           
+            onlyVOPlaying = true;
+            endTime = startTime + clip.length;
+            source.PlayOneShot(clip);
+        }
+	}
+
+
+    private void playSFX()
+    {
+        sfxSource.PlayOneShot(sfxClip);
+    }
+    
 
     private void Update()
     {
         if (isPlaying)
-        {
-            float progress = Mathf.Clamp01(source.time / source.clip.length);
-
-            if (progress == 1f)
+        {            
+            if (Time.time > endTime)
             {
                 isPlaying = false;
                 callback();
-            }
+            }                     
         }
         
     }

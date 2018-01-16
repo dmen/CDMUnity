@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Video;
 using System;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Manager : MonoBehaviour
 {
@@ -227,7 +229,7 @@ public class Manager : MonoBehaviour
     //audioManager callback - called when aud7 is finished
     void gridIntroComplete()
     {
-        normalLightLevel();
+       // normalLightLevel();
         unBlueGridLight();
         gridNormal();
         //add the arrows
@@ -304,49 +306,49 @@ public class Manager : MonoBehaviour
     //400 lux, the brightest setting... office
     void playAud17()
     {
-        audioManager.playAudio("vo_17", playAud18);//4.8sec
+        audioManager.playAudio("vo_17", playAud18, "sfx_office", 3.5f);//4.8sec
         luxMeterManager.lux400();
         setLightLevel(.9f, 2f);
     }
     //250 lux, mimicked interior of elevator
     void playAud18()
     {
-        audioManager.playAudio("vo_18", playAud19);//4.3sec
+        audioManager.playAudio("vo_18", playAud19, "sfx_elevator", 3.2f);//4.3sec
         luxMeterManager.lux250();
         setLightLevel(.75f, 2f);
     }
-    //the next level, 125 lux
+    //the next level, 125 lux mimicked interior of train car at night
     void playAud19()
     {
-        audioManager.playAudio("vo_19", playAud20);//4.3sec
+        audioManager.playAudio("vo_19", playAud20, "sfx_trainCar", 5f);//4.3sec
         luxMeterManager.lux125();
         setLightLevel(.52f, 2f);
     }
-    //50 lux, an outdoor train station at night
+    //50 lux, an outdoor train station at night - trains passing
     void playAud20()
     {
-        audioManager.playAudio("vo_20", playAud21);//3.3sec
+        audioManager.playAudio("vo_20", playAud21, "sfx_trainPassing", 2f);//3.3sec
         luxMeterManager.lux50();
         setLightLevel(.36f, 2f);
     }
-    //10 lux, an outdoor train station at night
+    //10 lux, a city one hour after sunset
     void playAud21()
     {
-        audioManager.playAudio("vo_21", playAud22);//4.06sec
+        audioManager.playAudio("vo_21", playAud22, "sfx_city", 3.5f);//4.06sec
         luxMeterManager.lux10();
         setLightLevel(.25f, 2f);
     }
     //4 lux was equivalent to a parking lot at night
     void playAud22()
     {
-        audioManager.playAudio("vo_22", playAud23);//3.1sec
+        audioManager.playAudio("vo_22", playAud23, "sfx_carDoor", 3f);//3.1sec
         luxMeterManager.lux4();
         setLightLevel(.1f, 2f);
     }
     //1 lux, darkest - moonless summer night
     void playAud23()
     {
-        audioManager.playAudio("vo_23", playAud24);//4.8sec
+        audioManager.playAudio("vo_23", playAud24, "sfx_summerNight", 4.5f);//4.8sec
         luxMeterManager.lux1();
         setLightLevel(.05f, 2f);
     }
@@ -361,6 +363,9 @@ public class Manager : MonoBehaviour
     {
         luxMeterManager.hideMeter();
         audioManager.playAudio("vo_25", playAud26);//6.2sec
+
+        //TODO - change course config
+
     }
     //A validation study was performed
     void playAud26()
@@ -384,9 +389,10 @@ public class Manager : MonoBehaviour
     {
         audioManager.playAudio("vo_30", playAud31);//9.75sec
     }
-    //to insure consistent evaluation every test...
+    //to ensure consistent evaluation every test...
     void playAud31()
     {
+        //TODO: This is where the cameras are supposed to come in
         audioManager.playAudio("vo_31", playAud32);//19.13sec
     }
 
@@ -408,7 +414,7 @@ public class Manager : MonoBehaviour
     //thank you for visiting our lab
     void playAud35()
     {
-        audioManager.playAudio("vo_35", vo2Complete);//6.15sec
+        audioManager.playAudio("vo_35", showEnding);//6.15sec
     }
 
     void normalLightLevel()
@@ -418,6 +424,10 @@ public class Manager : MonoBehaviour
     void brightTheLights()
     {
         setLightLevel(2.4f, .5f);
+    }
+    void showEnding()
+    {
+        SceneManager.LoadScene(2);//end.
     }
    
 
@@ -432,7 +442,7 @@ public class Manager : MonoBehaviour
         LeanTween.value(thePlayer, setBlur, 3f, 0f, 1f);
         moveToNextNode();
         audioManager.playAudio("vo_6", vo2Complete);
-        LeanTween.delayedCall(25f, gridObjectsManager.showFootSteps);
+        LeanTween.delayedCall(18f, gridObjectsManager.showFootSteps);
         LeanTween.moveLocalY(eyeVideoScreen, 3f, 0f).setDelay(.2f);//move back above player
     }
 
@@ -471,7 +481,7 @@ public class Manager : MonoBehaviour
     public void hallDoorWaitComplete()
     {
         //door has been opened - dim the lights and proceed        
-        setLightLevel(.1f, 5f);
+       // setLightLevel(.1f, 5f);
         moveToNextNode();
     }
 
