@@ -704,7 +704,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 214174242}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.18, y: 0, z: 0.37}
+  m_LocalPosition: {x: 2.2, y: 0, z: 0.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 498680026}
@@ -3120,7 +3120,7 @@ RectTransform:
   - {fileID: 1496387598}
   - {fileID: 59984602}
   m_Father: {fileID: 731488793}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4333,7 +4333,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 231160946}
-  - {fileID: 923284940}
   - {fileID: 569914179}
   m_Father: {fileID: 1184373751}
   m_RootOrder: 2
@@ -4486,7 +4485,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9e8fcd0201cdf8b4bb6f05db0735713e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.767
+      value: 2.817
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9e8fcd0201cdf8b4bb6f05db0735713e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5123,12 +5122,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 923284939}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3, z: 0.78}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -6.13, y: 3, z: 4.42}
+  m_LocalScale: {x: 0.9, y: 0.9, z: 1}
   m_Children: []
-  m_Father: {fileID: 731488793}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &923284941
 MeshRenderer:

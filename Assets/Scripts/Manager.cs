@@ -28,6 +28,9 @@ public class Manager : MonoBehaviour
     private GameObject blurCanvas;
     private Material blurMat;
     private Material gridMat;
+    private Material wallMat;
+    private Material wallMat2;
+    private Material wallMat3;
 
     private ArrowManager arrowManager;
     private GridObjectsManager gridObjectsManager;
@@ -53,6 +56,9 @@ public class Manager : MonoBehaviour
         blurCanvas = GameObject.Find("blurImage");
         blurMat = blurCanvas.GetComponent<Image>().material;
         gridMat = GameObject.Find("grid").GetComponent<Renderer>().material;
+        wallMat = GameObject.Find("hallRight").GetComponent<Renderer>().material;
+        wallMat2 = GameObject.Find("hallWalls").GetComponent<Renderer>().material;
+        wallMat3 = GameObject.Find("roomWalls").GetComponent<Renderer>().material;
 
         arrowManager = GameObject.Find("arrows").GetComponent<ArrowManager>();
         gridObjectsManager = GameObject.Find("gridObjects").GetComponent<GridObjectsManager>();
@@ -153,7 +159,10 @@ public class Manager : MonoBehaviour
             //video screen at 0,3,.4 - to start - above player - this lets white flash happen where it can't be seen
             LeanTween.moveLocalY(eyeVideoScreen, 0f, 0f).setDelay(.25f);
 
-            //TODO: this will be based on VO timing...
+            LeanTween.delayedCall(3.8f, addTheStars);
+            LeanTween.delayedCall(4f, dimTheLights);
+            LeanTween.delayedCall(7f, removeTheStars);
+            LeanTween.delayedCall(7f, normalLightLevel);
             LeanTween.delayedCall(8.7f, brightTheLights);
             LeanTween.delayedCall(10.7f, normalLightLevel);
             LeanTween.delayedCall(13.5f, addBlur);
@@ -423,13 +432,30 @@ public class Manager : MonoBehaviour
     }
     void brightTheLights()
     {
-        setLightLevel(2.4f, .5f);
+        setLightLevel(2.5f, .5f);
+    }
+    void dimTheLights()
+    {
+        setLightLevel(.5f, .5f);
     }
     void showEnding()
     {
         SceneManager.LoadScene(2);//end.
     }
-   
+    void addTheStars()
+    {
+        LeanTween.value(thePlayer, setStarLevel, 0f, .75f, 1f);
+    }
+    void removeTheStars()
+    {
+        LeanTween.value(thePlayer, setStarLevel, .75f, 0f, 1f);
+    }
+    void setStarLevel(float val)
+    {
+        wallMat.SetFloat("_Blend", val);
+        wallMat2.SetFloat("_Blend", val);
+        wallMat3.SetFloat("_Blend", val);
+    }
 
     void addBlur()
     {

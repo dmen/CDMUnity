@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: whiteWalls
-  m_Shader: {fileID: 4800000, guid: f67161c6b48f5fd479ea0474a01122db, type: 3}
+  m_Shader: {fileID: 4800000, guid: 2545525986e6cb5428601d28c11c1c89, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -58,7 +58,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2:
+        m_Texture: {fileID: 2800000, guid: 8b3259e96d3d2fd4db13351330b11cd1, type: 3}
+        m_Scale: {x: 4.41, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Blend: 0
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

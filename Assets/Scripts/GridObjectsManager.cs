@@ -106,8 +106,8 @@ public class GridObjectsManager : MonoBehaviour
         wasteBasket.SetActive(false);
         trafficCone.SetActive(false);
         trafficCone2.SetActive(false);
-        tripod.SetActive(false);
-        tripod2.SetActive(false);
+        //tripod.SetActive(false);
+       // tripod2.SetActive(false);
         doorRoom.SetActive(false);
     }
 
@@ -317,7 +317,7 @@ public class GridObjectsManager : MonoBehaviour
         trafficCone2.transform.position = floatPosition;
         trafficCone2.SetActive(true);
         LeanTween.move(trafficCone2, objectDestination, 1f).setDelay(.4f).setEase(LeanTweenType.easeOutBack);
-
+        /*
         objectDestination = tripod.transform.position;//original grid position
         floatPosition = new Vector3(objectDestination.x, objectDestination.y - .5f, objectDestination.z);
         tripod.transform.position = floatPosition;
@@ -329,12 +329,12 @@ public class GridObjectsManager : MonoBehaviour
         tripod2.transform.position = floatPosition;
         tripod2.SetActive(true);
         LeanTween.move(tripod2, objectDestination, 1f).setDelay(.8f).setEase(LeanTweenType.easeOutBack);
-
+        */
         objectDestination = doorRoom.transform.position;//original grid position
         floatPosition = new Vector3(objectDestination.x, objectDestination.y - 2.5f, objectDestination.z);
         doorRoom.transform.position = floatPosition;
         doorRoom.SetActive(true);
-        LeanTween.move(doorRoom, objectDestination, 1f).setDelay(1f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.move(doorRoom, objectDestination, 1f).setDelay(.8f).setEase(LeanTweenType.easeOutBack);
     }
 
 

@@ -376,6 +376,7 @@
     <None Include="Assets\Lighting Effects\Shaders\Terrain\4Splat_Unity5.shader" />
     <None Include="Assets\Lighting Effects\Shaders\Terrain\Fresnel\4Splat_Unity5_Fresnel.shader" />
     <None Include="Assets\Lighting Effects\Textures\Licence.txt" />
+    <None Include="Assets\Materials\Blend2.shader" />
     <None Include="Assets\MobileDiffuseWithTint.shader" />
     <None Include="Assets\UnlitSlpha.shader" />
     <None Include="Assets\VacuumShaders\The Amazing Wireframe Shader\Example Scenes\Files\Example_5\Shader\Background_2D.shader" />
