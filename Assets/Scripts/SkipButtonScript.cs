@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class SkipButtonScript : MonoBehaviour
 {
-    public Image progressImage; // add an image as child to your button object and set its image type to Filled. Assign it to this field in inspector.
+    public Image progressImage;
     bool isEntered = false;
     float timeElapsed = 0f;
     float GazeActivationTime = 1.5f;

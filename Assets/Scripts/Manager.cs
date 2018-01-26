@@ -36,6 +36,11 @@ public class Manager : MonoBehaviour
     private GridObjectsManager gridObjectsManager;
     private LuxMeterManager luxMeterManager;
 
+    //these are all children of starCanvas on the Camera
+    private GameObject theStars;
+    private GameObject coverLeft;
+    private GameObject coverRight;
+
 
     void Start()
     {
@@ -72,6 +77,17 @@ public class Manager : MonoBehaviour
         lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
         //data from the node the camera will move TO
         nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
+
+        //starCanvas
+        theStars = GameObject.Find("theStars");
+        theStars.GetComponent<CanvasGroup>().alpha = 0;
+        theStars.SetActive(false);
+        coverLeft = GameObject.Find("coverLeft");
+        coverRight = GameObject.Find("coverRight");
+        coverLeft.GetComponent<CanvasGroup>().alpha = 0;
+        coverRight.GetComponent<CanvasGroup>().alpha = 0;
+        coverLeft.SetActive(false);
+        coverRight.SetActive(false);
 
         luxMeterManager.hideMeter(true);
         blurCanvas.SetActive(false);
@@ -196,7 +212,9 @@ public class Manager : MonoBehaviour
 
         if (nextNodeData.nodeName == "courseStart")
         {
+            //to begin individuals went through 40 min of dark adaptation
             audioManager.playAudio("vo_28", playAud29);//7.6sec
+            LeanTween.delayedCall(4f, addRightEyeCover);
         }
 
         
@@ -390,12 +408,15 @@ public class Manager : MonoBehaviour
     //completed a new configuration with the other eye patched
     void playAud29()
     {
+        removeRightEyeCover();
+        addLeftEyeCover();
         audioManager.playAudio("vo_29", playAud30);//3.4sec
         moveToNextNode();
     }
     //and then again using both eyes
     void playAud30()
     {
+        removeLeftEyeCover();
         audioManager.playAudio("vo_30", playAud31);//9.75sec
     }
     //to ensure consistent evaluation every test...
@@ -443,18 +464,59 @@ public class Manager : MonoBehaviour
         SceneManager.LoadScene(2);//end.
     }
     void addTheStars()
-    {
-        LeanTween.value(thePlayer, setStarLevel, 0f, .75f, 1f);
+    {       
+        theStars.SetActive(true);
+        LeanTween.value(thePlayer, setStarLevel, 0f, .8f, 1f);
     }
     void removeTheStars()
     {
-        LeanTween.value(thePlayer, setStarLevel, .75f, 0f, 1f);
+        LeanTween.value(thePlayer, setStarLevel, .8f, 0f, 1f).setOnComplete(turnOffStars);
+    }
+    void turnOffStars()
+    {
+        theStars.SetActive(false);
     }
     void setStarLevel(float val)
     {
-        wallMat.SetFloat("_Blend", val);
-        wallMat2.SetFloat("_Blend", val);
-        wallMat3.SetFloat("_Blend", val);
+        theStars.GetComponent<CanvasGroup>().alpha = val;
+       // wallMat.SetFloat("_Blend", val);
+        //wallMat2.SetFloat("_Blend", val);
+        //wallMat3.SetFloat("_Blend", val);
+    }
+    //EYE COVERS
+    void addRightEyeCover()
+    {
+        coverRight.SetActive(true);
+        LeanTween.value(thePlayer, setRightCover, 0f, 1f, 1f);
+    }
+    void removeRightEyeCover()
+    {
+        LeanTween.value(thePlayer, setRightCover, 1f, 0f, 1f).setOnComplete(turnOffRightEyeCover);
+    }
+    void turnOffRightEyeCover()
+    {
+        coverRight.SetActive(false);
+    }
+    void addLeftEyeCover()
+    {
+        coverLeft.SetActive(true);
+        LeanTween.value(thePlayer, setLeftCover, 0f, 1f, 1f);
+    }
+    void removeLeftEyeCover()
+    {
+        LeanTween.value(thePlayer, setLeftCover, 1f, 0f, 1f).setOnComplete(turnOffLeftEyeCover);
+    }
+    void turnOffLeftEyeCover()
+    {
+        coverLeft.SetActive(false);
+    }
+    void setRightCover(float val)
+    {
+        coverRight.GetComponent<CanvasGroup>().alpha = val;
+    }
+    void setLeftCover(float val)
+    {
+        coverLeft.GetComponent<CanvasGroup>().alpha = val;
     }
 
     void addBlur()
@@ -483,8 +545,8 @@ public class Manager : MonoBehaviour
     void gridNormal()
     {
         // _V_WIRE_Color,            _Color            _V_WIRE_Size
-        LeanTween.value(thePlayer, setWireCol, new Color(.012f, .324f, .828f), new Color(0, 0, 0), 3f);
-        LeanTween.value(thePlayer, setGridCol, new Color(0,0,0), new Color(1,1,1), 3f);
+        LeanTween.value(thePlayer, setWireCol, new Color(.9f, .0f, 0f), new Color(0, 0, 0), 3f);
+        //LeanTween.value(thePlayer, setGridCol, new Color(0,0,0), new Color(1,1,1), 3f);
         LeanTween.value(thePlayer, setWireSize, 4.26f, 1.5f, 3f);
     }
     void setWireCol(Color col)

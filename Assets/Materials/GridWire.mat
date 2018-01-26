@@ -132,10 +132,10 @@ Material:
     - _V_WIRE_WireVertexColor: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.08620688, g: 0.08620688, b: 0.08620688, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _V_WIRE_Color: {r: 0.011916847, g: 0.31719822, b: 0.8103448, a: 1}
+    - _V_WIRE_Color: {r: 0.8103448, g: 0, b: 0, a: 1}
     - _V_WIRE_MainTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _V_WIRE_SourceTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
     - _V_WIRE_WireTex_Scroll: {r: 0, g: 0, b: 0, a: 0}
