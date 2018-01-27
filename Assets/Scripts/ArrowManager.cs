@@ -42,7 +42,7 @@ public class ArrowManager : MonoBehaviour
     }
 
 
-    public void showArrows(Action act)
+    public void showArrows(Action act = null)
     {
         callback = act;
 
@@ -68,7 +68,11 @@ public class ArrowManager : MonoBehaviour
 
     void done()
     {
-        callback();
+        if (callback != null)
+        {
+            callback();
+        }
+       
     }
 
 }

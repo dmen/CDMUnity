@@ -20,6 +20,7 @@ public class LuxMeterManager : MonoBehaviour
     CanvasGroup luxMeter;
     Image arrow;
     RectTransform arrowTran;
+    CanvasGroup arrowCan;
     Vector3 curPos;
     GameObject player;
     const float changeTime = .5f;
@@ -40,9 +41,11 @@ public class LuxMeterManager : MonoBehaviour
     void Awake ()
     {
         luxMeter = GetComponent<CanvasGroup>();
+
         player = GameObject.Find("Player");
         arrow = GameObject.Find("luxArrow").GetComponent<Image>();
         arrowTran = GameObject.Find("luxArrow").GetComponent<RectTransform>();
+        arrowCan = GameObject.Find("luxArrow").GetComponent<CanvasGroup>();
 
         bar400 = GameObject.Find("bar400").GetComponent<Image>();
         bar250 = GameObject.Find("bar250").GetComponent<Image>();
@@ -53,6 +56,8 @@ public class LuxMeterManager : MonoBehaviour
         bar1 = GameObject.Find("bar1").GetComponent<Image>();
 
         numbers = GameObject.Find("numbers").GetComponent<Image>();
+
+        arrowCan.alpha = 0f;
 
         bar400.fillAmount = .15f;
         bar250.fillAmount = .15f;
@@ -91,6 +96,7 @@ public class LuxMeterManager : MonoBehaviour
 
     public void lux400()
     {
+        arrowCan.alpha = 1f;
         curPos = arrowTran.localPosition;
         curBar = bar400;
         numbers.sprite = sp400;

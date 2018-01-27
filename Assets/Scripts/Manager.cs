@@ -41,9 +41,13 @@ public class Manager : MonoBehaviour
     private GameObject coverLeft;
     private GameObject coverRight;
 
+    private PersistentManagaer persist;
+
 
     void Start()
     {
+        persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
+
         thePlayer = GameObject.Find("Player");//Main camera is a child
         pathToFollow = GameObject.Find("PathForCamera").GetComponent<EditorPath>();
         theLights = GameObject.FindGameObjectsWithTag("aLight");
@@ -72,11 +76,7 @@ public class Manager : MonoBehaviour
         hallProbe.RenderProbe();
         //roomProbe.RenderProbe();
 
-        currentPathNodeIndex = 1;
-        //last node will give us time of flight to the next node
-        lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
-        //data from the node the camera will move TO
-        nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
+       
 
         //starCanvas
         theStars = GameObject.Find("theStars");
@@ -92,10 +92,38 @@ public class Manager : MonoBehaviour
         luxMeterManager.hideMeter(true);
         blurCanvas.SetActive(false);
         LeanTween.delayedCall(2f, openIntroDoor);
-        normalLightLevel();        
-        moveToNextNode();        
-    }
+        normalLightLevel();
 
+        if(persist.skip)
+        {
+            currentPathNodeIndex = 6;
+            //last node will give us time of flight to the next node
+            lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
+            //data from the node the camera will move TO
+            nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
+
+            thePlayer.transform.position = pathToFollow.pathNodes[currentPathNodeIndex].transform.position;
+            gridNormal(0f);
+            LeanTween.delayedCall(1f, gridObjectsManager.showItAll);
+            LeanTween.delayedCall(1.2f, skipArrows);
+            LeanTween.delayedCall(1.5f, playAud15);
+        }
+        else
+        {
+            currentPathNodeIndex = 1;
+            //last node will give us time of flight to the next node
+            lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
+            //data from the node the camera will move TO
+            nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
+
+            moveToNextNode();
+        }
+        
+    }
+    void skipArrows()
+    {
+        arrowManager.showArrows();
+    }
 
     void openIntroDoor()
     {
@@ -160,6 +188,8 @@ public class Manager : MonoBehaviour
      */
     void nodeReached()
     {
+        Debug.Log("nodeReached() " + nextNodeData.nodeName);
+
         if (nextNodeData.nodeName == "intro")
         {
             audioManager.playAudio("vo_1", introComplete);//introComplete function will be called when audio is finished
@@ -216,9 +246,6 @@ public class Manager : MonoBehaviour
             audioManager.playAudio("vo_28", playAud29);//7.6sec
             LeanTween.delayedCall(4f, addRightEyeCover);
         }
-
-        
-
 
         currentPathNodeIndex++;
         lastNodeData = nextNodeData;
@@ -316,6 +343,7 @@ public class Manager : MonoBehaviour
         gridObjectsManager.showRemaining();
     }
 
+    //THIS IS WHERE SKIP TO LUX LEVELS HAS TO BEGIN
     //to siumlate the real world... lux levels
     //begin to build lux meter
     void playAud15()
@@ -542,12 +570,12 @@ public class Manager : MonoBehaviour
 
 
     //GRID
-    void gridNormal()
+    void gridNormal(float speed = 3f)
     {
         // _V_WIRE_Color,            _Color            _V_WIRE_Size
-        LeanTween.value(thePlayer, setWireCol, new Color(.9f, .0f, 0f), new Color(0, 0, 0), 3f);
+        LeanTween.value(thePlayer, setWireCol, new Color(.9f, .0f, 0f), new Color(0, 0, 0), speed);
         //LeanTween.value(thePlayer, setGridCol, new Color(0,0,0), new Color(1,1,1), 3f);
-        LeanTween.value(thePlayer, setWireSize, 4.26f, 1.5f, 3f);
+        LeanTween.value(thePlayer, setWireSize, 4.26f, 1.5f, speed);
     }
     void setWireCol(Color col)
     {

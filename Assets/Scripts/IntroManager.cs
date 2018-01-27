@@ -28,6 +28,7 @@ public class IntroManager : MonoBehaviour
 
     private Material vidMat;
 
+    private PersistentManagaer persist;
 
 
     void Awake()
@@ -39,6 +40,8 @@ public class IntroManager : MonoBehaviour
     void Start()
     {
         voComplete = false;
+
+        persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
 
         logo = GameObject.Find("luxLogo").GetComponent<CanvasGroup>();
         developing = GameObject.Find("developing").GetComponent<CanvasGroup>();
@@ -138,8 +141,9 @@ public class IntroManager : MonoBehaviour
 
 
     //called from StartButtonScript
-    public void introComplete()
+    public void introComplete(bool doSkip = false)
     {
+        persist.skip = doSkip;
         SceneManager.LoadScene(1);//hall
     }
 

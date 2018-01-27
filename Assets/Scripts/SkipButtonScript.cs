@@ -8,6 +8,14 @@ public class SkipButtonScript : MonoBehaviour
     float timeElapsed = 0f;
     float GazeActivationTime = 1.5f;
 
+    IntroManager manager;
+
+
+    void Start()
+    {
+        manager = GameObject.Find("theManager").GetComponent<IntroManager>();
+    }
+
 
     void Update()
     {
@@ -20,6 +28,8 @@ public class SkipButtonScript : MonoBehaviour
                 timeElapsed = 0;
                 progressImage.fillAmount = 0;
                 isEntered = false;
+
+                manager.introComplete(true);//loads hall
             }
         } else {
             timeElapsed = 0;

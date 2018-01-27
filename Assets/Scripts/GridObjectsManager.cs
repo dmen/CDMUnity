@@ -161,6 +161,37 @@ public class GridObjectsManager : MonoBehaviour
     }
 
 
+    //called from Manager when user chose skip to lux levels on start screen
+    public void showItAll()
+    {
+        showGrid();
+        step1.SetActive(true);
+        step2.SetActive(true);
+        step3.SetActive(true);
+        step4.SetActive(true);
+        step5.SetActive(true);
+        step6.SetActive(true);
+        step7.SetActive(true);
+        noodle.SetActive(true);
+       // stick.SetActive(true);
+        foamBall.SetActive(true);
+        //shrub.SetActive(true);
+        stopSign.SetActive(true);
+        bh1.SetActive(true);
+        bh2.SetActive(true);
+        bh3.SetActive(true);
+        grass1.SetActive(true);
+        grass2.SetActive(true);
+        raised1.SetActive(true);
+        raised2.SetActive(true);
+        raised3.SetActive(true);
+        raised4.SetActive(true);
+        wasteBasket.SetActive(true);
+        trafficCone.SetActive(true);
+        trafficCone2.SetActive(true);
+        doorRoom.SetActive(true);
+    }
+
     public void showGrid()
     {
         Vector3 pos = grid.transform.position;
