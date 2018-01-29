@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class LuxMeterManager : MonoBehaviour
 {
     //for changing the number colors
+    public Sprite spNo;
     public Sprite sp400;
     public Sprite sp250;
     public Sprite sp125;
@@ -17,6 +18,7 @@ public class LuxMeterManager : MonoBehaviour
     public Sprite blackArrow;
     public Sprite whiteArrow;
 
+    GameObject mainLux; //for setting active on
     CanvasGroup luxMeter;
     Image arrow;
     RectTransform arrowTran;
@@ -38,8 +40,14 @@ public class LuxMeterManager : MonoBehaviour
     Image lastBar;
     Image numbers;
 
+    CanvasGroup scoresCG;//for fading out when done
+    Image scores;//to change fill amt
+
+
     void Awake ()
     {
+        mainLux = transform.gameObject;
+
         luxMeter = GetComponent<CanvasGroup>();
 
         player = GameObject.Find("Player");
@@ -57,6 +65,9 @@ public class LuxMeterManager : MonoBehaviour
 
         numbers = GameObject.Find("numbers").GetComponent<Image>();
 
+        scoresCG = GameObject.Find("scores").GetComponent<CanvasGroup>();
+        scores = GameObject.Find("scores").GetComponent<Image>();
+
         arrowCan.alpha = 0f;
 
         bar400.fillAmount = .15f;
@@ -66,6 +77,9 @@ public class LuxMeterManager : MonoBehaviour
         bar10.fillAmount = .15f;
         bar4.fillAmount = .15f;
         bar1.fillAmount = .15f;
+
+        scores.fillAmount = 0f;
+        scoresCG.alpha = 1;
     }
 
     
@@ -74,25 +88,26 @@ public class LuxMeterManager : MonoBehaviour
         if (fast)
         {
             luxMeter.alpha = 0f;
+            hideLux();
         }
         else
         {
-            LeanTween.value(player, setMeterAlpha, 1f, 0f, 1f);
+            LeanTween.alphaCanvas(luxMeter, 0f, 1f).setOnComplete(hideLux);           
         }        
     }
 
+    void hideLux()
+    {
+        mainLux.SetActive(false);
+        scores.fillAmount = 0f;
+        scoresCG.alpha = 1;
+    }
 
     public void showMeter()
     {
-        LeanTween.value(player, setMeterAlpha, 0f, 1f, 1f);
+        mainLux.SetActive(true);
+        LeanTween.alphaCanvas(luxMeter, 1f, 1f);
     }
-
-
-    void setMeterAlpha(float val)
-    {
-        luxMeter.alpha = val;
-    }
-
 
     public void lux400()
     {
@@ -183,9 +198,21 @@ public class LuxMeterManager : MonoBehaviour
         LeanTween.value(player, tweenLastFill, 1f, .15f, fillTime);
     }
 
+    public void noLux()
+    {
+        numbers.sprite = spNo;
+        LeanTween.alphaCanvas(arrowCan, 0f, .5f);
+        LeanTween.value(player, tweenFill, 1f, .15f, fillTime);//sets curBar which is bar1
+    }
 
-
-
+    public void showScores()
+    {
+        LeanTween.value(player, fillScores, 0f, 1f, 3f);
+    }
+    void fillScores(float val)
+    {
+        scores.fillAmount = val;
+    }
 
     void tweenPos(float val)
     {

@@ -384,6 +384,7 @@
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\ButtonStart.cs" />
     <Compile Include="Assets\Scripts\EditorPath.cs" />
+    <Compile Include="Assets\Scripts\ErrorHUDManager.cs" />
     <Compile Include="Assets\Scripts\ExitButtonScript.cs" />
     <Compile Include="Assets\Scripts\ExitManager.cs" />
     <Compile Include="Assets\Scripts\GridObjectsManager.cs" />

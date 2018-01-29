@@ -42,11 +42,13 @@ public class Manager : MonoBehaviour
     private GameObject coverRight;
 
     private PersistentManagaer persist;
+    private ErrorHUDManager errorHud;
 
 
     void Start()
     {
-        persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
+        //persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
+        errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
         thePlayer = GameObject.Find("Player");//Main camera is a child
         pathToFollow = GameObject.Find("PathForCamera").GetComponent<EditorPath>();
@@ -75,9 +77,7 @@ public class Manager : MonoBehaviour
 
         hallProbe.RenderProbe();
         //roomProbe.RenderProbe();
-
-       
-
+        
         //starCanvas
         theStars = GameObject.Find("theStars");
         theStars.GetComponent<CanvasGroup>().alpha = 0;
@@ -90,20 +90,21 @@ public class Manager : MonoBehaviour
         coverRight.SetActive(false);
 
         luxMeterManager.hideMeter(true);
+        errorHud.hideHUD(true);
         blurCanvas.SetActive(false);
         LeanTween.delayedCall(2f, openIntroDoor);
         normalLightLevel();
 
-        if(persist.skip)
-        {
+        if(true)//(persist.skip)
+        {       
             currentPathNodeIndex = 6;
             //last node will give us time of flight to the next node
             lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
             //data from the node the camera will move TO
             nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
 
-            thePlayer.transform.position = pathToFollow.pathNodes[currentPathNodeIndex].transform.position;
-            gridNormal(0f);
+            thePlayer.transform.position = pathToFollow.pathNodes[currentPathNodeIndex - 1].transform.position;
+            gridNormal(0f);//make the grid normal instantly
             LeanTween.delayedCall(1f, gridObjectsManager.showItAll);
             LeanTween.delayedCall(1.2f, skipArrows);
             LeanTween.delayedCall(1.5f, playAud15);
@@ -120,6 +121,7 @@ public class Manager : MonoBehaviour
         }
         
     }
+    
     void skipArrows()
     {
         arrowManager.showArrows();
@@ -247,6 +249,18 @@ public class Manager : MonoBehaviour
             LeanTween.delayedCall(4f, addRightEyeCover);
         }
 
+        if (nextNodeData.nodeName == "hiccup")
+        {
+            Handheld.Vibrate();
+            errorHud.showError3();
+        }
+
+
+        if (nextNodeData.nodeName == "stopTimer")
+        {
+            errorHud.stopTimer();
+        }
+
         currentPathNodeIndex++;
         lastNodeData = nextNodeData;
 
@@ -356,7 +370,6 @@ public class Manager : MonoBehaviour
     void playAud16()
     {
         audioManager.playAudio("vo_16", playAud17);//3.5sec
-        //TODO - fade in the numbers
     }
     //400 lux, the brightest setting... office
     void playAud17()
@@ -410,7 +423,9 @@ public class Manager : MonoBehaviour
     //each lux level assigned score code
     void playAud24()
     {
+        luxMeterManager.showScores();
         normalLightLevel();
+        luxMeterManager.noLux();
         audioManager.playAudio("vo_24", playAud25);//10.2sec
     }
     //to make sure individuals didn't memorize...
@@ -431,6 +446,7 @@ public class Manager : MonoBehaviour
     void playAud27()
     {
         audioManager.playAudio("vo_27", vo2Complete);//3.15sec
+
         moveToNextNode();//will move to node courseStart - and play aud28
     }
     //completed a new configuration with the other eye patched
@@ -450,13 +466,14 @@ public class Manager : MonoBehaviour
     //to ensure consistent evaluation every test...
     void playAud31()
     {
-        //TODO: This is where the cameras are supposed to come in
         audioManager.playAudio("vo_31", playAud32);//19.13sec
     }
 
     //individuals were graded based on accuracy - did they collide...
+    //error hud appears - ~29 sec of audio until it hides
     void playAud32()
     {
+        errorHud.showHUD();
         audioManager.playAudio("vo_32", playAud33);//13.2sec
     }
     //in order to pass they had to complete the course...
@@ -464,6 +481,7 @@ public class Manager : MonoBehaviour
     {
         audioManager.playAudio("vo_33", playAud34);//7.6sec
     }
+
     //this allowed us to compare the lowest level..
     void playAud34()
     {
@@ -472,6 +490,7 @@ public class Manager : MonoBehaviour
     //thank you for visiting our lab
     void playAud35()
     {
+        errorHud.hideHUD();
         audioManager.playAudio("vo_35", showEnding);//6.15sec
     }
 
