@@ -95,7 +95,7 @@ public class Manager : MonoBehaviour
         LeanTween.delayedCall(2f, openIntroDoor);
         normalLightLevel();
 
-        if(true)//(persist.skip)
+        if(persist.skip)
         {       
             currentPathNodeIndex = 6;
             //last node will give us time of flight to the next node
