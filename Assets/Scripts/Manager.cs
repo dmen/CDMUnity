@@ -17,7 +17,6 @@ public class Manager : MonoBehaviour
     private Light gridLight;
 
     private ReflectionProbe hallProbe;
-    private ReflectionProbe roomProbe;
 
     private GameObject eyeVideoScreen;//rect attached to camera
     private NodeData lastNodeData;
@@ -47,7 +46,7 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        //persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
+        persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
         thePlayer = GameObject.Find("Player");//Main camera is a child
@@ -62,7 +61,6 @@ public class Manager : MonoBehaviour
         audioManager = GetComponent<AudioManager>();
 
         hallProbe = GameObject.Find("hallProbe").GetComponent<ReflectionProbe>();
-        //roomProbe = GameObject.Find("roomProbe").GetComponent<ReflectionProbe>();
 
         blurCanvas = GameObject.Find("blurImage");
         blurMat = blurCanvas.GetComponent<Image>().material;
@@ -76,7 +74,6 @@ public class Manager : MonoBehaviour
         luxMeterManager = GameObject.Find("LUXMeter").GetComponent<LuxMeterManager>();
 
         hallProbe.RenderProbe();
-        //roomProbe.RenderProbe();
         
         //starCanvas
         theStars = GameObject.Find("theStars");
