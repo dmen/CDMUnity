@@ -417,21 +417,34 @@ public class Manager : MonoBehaviour
         luxMeterManager.lux1();
         setLightLevel(.05f, 2f);
     }
+
     //each lux level assigned score code
     void playAud24()
     {
-        luxMeterManager.showScores();
-        normalLightLevel();
-        luxMeterManager.noLux();
-        audioManager.playAudio("vo_24", playAud25);//10.2sec
+        //lux meter chapper is just the 400 - 1 explanation
+        if (persist.skip)
+        {
+            //thank you for visiting our lab
+            audioManager.playAudio("vo_35", showEnding);//6.15sec
+        }
+        else
+        {
+            luxMeterManager.showScores();
+            normalLightLevel();
+            luxMeterManager.noLux();
+            audioManager.playAudio("vo_24", playAud25);//10.2sec
+        }
+        
     }
+
     //to make sure individuals didn't memorize...
     void playAud25()
     {
         luxMeterManager.hideMeter();
         audioManager.playAudio("vo_25", playAud26);//6.2sec
 
-        //TODO - change course config
+        //TODO - change course config - 12 sep VO starts 4 sec in
+        LeanTween.delayedCall(4.5f, gridObjectsManager.doShuffle);
 
     }
     //A validation study was performed

@@ -192,6 +192,14 @@ public class GridObjectsManager : MonoBehaviour
         doorRoom.SetActive(true);
     }
 
+
+    //called from Manager.playAud25()
+    public void doShuffle()
+    {
+
+    }
+
+
     public void showGrid()
     {
         Vector3 pos = grid.transform.position;

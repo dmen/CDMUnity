@@ -53,12 +53,12 @@ public class ArrowManager : MonoBehaviour
         for (i = 0; i < arrows.Count - 1; i++)
         {
             n = arrows[i];
-           pos = n.transform.position;
+            pos = n.transform.position;
             pos.y += .5f;
             LeanTween.move(n, pos, .5f).setDelay(1.5f + i * .05f).setEase(LeanTweenType.easeOutBack);
         }
 
-        //the very last arrow - 
+        //the very last arrow - so we can use OnComplete
         n = arrows[arrows.Count - 1];
         pos = n.transform.position;
         pos.y += .5f;
