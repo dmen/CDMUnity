@@ -46,8 +46,8 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        // userSkipped = true;
-        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        userSkipped = false;
+        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
@@ -212,7 +212,8 @@ public class Manager : MonoBehaviour
             LeanTween.delayedCall(7f, removeTheStars);
             LeanTween.delayedCall(7f, normalLightLevel);
             LeanTween.delayedCall(8.7f, brightTheLights);
-            LeanTween.delayedCall(10.7f, normalLightLevel);
+            LeanTween.delayedCall(9.7f, dimTheLights);
+            LeanTween.delayedCall(11f, normalLightLevel);
             LeanTween.delayedCall(13.5f, addBlur);
 
             LeanTween.delayedCall(20f, removeBlur);
@@ -310,6 +311,7 @@ public class Manager : MonoBehaviour
     {
         LeanTween.delayedCall(3f, playAud8);
     }
+    //we added objects of varying height and contrast... to simulate
     void playAud8()
     { 
         audioManager.playAudio("vo_8", playAud9);//11.5sec
@@ -363,7 +365,7 @@ public class Manager : MonoBehaviour
     void playAud15()
     {
         audioManager.playAudio("vo_15", playAud16);//21.2sec
-        luxMeterManager.showMeter();
+        LeanTween.delayedCall(4f, luxMeterManager.showMeter);//show meter at 'we added 7 different lux levels'
     }
 
     //the 7 lux levels ranged from 1 to 400
@@ -447,7 +449,7 @@ public class Manager : MonoBehaviour
         luxMeterManager.hideMeter();
         audioManager.playAudio("vo_25", playAud26);//6.2sec
 
-        //TODO - change course config - 12 sep VO starts 4 sec in
+        //12 sep VO starts 4 sec in
         LeanTween.delayedCall(4.5f, gridObjectsManager.doShuffle);
 
     }
@@ -514,11 +516,11 @@ public class Manager : MonoBehaviour
     }
     void brightTheLights()
     {
-        setLightLevel(2.5f, .5f);
+        setLightLevel(2.8f, .5f);
     }
     void dimTheLights()
     {
-        setLightLevel(.5f, .5f);
+        setLightLevel(.2f, .5f);
     }
     void showEnding()
     {
