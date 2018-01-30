@@ -43,6 +43,8 @@ public class LuxMeterManager : MonoBehaviour
     CanvasGroup scoresCG;//for fading out when done
     Image scores;//to change fill amt
 
+    RectTransform bgRect;
+
 
     void Awake ()
     {
@@ -67,6 +69,8 @@ public class LuxMeterManager : MonoBehaviour
 
         scoresCG = GameObject.Find("scores").GetComponent<CanvasGroup>();
         scores = GameObject.Find("scores").GetComponent<Image>();
+
+        bgRect = GameObject.Find("bgRect").GetComponent<RectTransform>();
 
         arrowCan.alpha = 0f;
 
@@ -116,7 +120,7 @@ public class LuxMeterManager : MonoBehaviour
         curBar = bar400;
         numbers.sprite = sp400;
         arrow.sprite = blackArrow;
-        LeanTween.value(player, tweenPos, arrowTran.localPosition.y, .543f, changeTime).setEase(ease);
+        LeanTween.value(player, tweenPos, arrowTran.localPosition.y, .538f, changeTime).setEase(ease);
         LeanTween.value(player, tweenFill, .15f, 1f, fillTime);
     }
 
@@ -167,7 +171,7 @@ public class LuxMeterManager : MonoBehaviour
         lastBar = bar50;
         numbers.sprite = sp10;
         arrow.sprite = whiteArrow;
-        LeanTween.value(player, tweenPos, arrowTran.localPosition.y, -0.13f, changeTime).setEase(ease);
+        LeanTween.value(player, tweenPos, arrowTran.localPosition.y, -0.135f, changeTime).setEase(ease);
         LeanTween.value(player, tweenFill, .15f, 1f, fillTime);
         LeanTween.value(player, tweenLastFill, 1f, .15f, fillTime);
     }
@@ -198,15 +202,27 @@ public class LuxMeterManager : MonoBehaviour
         LeanTween.value(player, tweenLastFill, 1f, .15f, fillTime);
     }
 
-    public void noLux()
+    public void noLux(bool setBar1 = false)
     {
         numbers.sprite = spNo;
         LeanTween.alphaCanvas(arrowCan, 0f, .5f);
-        LeanTween.value(player, tweenFill, 1f, .15f, fillTime);//sets curBar which is bar1
+        if (setBar1)
+        {
+            LeanTween.value(player, tweenFill, 1f, .15f, fillTime);//sets curBar which is bar1
+        }
     }
 
     public void showScores()
     {
+        LeanTween.value(player, fill400, .15f, 1f, .25f);
+        LeanTween.value(player, fill250, .15f, 1f, .25f).setDelay(.1f);
+        LeanTween.value(player, fill125, .15f, 1f, .25f).setDelay(.2f);
+        LeanTween.value(player, fill50, .15f, 1f, .25f).setDelay(.3f);
+        LeanTween.value(player, fill10, .15f, 1f, .25f).setDelay(.4f);
+        LeanTween.value(player, fill4, .15f, 1f, .25f).setDelay(.5f);
+        LeanTween.value(player, fill1, .15f, 1f, .25f).setDelay(.6f);
+
+        LeanTween.scale(bgRect, new Vector3(1.47f, 1, 1), .25f);
         LeanTween.value(player, fillScores, 0f, 1f, 3f);
     }
     void fillScores(float val)
@@ -227,6 +243,35 @@ public class LuxMeterManager : MonoBehaviour
     void tweenLastFill(float val)
     {
         lastBar.fillAmount = val;
+    }
+
+    void fill400(float val)
+    {
+        bar400.fillAmount = val;
+    }
+    void fill250(float val)
+    {
+        bar250.fillAmount = val;
+    }
+    void fill125(float val)
+    {
+        bar125.fillAmount = val;
+    }
+    void fill50(float val)
+    {
+        bar50.fillAmount = val;
+    }
+    void fill10(float val)
+    {
+        bar10.fillAmount = val;
+    }
+    void fill4(float val)
+    {
+        bar4.fillAmount = val;
+    }
+    void fill1(float val)
+    {
+        bar1.fillAmount = val;
     }
 
 }

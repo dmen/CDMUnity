@@ -39,14 +39,16 @@ public class Manager : MonoBehaviour
     private GameObject theStars;
     private GameObject coverLeft;
     private GameObject coverRight;
-
-    private PersistentManagaer persist;
+   
     private ErrorHUDManager errorHud;
+    private bool userSkipped;
 
 
     void Start()
     {
-        persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
+        // userSkipped = true;
+        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
         thePlayer = GameObject.Find("Player");//Main camera is a child
@@ -92,8 +94,9 @@ public class Manager : MonoBehaviour
         LeanTween.delayedCall(2f, openIntroDoor);
         normalLightLevel();
 
-        if(persist.skip)
+        if(userSkipped)
         {       
+            //User skipped to LUX levels - only play lux info
             currentPathNodeIndex = 6;
             //last node will give us time of flight to the next node
             lastNodeData = pathToFollow.pathNodes[currentPathNodeIndex - 1].GetComponent<NodeData>();
@@ -422,9 +425,11 @@ public class Manager : MonoBehaviour
     void playAud24()
     {
         //lux meter chapper is just the 400 - 1 explanation
-        if (persist.skip)
+        if (userSkipped)
         {
             //thank you for visiting our lab
+            normalLightLevel();
+            luxMeterManager.noLux(true);
             audioManager.playAudio("vo_35", showEnding);//6.15sec
         }
         else
@@ -433,8 +438,7 @@ public class Manager : MonoBehaviour
             normalLightLevel();
             luxMeterManager.noLux();
             audioManager.playAudio("vo_24", playAud25);//10.2sec
-        }
-        
+        }        
     }
 
     //to make sure individuals didn't memorize...
