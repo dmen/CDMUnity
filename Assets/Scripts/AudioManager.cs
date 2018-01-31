@@ -15,7 +15,6 @@ public class AudioManager : MonoBehaviour
     private AudioSource sfxSource;
     private AudioClip clip;
     private AudioClip sfxClip;
-    private bool onlyVOPlaying;
     private bool isPlaying;
     private float startTime;
     private float endTime;
@@ -43,15 +42,13 @@ public class AudioManager : MonoBehaviour
         if (sfx != "")
         {
             sfxClip = Resources.Load<AudioClip>("sound/" + sfx);
-            onlyVOPlaying = false;
             endTime = startTime + sfxClip.length + delayToPlaySFX;
             //play the vo then start the sfx at the delay time
             source.PlayOneShot(clip);
             LeanTween.delayedCall(delayToPlaySFX, playSFX);            
         }
         else
-        {           
-            onlyVOPlaying = true;
+        {  
             endTime = startTime + clip.length;
             source.PlayOneShot(clip);
         }

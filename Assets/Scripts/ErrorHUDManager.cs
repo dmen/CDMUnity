@@ -12,7 +12,6 @@ public class ErrorHUDManager : MonoBehaviour
     bool showing = false;
     float startTime;
     TimeSpan t;
-    GameObject player;
 
     GameObject error3;//red ball indicator
     Text errorText;
@@ -23,7 +22,6 @@ public class ErrorHUDManager : MonoBehaviour
 
     void Awake ()
     {
-        player = GameObject.Find("Player");
         error3 = GameObject.Find("error3");
         errorText = GameObject.Find("errorTitle").GetComponent<Text>();
 

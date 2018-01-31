@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class IntroDoor : MonoBehaviour
 {
-    private Manager theManager;
+    //private Manager theManager;
 
     void Start()
     {
-        theManager = GameObject.Find("theManager").GetComponent<Manager>();
+       // theManager = GameObject.Find("theManager").GetComponent<Manager>();
     }
 
 

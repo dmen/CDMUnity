@@ -6,12 +6,19 @@ using System;
 
 public class ArrowManager : MonoBehaviour
 {
+
+    GameObject player;
     public List<GameObject> arrows;
     private Action callback;
+    private GameObject arrowParent;
+    GameObject[] aros;
 
     private void Start()
     {
-        GameObject[] aros = GameObject.FindGameObjectsWithTag("arrow");
+        player = GameObject.Find("Player");
+        arrowParent = GameObject.Find("arrows");
+
+       aros = GameObject.FindGameObjectsWithTag("arrow");
         arrows = new List<GameObject>();
 
         for (int j = 0; j < aros.Length; j++)
@@ -41,6 +48,27 @@ public class ArrowManager : MonoBehaviour
         }
     }
 
+    public void fadeOutArrows()
+    {        
+        LeanTween.value(player, setArrowAlpha, 1f, 0f, 2f).setOnComplete(killArrows);
+    }
+    public void fadeInArrows()
+    {
+        arrowParent.SetActive(true);
+        LeanTween.value(player, setArrowAlpha, 0f, 1f, 2f);
+    }
+    void setArrowAlpha(float val)
+    {
+        for (int i = 0; i < aros.Length; i++)
+        {
+            aros[i].GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0, 0, val));
+        }
+    }
+
+    void killArrows()
+    {
+        arrowParent.SetActive(false);
+    }
 
     public void showArrows(Action act = null)
     {

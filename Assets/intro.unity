@@ -1585,7 +1585,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: dec9d8828fa46e744a52a55f49bfe6db, type: 3}
     m_FontSize: 46
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 62

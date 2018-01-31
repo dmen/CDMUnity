@@ -27,9 +27,6 @@ public class Manager : MonoBehaviour
     private GameObject blurCanvas;
     private Material blurMat;
     private Material gridMat;
-    private Material wallMat;
-    private Material wallMat2;
-    private Material wallMat3;
 
     private ArrowManager arrowManager;
     private GridObjectsManager gridObjectsManager;
@@ -46,8 +43,8 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        userSkipped = false;
-        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        //userSkipped = true;//TESTING
+        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
@@ -67,9 +64,6 @@ public class Manager : MonoBehaviour
         blurCanvas = GameObject.Find("blurImage");
         blurMat = blurCanvas.GetComponent<Image>().material;
         gridMat = GameObject.Find("grid").GetComponent<Renderer>().material;
-        wallMat = GameObject.Find("hallRight").GetComponent<Renderer>().material;
-        wallMat2 = GameObject.Find("hallWalls").GetComponent<Renderer>().material;
-        wallMat3 = GameObject.Find("roomWalls").GetComponent<Renderer>().material;
 
         arrowManager = GameObject.Find("arrows").GetComponent<ArrowManager>();
         gridObjectsManager = GameObject.Find("gridObjects").GetComponent<GridObjectsManager>();
@@ -190,8 +184,6 @@ public class Manager : MonoBehaviour
      */
     void nodeReached()
     {
-        Debug.Log("nodeReached() " + nextNodeData.nodeName);
-
         if (nextNodeData.nodeName == "intro")
         {
             audioManager.playAudio("vo_1", introComplete);//introComplete function will be called when audio is finished
@@ -358,12 +350,13 @@ public class Manager : MonoBehaviour
         audioManager.playAudio("vo_14", playAud15);//7.5sec
         gridObjectsManager.showRemaining();
     }
-
-    //THIS IS WHERE SKIP TO LUX LEVELS HAS TO BEGIN
+    
+    //LUX CHAPTER
     //to siumlate the real world... lux levels
     //begin to build lux meter
     void playAud15()
     {
+        
         audioManager.playAudio("vo_15", playAud16);//21.2sec
         LeanTween.delayedCall(4f, luxMeterManager.showMeter);//show meter at 'we added 7 different lux levels'
     }
@@ -371,6 +364,7 @@ public class Manager : MonoBehaviour
     //the 7 lux levels ranged from 1 to 400
     void playAud16()
     {
+        arrowManager.fadeOutArrows();
         audioManager.playAudio("vo_16", playAud17);//3.5sec
     }
     //400 lux, the brightest setting... office
@@ -427,6 +421,7 @@ public class Manager : MonoBehaviour
     void playAud24()
     {
         //lux meter chapper is just the 400 - 1 explanation
+        //userSkipped = false; //TESTING
         if (userSkipped)
         {
             //thank you for visiting our lab
@@ -450,9 +445,16 @@ public class Manager : MonoBehaviour
         audioManager.playAudio("vo_25", playAud26);//6.2sec
 
         //12 sep VO starts 4 sec in
+        LeanTween.delayedCall(4f, arrowManager.fadeOutArrows);
         LeanTween.delayedCall(4.5f, gridObjectsManager.doShuffle);
-
     }
+
+    //called from gridObjectsManager once shuffle is complete
+    public void bringBackArrows()
+    {
+        arrowManager.fadeInArrows();
+    }
+
     //A validation study was performed
     void playAud26()
     {
@@ -542,9 +544,6 @@ public class Manager : MonoBehaviour
     void setStarLevel(float val)
     {
         theStars.GetComponent<CanvasGroup>().alpha = val;
-       // wallMat.SetFloat("_Blend", val);
-        //wallMat2.SetFloat("_Blend", val);
-        //wallMat3.SetFloat("_Blend", val);
     }
     //EYE COVERS
     void addRightEyeCover()

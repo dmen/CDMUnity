@@ -23,9 +23,7 @@ public class IntroManager : MonoBehaviour
     private GameObject skipBase;
 
     private AudioSource vo;
-
-    private bool voComplete;
-
+    
     private Material vidMat;
 
     private PersistentManagaer persist;
@@ -39,8 +37,6 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
-        voComplete = false;
-
         persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
 
         logo = GameObject.Find("luxLogo").GetComponent<CanvasGroup>();
@@ -125,19 +121,7 @@ public class IntroManager : MonoBehaviour
         skipBase.SetActive(true);
     }
 
-    /*
-    private void Update()
-    {
-        if (!voComplete)
-        {
-            float progress = Mathf.Clamp01(vo.time / vo.clip.length);
-            if (progress == 1f)
-            {
-                voComplete = true;                
-            }
-        }
-    }
-    */
+  
 
 
     //called from StartButtonScript
