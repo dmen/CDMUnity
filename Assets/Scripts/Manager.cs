@@ -363,8 +363,7 @@ public class Manager : MonoBehaviour
 
     //the 7 lux levels ranged from 1 to 400
     void playAud16()
-    {
-        arrowManager.fadeOutArrows();
+    {        
         audioManager.playAudio("vo_16", playAud17);//3.5sec
     }
     //400 lux, the brightest setting... office

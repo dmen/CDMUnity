@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/hall.unity
+- path: Assets/exit.unity
   isLoaded: 1
   isActive: 1
