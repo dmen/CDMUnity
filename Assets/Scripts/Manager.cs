@@ -44,7 +44,7 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        //userSkipped = false;//TESTING
+        //userSkipped = true;//TESTING
         userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
@@ -91,7 +91,8 @@ public class Manager : MonoBehaviour
         normalLightLevel();
 
         if(userSkipped)
-        {       
+        {
+            inTheRoom = true;
             //User skipped to LUX levels - only play lux info
             currentPathNodeIndex = 6;
             //last node will give us time of flight to the next node
@@ -438,10 +439,10 @@ public class Manager : MonoBehaviour
         LeanTween.delayedCall(4.5f, gridObjectsManager.doShuffle);
         LeanTween.delayedCall(7f, arrowManager.showArrows5);//c10 down in 2 sec - c5 back up at 4sec
         //waits for ~3sec then shows 11
-        LeanTween.delayedCall(10f, arrowManager.hideArrows5);
+        LeanTween.delayedCall(11f, arrowManager.hideArrows5);
         LeanTween.delayedCall(14f, arrowManager.showArrows11);
         LeanTween.delayedCall(18f, arrowManager.hideArrows11);
-        LeanTween.delayedCall(21f, arrowManager.showArrows10);
+        LeanTween.delayedCall(22f, arrowManager.showArrows10);
     }
 
     //called from gridObjectsManager once shuffle is complete
