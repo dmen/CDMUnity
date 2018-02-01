@@ -8,6 +8,8 @@ TagManager:
   - aLight
   - pathNode
   - arrow
+  - arrow5
+  - arrow11
   layers:
   - Default
   - TransparentFX

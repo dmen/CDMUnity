@@ -16,13 +16,21 @@ public class ErrorHUDManager : MonoBehaviour
     GameObject error3;//red ball indicator
     Text errorText;
 
-    GameObject redError;
+    GameObject eb1;//errorBall
+    GameObject eb2;
+    GameObject eb3;
+    GameObject eb4;
+    GameObject redError;//full screen red rect
     CanvasGroup redErrorAlpha;
 
 
     void Awake ()
     {
-        error3 = GameObject.Find("error3");
+        eb1 = GameObject.Find("errorBall1");
+        eb2 = GameObject.Find("errorBall2");
+        eb3 = GameObject.Find("errorBall3");
+        eb4 = GameObject.Find("errorBall4");
+
         errorText = GameObject.Find("errorTitle").GetComponent<Text>();
 
         redError = GameObject.Find("redError");
@@ -33,11 +41,16 @@ public class ErrorHUDManager : MonoBehaviour
         mainAlpha = GetComponent<CanvasGroup>();
         mainAlpha.alpha = 0;
 
-        error3.SetActive(false);
-        redError.SetActive(false);
+        eb1.SetActive(false);
+        eb2.SetActive(false);
+        eb3.SetActive(false);
+        eb4.SetActive(false);
+
+        redError.SetActive(false);//red rect that covers screen
 
         timer = GameObject.Find("timerText").GetComponent<Text>();        
 	}
+
 
     //called from Manager.playAud32()
     //we have about 29sec of VO to count up to the end time... 3min?
@@ -78,10 +91,28 @@ public class ErrorHUDManager : MonoBehaviour
         showing = false;
     }
 
+    public void showError1()
+    {
+        errorText.text = "ERROR 1";
+        eb1.SetActive(true);
+        redFlash();
+    }
+    public void showError2()
+    {
+        errorText.text = "ERROR 2";
+        eb2.SetActive(true);
+        redFlash();
+    }
     public void showError3()
     {
         errorText.text = "ERROR 3";
-        error3.SetActive(true);
+        eb3.SetActive(true);
+        redFlash();
+    }
+    public void showError4()
+    {
+        errorText.text = "ERROR 4";
+        eb4.SetActive(true);
         redFlash();
     }
 

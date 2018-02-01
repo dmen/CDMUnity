@@ -25,6 +25,7 @@ public class GridObjectsManager : MonoBehaviour
     GameObject shrub;
 
     GameObject stopSign;
+    GameObject nGon;//inside the stopSign - for moving it up/down
 
     GameObject bh1;
     GameObject bh2;
@@ -72,6 +73,7 @@ public class GridObjectsManager : MonoBehaviour
         foamBall = GameObject.Find("foamBall");
         shrub = GameObject.Find("theBush");
         stopSign = GameObject.Find("stopSign");
+        nGon = GameObject.Find("NGon001");
         bh1 = GameObject.Find("blackHole");
         bh2 = GameObject.Find("blackHole2");
         bh3 = GameObject.Find("blackHole3");
@@ -173,6 +175,20 @@ public class GridObjectsManager : MonoBehaviour
         LeanTween.move(step7, objectDestination, 1f).setDelay(stepDelay * 6).setEase(LeanTweenType.easeOutBack);
     }
 
+    public void stopDown()
+    {
+        Vector3 curPos = nGon.transform.position;
+        curPos.y -= .24f;
+
+        LeanTween.move(nGon, curPos, 1.5f).setOnComplete(stopUp);
+    }
+    void stopUp()
+    {
+        Vector3 curPos = nGon.transform.position;
+        curPos.y += .24f;
+
+        LeanTween.move(nGon, curPos, 1.5f).setDelay(.5f);
+    }
 
     //called from Manager.playAud25()
     public void doShuffle()
@@ -686,7 +702,7 @@ public class GridObjectsManager : MonoBehaviour
         c10Positions = new List<Vector3>();
         c10Positions.Add(new Vector3(3.807f, -1.404f, 2.266f));//noodle - rotation -177.617, -363.72, 4.323
         c10Positions.Add(new Vector3(2.692f, -1.425f, 3.676f));//foamBall
-        c10Positions.Add(new Vector3(5.454f, -0.184f, 1.809f));//stopSign
+        c10Positions.Add(new Vector3(5.454f, -1.392f, 1.809f));//stopSign
         c10Positions.Add(new Vector3(4.533f, -1.426f, 3.179f));//blackHole
         c10Positions.Add(new Vector3(3.163f, -1.426f, 2.277f));//blackHole2
         c10Positions.Add(new Vector3(1.789f, -1.426f, 3.643f));//blackHole3
@@ -709,7 +725,7 @@ public class GridObjectsManager : MonoBehaviour
         c5Positions = new List<Vector3>();
         c5Positions.Add(new Vector3(3.85f, -1.391f, 3.214f));//noodle - rotation -179.406, -365.51, 3.141998
         c5Positions.Add(new Vector3(5.453f, -1.425f, 2.289f));//foamBall
-        c5Positions.Add(new Vector3(4.053f, -0.184f, 2.711f));//stopSign
+        c5Positions.Add(new Vector3(4.053f, -1.392f, 2.711f));//stopSign
         c5Positions.Add(new Vector3(1.327f, -1.426f, 1.812f));//blackHole
         c5Positions.Add(new Vector3(3.621f, -1.426f, 3.179f));//blackHole2
         c5Positions.Add(new Vector3(4.994f, -1.426f, 2.269f));//blackHole3
@@ -731,7 +747,7 @@ public class GridObjectsManager : MonoBehaviour
         c11Positions = new List<Vector3>();
         c11Positions.Add(new Vector3(2.013f, -1.4f, 1.786f));//noodle - rotation -178.895, -537.399, 179.238 - same noodle pos as C10
         c11Positions.Add(new Vector3(5.44f, -1.425f, 2.286f));//foamBall
-        c11Positions.Add(new Vector3(4.048f, -0.181f, 2.717f));//stopSign
+        c11Positions.Add(new Vector3(4.048f, -1.392f, 2.717f));//stopSign
         c11Positions.Add(new Vector3(1.789f, -1.426f, 3.635f));//blackHole
         c11Positions.Add(new Vector3(1.79f, -1.426f, 1.816f));//blackHole2
         c11Positions.Add(new Vector3(4.531f, -1.426f, 3.187f));//blackHole3

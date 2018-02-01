@@ -12,6 +12,7 @@ ModelImporter:
     100008: //RootNode
     100010: Box001
     100012: Box002
+    100014: stopSignBase
     400000: Circle001
     400002: Circle002
     400004: Cylinder001
@@ -19,6 +20,7 @@ ModelImporter:
     400008: //RootNode
     400010: Box001
     400012: Box002
+    400014: stopSignBase
     2300000: Circle001
     2300002: Circle002
     2300004: Cylinder001
@@ -26,6 +28,7 @@ ModelImporter:
     2300008: Box001
     2300010: Box002
     2300012: //RootNode
+    2300014: stopSignBase
     3300000: Circle001
     3300002: Circle002
     3300004: Cylinder001
@@ -33,18 +36,20 @@ ModelImporter:
     3300008: Box001
     3300010: Box002
     3300012: //RootNode
+    3300014: stopSignBase
     4300000: NGon001
     4300002: Cylinder001
     4300004: Circle001
     4300006: Circle002
     4300008: Box001
     4300010: Box002
+    4300012: stopSignBase
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 03 - Default
-    second: {fileID: 2100000, guid: 6ac3c9ad96b325741b20a736d6b0d2c2, type: 2}
+    second: {fileID: 2100000, guid: c0e9167cb2d0fce4d9aeb391b11dfa66, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -59,7 +64,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: 'Material #61'
-    second: {fileID: 2100000, guid: 299a6d3d157bd954bb676230677fd0d0, type: 2}
+    second: {fileID: 2100000, guid: 200e9b0e6f965b34fbd7f676cfddf91c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

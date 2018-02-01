@@ -220,7 +220,7 @@ public class LuxMeterManager : MonoBehaviour
         LeanTween.value(player, fill50, .15f, 1f, .25f).setDelay(.3f);
         LeanTween.value(player, fill10, .15f, 1f, .25f).setDelay(.4f);
         LeanTween.value(player, fill4, .15f, 1f, .25f).setDelay(.5f);
-        LeanTween.value(player, fill1, .15f, 1f, .25f).setDelay(.6f);
+       // LeanTween.value(player, fill1, .15f, 1f, .25f).setDelay(.6f);
 
         LeanTween.scale(bgRect, new Vector3(1.47f, 1, 1), .25f);
         LeanTween.value(player, fillScores, 0f, 1f, 3f);

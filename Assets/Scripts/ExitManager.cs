@@ -5,6 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class ExitManager : MonoBehaviour
 {
+    
+
+    private void Start()
+    {
+        GvrCardboardHelpers.Recenter();
+    }   
+
     public void doReplay()
     {
         SceneManager.LoadScene(1);//hall

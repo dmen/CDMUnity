@@ -14,9 +14,9 @@ public class Manager : MonoBehaviour
     private int currentPathNodeIndex;
 
     private GameObject[] theLights;
-    private Light gridLight;
 
     private ReflectionProbe hallProbe;
+    private ReflectionProbe roomProbe;
 
     private GameObject eyeVideoScreen;//rect attached to camera
     private NodeData lastNodeData;
@@ -40,26 +40,26 @@ public class Manager : MonoBehaviour
     private ErrorHUDManager errorHud;
     private bool userSkipped;
 
+    private bool inTheRoom;//when true the hall probe doesnt get updated
 
     void Start()
     {
-        //userSkipped = true;//TESTING
-        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        userSkipped = false;//TESTING
+        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
         thePlayer = GameObject.Find("Player");//Main camera is a child
         pathToFollow = GameObject.Find("PathForCamera").GetComponent<EditorPath>();
         theLights = GameObject.FindGameObjectsWithTag("aLight");
-
-        gridLight = GameObject.Find("gridLight").GetComponent<Light>();
-
+        
         eyeVideoScreen = GameObject.Find("videoScreen");
         eyeVideoScreen.SetActive(false);
 
         audioManager = GetComponent<AudioManager>();
 
         hallProbe = GameObject.Find("hallProbe").GetComponent<ReflectionProbe>();
+        roomProbe = GameObject.Find("roomProbe").GetComponent<ReflectionProbe>();
 
         blurCanvas = GameObject.Find("blurImage");
         blurMat = blurCanvas.GetComponent<Image>().material;
@@ -69,8 +69,10 @@ public class Manager : MonoBehaviour
         gridObjectsManager = GameObject.Find("gridObjects").GetComponent<GridObjectsManager>();
         luxMeterManager = GameObject.Find("LUXMeter").GetComponent<LuxMeterManager>();
 
-        hallProbe.RenderProbe();
-        
+        inTheRoom = false;
+        hallProbe.RenderProbe();//probe set to scripted update
+        roomProbe.RenderProbe();
+
         //starCanvas
         theStars = GameObject.Find("theStars");
         theStars.GetComponent<CanvasGroup>().alpha = 0;
@@ -98,7 +100,6 @@ public class Manager : MonoBehaviour
             nextNodeData = pathToFollow.pathNodes[currentPathNodeIndex].GetComponent<NodeData>();
 
             thePlayer.transform.position = pathToFollow.pathNodes[currentPathNodeIndex - 1].transform.position;
-            gridNormal(0f);//make the grid normal instantly
             LeanTween.delayedCall(1f, gridObjectsManager.showItAll);
             LeanTween.delayedCall(1.2f, skipArrows);
             LeanTween.delayedCall(1.5f, playAud15);
@@ -118,7 +119,7 @@ public class Manager : MonoBehaviour
     
     void skipArrows()
     {
-        arrowManager.showArrows();
+        arrowManager.showArrows10();
     }
 
     void openIntroDoor()
@@ -139,32 +140,22 @@ public class Manager : MonoBehaviour
     }
 
 
-    void blueGridLight()
-    {
-        LeanTween.value(thePlayer, setGridLight, 0f, 2f, .5f);
-    }
-    void unBlueGridLight()
-    {
-        LeanTween.value(thePlayer, setGridLight, 2f, 0f, .5f);
-    }
-
-    void setGridLight(float val)
-    {
-        gridLight.intensity = val;
-        //need to re-render the probes so the reflection is modified
-        hallProbe.RenderProbe();
-    }
-
-
     void setLights(float val)
     {
-        foreach(GameObject l in theLights)
+        foreach (GameObject l in theLights)
         {
             l.GetComponent<Light>().intensity = val;
         }
 
         //need to re-render the probes so the reflection is modified
-        hallProbe.RenderProbe();
+        if (!inTheRoom)
+        {
+            hallProbe.RenderProbe();
+        }
+        else
+        {
+            roomProbe.RenderProbe();
+        }
     }
 
 
@@ -224,14 +215,17 @@ public class Manager : MonoBehaviour
 
 
         if (nextNodeData.nodeName == "enterRoom")
-        {            
+        {
+            inTheRoom = true;
+
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
-            audioManager.playAudio("vo_7", vo2Complete);//12.5sec
+
+            //we built this course from the ground up...
+            audioManager.playAudio("vo_7", playAud8);//12.5sec
 
             gridObjectsManager.showGrid();
-            blueGridLight();
 
-            LeanTween.delayedCall(6f, gridIntroComplete);
+            LeanTween.delayedCall(6.5f, arrowManager.showArrows10);
         }
 
 
@@ -291,18 +285,12 @@ public class Manager : MonoBehaviour
     void gridIntroComplete()
     {
        // normalLightLevel();
-        unBlueGridLight();
-        gridNormal();
         //add the arrows
-        arrowManager.showArrows(arrowsFinished);
+        
+        LeanTween.delayedCall(4f, playAud8);
     }
 
 
-    //called by arrowManager callback when last arrow completes animating
-    void arrowsFinished()
-    {
-        LeanTween.delayedCall(3f, playAud8);
-    }
     //we added objects of varying height and contrast... to simulate
     void playAud8()
     { 
@@ -323,9 +311,11 @@ public class Manager : MonoBehaviour
     //there was also a stop sign
     void playAud10()
     {
+        LeanTween.delayedCall(4.5f, gridObjectsManager.stopDown);//move stopsign down then back up
         audioManager.playAudio("vo_10", playAud11);//6.8sec
         gridObjectsManager.showStopSign();
     }
+
     //black squares represented holes in the ground
     void playAud11()
     {
@@ -356,7 +346,7 @@ public class Manager : MonoBehaviour
     //begin to build lux meter
     void playAud15()
     {
-        
+        //audioManager.playAudio("vo_15", playAud25);//21.2sec
         audioManager.playAudio("vo_15", playAud16);//21.2sec
         LeanTween.delayedCall(4f, luxMeterManager.showMeter);//show meter at 'we added 7 different lux levels'
     }
@@ -419,7 +409,7 @@ public class Manager : MonoBehaviour
     //each lux level assigned score code
     void playAud24()
     {
-        //lux meter chapper is just the 400 - 1 explanation
+        //lux meter chapter is just the 400 - 1 explanation
         //userSkipped = false; //TESTING
         if (userSkipped)
         {
@@ -444,14 +434,20 @@ public class Manager : MonoBehaviour
         audioManager.playAudio("vo_25", playAud26);//6.2sec
 
         //12 sep VO starts 4 sec in
-        LeanTween.delayedCall(4f, arrowManager.fadeOutArrows);
+        LeanTween.delayedCall(4f, arrowManager.hideArrows10);
         LeanTween.delayedCall(4.5f, gridObjectsManager.doShuffle);
+        LeanTween.delayedCall(7f, arrowManager.showArrows5);//c10 down in 2 sec - c5 back up at 4sec
+        //waits for ~3sec then shows 11
+        LeanTween.delayedCall(10f, arrowManager.hideArrows5);
+        LeanTween.delayedCall(14f, arrowManager.showArrows11);
+        LeanTween.delayedCall(18f, arrowManager.hideArrows11);
+        LeanTween.delayedCall(21f, arrowManager.showArrows10);
     }
 
     //called from gridObjectsManager once shuffle is complete
     public void bringBackArrows()
-    {
-        arrowManager.fadeInArrows();
+    {        
+        arrowManager.killExtras();//sets active false on arrow groups 5 and 11
     }
 
     //A validation study was performed
@@ -600,29 +596,7 @@ public class Manager : MonoBehaviour
         blurMat.SetFloat("_BlurSize", val);
         blurMat.SetFloat("_Lightness", 0f - (val * .25f));
     }
-
-
-    //GRID
-    void gridNormal(float speed = 3f)
-    {
-        // _V_WIRE_Color,            _Color            _V_WIRE_Size
-        LeanTween.value(thePlayer, setWireCol, new Color(.9f, .0f, 0f), new Color(0, 0, 0), speed);
-        //LeanTween.value(thePlayer, setGridCol, new Color(0,0,0), new Color(1,1,1), 3f);
-        LeanTween.value(thePlayer, setWireSize, 4.26f, 1.5f, speed);
-    }
-    void setWireCol(Color col)
-    {
-        gridMat.SetColor("_V_WIRE_Color", col);
-    }
-    void setGridCol(Color col)
-    {
-        gridMat.SetColor("_Color", col);
-    }
-    void setWireSize(float s)
-    {
-        gridMat.SetFloat("_V_WIRE_Size", s);
-    }
-
+    
 
     /**
      * Called from HallDoor.cs
