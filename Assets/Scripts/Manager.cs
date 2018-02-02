@@ -47,8 +47,8 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        userSkipped = false;//TESTING
-        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        //userSkipped = false;//TESTING
+        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
