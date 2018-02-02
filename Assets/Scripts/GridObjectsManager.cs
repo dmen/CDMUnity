@@ -659,21 +659,21 @@ public class GridObjectsManager : MonoBehaviour
        
         //Course 10
         c10Positions = new List<Vector3>();
-        c10Positions.Add(new Vector3(3.807f, -1.39f, 2.266f));//noodle - rotation -177.617, -363.72, 4.323
+        c10Positions.Add(new Vector3(3.85f, -1.39f, 2.259f));//noodle - rotation -177.617, -363.72, 4.323
         c10Positions.Add(new Vector3(2.692f, -1.425f, 3.676f));//foamBall
-        c10Positions.Add(new Vector3(5.454f, -1.392f, 1.809f));//stopSign
-        c10Positions.Add(new Vector3(4.533f, -1.426f, 3.179f));//blackHole
-        c10Positions.Add(new Vector3(3.163f, -1.426f, 2.277f));//blackHole2
-        c10Positions.Add(new Vector3(1.789f, -1.426f, 3.643f));//blackHole3
-        c10Positions.Add(new Vector3(5.443f, -1.421f, 3.638f));//grass1
+        c10Positions.Add(new Vector3(5.411f, -1.392f, 1.831f));//stopSign
+        c10Positions.Add(new Vector3(4.54f, -1.429f, 3.183f));//blackHole
+        c10Positions.Add(new Vector3(3.163f, -1.429f, 2.273f));//blackHole2
+        c10Positions.Add(new Vector3(1.789f, -1.429f, 3.643f));//blackHole3
+        c10Positions.Add(new Vector3(5.45f, -1.421f, 3.641f));//grass1
         c10Positions.Add(new Vector3(2.245f, -1.421f, 1.816f));//grass2
         c10Positions.Add(new Vector3(4.989f, -1.429f, 2.729f));//raised1
         c10Positions.Add(new Vector3(4.533f, -1.431f, 2.27f));//raised2
         c10Positions.Add(new Vector3(2.706f, -1.429f, 3.182f));//raised3
         c10Positions.Add(new Vector3(3.618f, -1.431f, 3.642f));//raised4
         c10Positions.Add(new Vector3(1.328f, -0.931f, 1.808f));//wastebasket
-        c10Positions.Add(new Vector3(1.328f, -1.211f, 2.689f));//trafficCone
-        c10Positions.Add(new Vector3(3.561f, -1.211f, 2.689f));//trafficCone2
+        c10Positions.Add(new Vector3(1.315f, -1.211f, 2.73f));//trafficCone
+        c10Positions.Add(new Vector3(3.596f, -1.211f, 2.73f));//trafficCone2
         c10Positions.Add(new Vector3(1.1120f, -1.46f, 4.07f));//doorRoom
 
         noodleRotations.Add(new Quaternion(1, 0, 0, 0));
@@ -684,19 +684,19 @@ public class GridObjectsManager : MonoBehaviour
         c5Positions = new List<Vector3>();
         c5Positions.Add(new Vector3(3.85f, -1.39f, 3.214f));//noodle - rotation -179.406, -365.51, 3.141998
         c5Positions.Add(new Vector3(5.453f, -1.425f, 2.289f));//foamBall
-        c5Positions.Add(new Vector3(4.053f, -1.392f, 2.711f));//stopSign
-        c5Positions.Add(new Vector3(1.327f, -1.426f, 1.812f));//blackHole
-        c5Positions.Add(new Vector3(3.621f, -1.426f, 3.179f));//blackHole2
-        c5Positions.Add(new Vector3(4.994f, -1.426f, 2.269f));//blackHole3
+        c5Positions.Add(new Vector3(4.032f, -1.392f, 2.747f));//stopSign
+        c5Positions.Add(new Vector3(1.335f, -1.429f, 1.812f));//blackHole
+        c5Positions.Add(new Vector3(3.621f, -1.429f, 3.185f));//blackHole2
+        c5Positions.Add(new Vector3(4.994f, -1.429f, 2.272f));//blackHole3
         c5Positions.Add(new Vector3(4.992f, -1.421f, 3.187f));//grass1
-        c5Positions.Add(new Vector3(2.703f, -1.421f, 2.267f));//grass2
+        c5Positions.Add(new Vector3(2.703f, -1.421f, 2.27f));//grass2
         c5Positions.Add(new Vector3(1.791f, -1.429f, 2.729f));//raised1
         c5Positions.Add(new Vector3(3.61f, -1.431f, 1.819f));//raised2
         c5Positions.Add(new Vector3(3.16f, -1.429f, 2.73f));//raised3
         c5Positions.Add(new Vector3(2.244f, -1.431f, 3.642f));//raised4
         c5Positions.Add(new Vector3(4.989f, -0.931f, 1.808f));//wastebasket
-        c5Positions.Add(new Vector3(2.688f, -1.213f, 3.174f));//trafficCone
-        c5Positions.Add(new Vector3(3.595f, -1.211f, 2.713f));//trafficCone2
+        c5Positions.Add(new Vector3(2.688f, -1.213f, 3.205f));//trafficCone
+        c5Positions.Add(new Vector3(3.595f, -1.211f, 2.73f));//trafficCone2
         c5Positions.Add(new Vector3(4.324f, -1.46f, 1.37f));//doorRoom
 
         noodleRotations.Add(new Quaternion(0, 0, 0, -1));
@@ -706,19 +706,19 @@ public class GridObjectsManager : MonoBehaviour
         c11Positions = new List<Vector3>();
         c11Positions.Add(new Vector3(2.013f, -1.39f, 1.786f));//noodle - rotation -178.895, -537.399, 179.238 - same noodle pos as C10
         c11Positions.Add(new Vector3(5.44f, -1.425f, 2.286f));//foamBall
-        c11Positions.Add(new Vector3(4.048f, -1.392f, 2.717f));//stopSign
-        c11Positions.Add(new Vector3(1.789f, -1.426f, 3.635f));//blackHole
-        c11Positions.Add(new Vector3(1.79f, -1.426f, 1.816f));//blackHole2
-        c11Positions.Add(new Vector3(4.531f, -1.426f, 3.187f));//blackHole3
-        c11Positions.Add(new Vector3(3.615f, -1.421f, 1.808f));//grass1
+        c11Positions.Add(new Vector3(4.036f, -1.392f, 2.746f));//stopSign
+        c11Positions.Add(new Vector3(1.789f, -1.429f, 3.641f));//blackHole
+        c11Positions.Add(new Vector3(1.79f, -1.429f, 1.816f));//blackHole2
+        c11Positions.Add(new Vector3(4.536f, -1.429f, 3.187f));//blackHole3
+        c11Positions.Add(new Vector3(3.6189f, -1.421f, 1.816f));//grass1
         c11Positions.Add(new Vector3(5.448f, -1.421f, 3.638f));//grass2
-        c11Positions.Add(new Vector3(3.154f, -1.429f, 2.269f));//raised1
-        c11Positions.Add(new Vector3(3.156f, -1.431f, 3.186f));//raised2
+        c11Positions.Add(new Vector3(3.164f, -1.429f, 2.269f));//raised1
+        c11Positions.Add(new Vector3(3.166f, -1.431f, 3.186f));//raised2
         c11Positions.Add(new Vector3(4.99f, -1.429f, 2.73f));//raised3
         c11Positions.Add(new Vector3(4.535f, -1.431f, 2.27f));//raised4
         c11Positions.Add(new Vector3(1.33f, -0.931f, 3.648f));//wastebasket
-        c11Positions.Add(new Vector3(1.318f, -1.211f, 2.728f));//trafficCone
-        c11Positions.Add(new Vector3(3.599f, -1.211f, 2.727f));//trafficCone2
+        c11Positions.Add(new Vector3(1.318f, -1.211f, 2.736f));//trafficCone
+        c11Positions.Add(new Vector3(3.599f, -1.211f, 2.736f));//trafficCone2
         c11Positions.Add(new Vector3(1.162f, -1.46f, 1.396f));//doorRoom - rotation: 0,180,0
 
         noodleRotations.Add(new Quaternion(0, 0, 0, 1));
