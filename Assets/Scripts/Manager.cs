@@ -234,6 +234,7 @@ public class Manager : MonoBehaviour
         if (nextNodeData.nodeName == "enterRoom")
         {
             inTheRoom = true;
+            roomProbe.RenderProbe();
 
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
 

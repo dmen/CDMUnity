@@ -7,6 +7,8 @@ using UnityEngine.EventSystems;
 
 public class IntroManager : MonoBehaviour
 {
+    private CanvasGroup bg;
+
     private CanvasGroup logo;
     private CanvasGroup developing;
     private CanvasGroup title;
@@ -39,6 +41,8 @@ public class IntroManager : MonoBehaviour
     {
         persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
 
+        bg = GameObject.Find("bg").GetComponent<CanvasGroup>();
+
         logo = GameObject.Find("luxLogo").GetComponent<CanvasGroup>();
         developing = GameObject.Find("developing").GetComponent<CanvasGroup>();
         title = GameObject.Find("title").GetComponent<CanvasGroup>();
@@ -60,6 +64,7 @@ public class IntroManager : MonoBehaviour
         vidMat = GameObject.Find("vidShow").GetComponent<Renderer>().material;
         vidMat.color = new Color(1, 1, 1, 0);
 
+        bg.alpha = 0;
         logo.alpha = 0;
         developing.alpha = 0;
         title.alpha = 0;
@@ -101,7 +106,9 @@ public class IntroManager : MonoBehaviour
 
 
     void showThings()
-    { 
+    {
+        LeanTween.alphaCanvas(bg, 1f, 1f);
+
         LeanTween.alphaCanvas(logo, 1f, 2f);
         LeanTween.alphaCanvas(developing, 1f, .5f).setDelay(.5f);
         LeanTween.alphaCanvas(title, 1f, .5f).setDelay(1f);
