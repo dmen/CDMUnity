@@ -115,7 +115,7 @@ public class IntroManager : MonoBehaviour
         LeanTween.alphaCanvas(skipButton, 1f, 2f).setDelay(2.5f);
         LeanTween.alphaCanvas(skip, 1f, 2f).setDelay(2.5f);
 
-        LeanTween.delayedCall(4f, startVO);
+        //LeanTween.delayedCall(4f, startVO);
 
         startBase.SetActive(true);//responds to gaze now
         skipBase.SetActive(true);

@@ -6,16 +6,7 @@ using System;
 public class GridObjectsManager : MonoBehaviour
 {
     Manager mainManager;
-
-    //footsteps in hallway
-    GameObject step1;
-    GameObject step2;
-    GameObject step3;
-    GameObject step4;
-    GameObject step5;
-    GameObject step6;
-    GameObject step7;
-
+    
     GameObject grid;
 
     GameObject noodle;
@@ -57,14 +48,6 @@ public class GridObjectsManager : MonoBehaviour
         //for calling Manager.bringBackArrows once the shuffle is complete
         mainManager = GameObject.Find("theManager").GetComponent<Manager>();
 
-        step1 = GameObject.Find("step1");
-        step2 = GameObject.Find("step2");
-        step3 = GameObject.Find("step3");
-        step4 = GameObject.Find("step4");
-        step5 = GameObject.Find("step5");
-        step6 = GameObject.Find("step6");
-        step7 = GameObject.Find("step7");
-
         grid = GameObject.Find("grid");
 
         noodle = GameObject.Find("noodle");
@@ -95,15 +78,8 @@ public class GridObjectsManager : MonoBehaviour
         grid.transform.position = pos;
 
         createPositionMaps();
-        setCourse(10);
-        
-        step1.SetActive(false);
-        step2.SetActive(false);
-        step3.SetActive(false);
-        step4.SetActive(false);
-        step5.SetActive(false);
-        step6.SetActive(false);
-        step7.SetActive(false);
+        setCourse(10);        
+       
         noodle.SetActive(false);
         stick.SetActive(false);
         foamBall.SetActive(false);
@@ -127,54 +103,7 @@ public class GridObjectsManager : MonoBehaviour
     }
 
 
-    public void showFootSteps()
-    {
-        Vector3 floatPosition;
-        float stepDelay = .3f;
-
-        objectDestination = step1.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .25f, objectDestination.z);
-        step1.transform.position = floatPosition;
-        step1.SetActive(true);
-        LeanTween.move(step1, objectDestination, 1f).setEase(LeanTweenType.easeOutBack);
-
-        objectDestination = step2.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .25f, objectDestination.z);
-        step2.transform.position = floatPosition;
-        step2.SetActive(true);
-        LeanTween.move(step2, objectDestination, 1f).setDelay(stepDelay).setEase(LeanTweenType.easeOutBack);
-
-        objectDestination = step3.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .25f, objectDestination.z);
-        step3.transform.position = floatPosition;
-        step3.SetActive(true);
-        LeanTween.move(step3, objectDestination, 1f).setDelay(stepDelay * 2).setEase(LeanTweenType.easeOutBack);
-
-        objectDestination = step4.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .25f, objectDestination.z);
-        step4.transform.position = floatPosition;
-        step4.SetActive(true);
-        LeanTween.move(step4, objectDestination, 1f).setDelay(stepDelay * 3).setEase(LeanTweenType.easeOutBack);
-
-        objectDestination = step5.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .25f, objectDestination.z);
-        step5.transform.position = floatPosition;
-        step5.SetActive(true);
-        LeanTween.move(step5, objectDestination, 1f).setDelay(stepDelay * 4).setEase(LeanTweenType.easeOutBack);
-
-        objectDestination = step6.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .25f, objectDestination.z);
-        step6.transform.position = floatPosition;
-        step6.SetActive(true);
-        LeanTween.move(step6, objectDestination, 1f).setDelay(stepDelay * 5).setEase(LeanTweenType.easeOutBack);
-
-        objectDestination = step7.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .25f, objectDestination.z);
-        step7.transform.position = floatPosition;
-        step7.SetActive(true);
-        LeanTween.move(step7, objectDestination, 1f).setDelay(stepDelay * 6).setEase(LeanTweenType.easeOutBack);
-    }
-
+    //moves the stopSign up/down
     public void stopDown()
     {
         Vector3 curPos = nGon.transform.position;
@@ -189,6 +118,7 @@ public class GridObjectsManager : MonoBehaviour
 
         LeanTween.move(nGon, curPos, 1.5f).setDelay(.5f);
     }
+
 
     //called from Manager.playAud25()
     public void doShuffle()
@@ -769,14 +699,6 @@ public class GridObjectsManager : MonoBehaviour
     public void showItAll()
     {
         showGrid();
-        step1.SetActive(true);
-        step2.SetActive(true);
-        step3.SetActive(true);
-        step4.SetActive(true);
-        step5.SetActive(true);
-        step6.SetActive(true);
-        step7.SetActive(true);
-        noodle.SetActive(true);
        // stick.SetActive(true);
         foamBall.SetActive(true);
         //shrub.SetActive(true);
@@ -814,7 +736,11 @@ public class GridObjectsManager : MonoBehaviour
         noodle.transform.position = floatPosition;
         noodle.SetActive(true);
        // noodle.GetComponent<Animator>().SetTrigger("noodleMotion");
-        LeanTween.move(noodle, objectDestination, 2f).setEase(LeanTweenType.easeOutBack).setOnComplete(showStick);
+        LeanTween.move(noodle, objectDestination, 2f).setEase(LeanTweenType.easeOutBack).setOnComplete(waitOne);
+    }
+    void waitOne()
+    {
+        LeanTween.delayedCall(1f, showStick);
     }
     private void showStick()
     {
@@ -836,7 +762,7 @@ public class GridObjectsManager : MonoBehaviour
         foamBall.transform.position = floatPosition;
         foamBall.SetActive(true);
         LeanTween.move(foamBall, objectDestination, 1f).setEase(LeanTweenType.easeOutBack);
-        LeanTween.delayedCall(7f, showShrub);
+        LeanTween.delayedCall(8f, showShrub);
     }
     private void showShrub()
     {

@@ -18,7 +18,10 @@ public class Manager : MonoBehaviour
     private ReflectionProbe hallProbe;
     private ReflectionProbe roomProbe;
 
-    private GameObject eyeVideoScreen;//rect attached to camera
+    private GameObject eyeVideoScreen;
+    private GameObject footVideoScreen;//footSteps
+    private Material footVideoMat;//for fading the video in/out
+
     private NodeData lastNodeData;
     private NodeData nextNodeData;
 
@@ -44,8 +47,8 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        //userSkipped = true;//TESTING
-        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        userSkipped = false;//TESTING
+        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
@@ -55,6 +58,11 @@ public class Manager : MonoBehaviour
         
         eyeVideoScreen = GameObject.Find("videoScreen");
         eyeVideoScreen.SetActive(false);
+
+        footVideoScreen = GameObject.Find("videoScreenFeet");
+        footVideoMat = footVideoScreen.GetComponent<Renderer>().material;
+        footVideoMat.color = new Color(1, 1, 1, 0);
+        footVideoScreen.SetActive(false);
 
         audioManager = GetComponent<AudioManager>();
 
@@ -169,6 +177,14 @@ public class Manager : MonoBehaviour
         LeanTween.move(thePlayer, pathToFollow.pathNodes[currentPathNodeIndex].transform.position, lastNodeData.timeToNextNode).setEase(lastNodeData.ease ? LeanTweenType.easeInOutQuad : LeanTweenType.linear).setOnComplete(nodeReached);                
     }
 
+    void vo4()
+    {
+        audioManager.playAudio("vo_4", vo2Complete);//12.5sec
+    }
+    void vo5()
+    {
+        audioManager.playAudio("vo_5", vo2Complete);//12.5sec
+    }
 
     /**
      * Node tween is complete
@@ -190,6 +206,11 @@ public class Manager : MonoBehaviour
 
             //video screen at 0,3,.4 - to start - above player - this lets white flash happen where it can't be seen
             LeanTween.moveLocalY(eyeVideoScreen, 0f, 0f).setDelay(.25f);
+
+            //audio
+            audioManager.playAudio("vo_3", vo2Complete);//12.5sec
+            LeanTween.delayedCall(8.6f, vo4);
+            LeanTween.delayedCall(13.5f, vo5);
 
             LeanTween.delayedCall(3.8f, addTheStars);
             LeanTween.delayedCall(4f, dimTheLights);
@@ -296,7 +317,7 @@ public class Manager : MonoBehaviour
     void playAud8()
     { 
         audioManager.playAudio("vo_8", playAud9);//11.5sec
-        LeanTween.delayedCall(7f, addTheNoodle);
+        LeanTween.delayedCall(5.5f, addTheNoodle);
     }
     void addTheNoodle()
     {
@@ -347,9 +368,16 @@ public class Manager : MonoBehaviour
     //begin to build lux meter
     void playAud15()
     {
-        //audioManager.playAudio("vo_15", playAud25);//21.2sec
-        audioManager.playAudio("vo_15", playAud16);//21.2sec
-        LeanTween.delayedCall(4f, luxMeterManager.showMeter);//show meter at 'we added 7 different lux levels'
+        if (userSkipped)
+        {
+            audioManager.playAudio("luxLevelIntro", playAud16);//24.6
+            LeanTween.delayedCall(18f, luxMeterManager.showMeter);//show meter at 'we added 7 different lux levels'
+        }
+        else
+        {
+            audioManager.playAudio("vo_15", playAud16);//21.2sec
+            LeanTween.delayedCall(4f, luxMeterManager.showMeter);//show meter at 'we added 7 different lux levels'
+        }
     }
 
     //the 7 lux levels ranged from 1 to 400
@@ -360,7 +388,7 @@ public class Manager : MonoBehaviour
     //400 lux, the brightest setting... office
     void playAud17()
     {
-        audioManager.playAudio("vo_17", playAud18, "sfx_office", 3.5f);//4.8sec
+        audioManager.playAudio("vo_17", playAud18, "sfx_office", 4f);//4.8sec
         luxMeterManager.lux400();
         setLightLevel(.9f, 2f);
     }
@@ -374,28 +402,28 @@ public class Manager : MonoBehaviour
     //the next level, 125 lux mimicked interior of train car at night
     void playAud19()
     {
-        audioManager.playAudio("vo_19", playAud20, "sfx_trainCar", 5f);//4.3sec
+        audioManager.playAudio("vo_19", playAud20, "sfx_trainCar", 7f);//4.3sec
         luxMeterManager.lux125();
         setLightLevel(.52f, 2f);
     }
     //50 lux, an outdoor train station at night - trains passing
     void playAud20()
     {
-        audioManager.playAudio("vo_20", playAud21, "sfx_trainPassing", 2f);//3.3sec
+        audioManager.playAudio("vo_20", playAud21, "sfx_trainPassing", 4f);//3.3sec
         luxMeterManager.lux50();
         setLightLevel(.36f, 2f);
     }
     //10 lux, a city one hour after sunset
     void playAud21()
     {
-        audioManager.playAudio("vo_21", playAud22, "sfx_city", 3.5f);//4.06sec
+        audioManager.playAudio("vo_21", playAud22, "sfx_city", 4f);//4.06sec
         luxMeterManager.lux10();
         setLightLevel(.25f, 2f);
     }
     //4 lux was equivalent to a parking lot at night
     void playAud22()
     {
-        audioManager.playAudio("vo_22", playAud23, "sfx_carDoor", 3f);//3.1sec
+        audioManager.playAudio("vo_22", playAud23, "sfx_carDoor", 3.5f);//3.1sec
         luxMeterManager.lux4();
         setLightLevel(.1f, 2f);
     }
@@ -527,11 +555,11 @@ public class Manager : MonoBehaviour
     void addTheStars()
     {       
         theStars.SetActive(true);
-        LeanTween.value(thePlayer, setStarLevel, 0f, .8f, 1f);
+        LeanTween.value(thePlayer, setStarLevel, 0f, .6f, 1f);
     }
     void removeTheStars()
     {
-        LeanTween.value(thePlayer, setStarLevel, .8f, 0f, 1f).setOnComplete(turnOffStars);
+        LeanTween.value(thePlayer, setStarLevel, .6f, 0f, 1f).setOnComplete(turnOffStars);
     }
     void turnOffStars()
     {
@@ -588,10 +616,33 @@ public class Manager : MonoBehaviour
         LeanTween.value(thePlayer, setBlur, 3f, 0f, 1f);
         moveToNextNode();
         audioManager.playAudio("vo_6", vo2Complete);
-        LeanTween.delayedCall(18f, gridObjectsManager.showFootSteps);
+
+        LeanTween.delayedCall(18f, playFootVid);
         LeanTween.moveLocalY(eyeVideoScreen, 3f, 0f).setDelay(.2f);//move back above player
     }
-
+    void playFootVid()
+    {
+        footVideoScreen.SetActive(true);
+        fadeInFootVid();
+        footVideoScreen.GetComponent<VideoPlayer>().Play();
+        LeanTween.delayedCall(3f, fadeOutFootVid);
+    }
+    void fadeInFootVid()
+    {
+        LeanTween.value(thePlayer, setVidColor, new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), .5f);
+    }
+    void fadeOutFootVid()
+    {
+        LeanTween.value(thePlayer, setVidColor, new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), .5f).setOnComplete(killFootVid);
+    }
+    void setVidColor(Color val)
+    {
+        footVideoMat.color = val;
+    }
+    void killFootVid()
+    {
+        footVideoScreen.SetActive(false);
+    }
     void setBlur(float val)
     {
         blurMat.SetFloat("_BlurSize", val);

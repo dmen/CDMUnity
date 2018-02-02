@@ -17,16 +17,16 @@ VideoClipImporter:
   frameRate: 29.970029830932617
   colorSpace: 0
   deinterlace: 0
-  sourceFileSize: 982783
+  sourceFileSize: 399729
   encodeAlpha: 1
   sourceHasAlpha: 1
   flipVertical: 0
   flipHorizontal: 0
   pixelAspectRatioNumerator: 1
   pixelAspectRatioDenominator: 1
-  importAudio: 1
-  sourceAudioChannelCount: 0100
-  sourceAudioSampleRate: 80bb0000
+  importAudio: 0
+  sourceAudioChannelCount: 
+  sourceAudioSampleRate: 
   targetSettings:
     0:
       enableTranscoding: 0
@@ -55,7 +55,7 @@ VideoClipImporter:
     streamedResource:
       source: 
       offset: 0
-      size: 982783
+      size: 399729
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -27,6 +27,7 @@ public class AudioManager : MonoBehaviour
         //audio sources attached to the camera
         source = GameObject.Find("playerAudio").GetComponent<AudioSource>();
         sfxSource = GameObject.Find("playerSFX").GetComponent<AudioSource>();
+       
 
         isPlaying = false;
 	}
@@ -57,6 +58,7 @@ public class AudioManager : MonoBehaviour
 
     private void playSFX()
     {
+        sfxSource.volume = .1f;
         sfxSource.PlayOneShot(sfxClip);
     }
     
