@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 4b5eed3bba2596042a4f11fb5c3f9838
+timeCreated: 1517595365
+licenseType: Pro
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: gridBase
+    100002: //RootNode
+    100004: l1
+    100006: l10
+    100008: l11
+    100010: l12
+    100012: l13
+    100014: l14
+    100016: l15
+    100018: l16
+    100020: l17
+    100022: l2
+    100024: l3
+    100026: l4
+    100028: l5
+    100030: l6
+    100032: l7
+    100034: l8
+    100036: l9
+    400000: gridBase
+    400002: //RootNode
+    400004: l1
+    400006: l10
+    400008: l11
+    400010: l12
+    400012: l13
+    400014: l14
+    400016: l15
+    400018: l16
+    400020: l17
+    400022: l2
+    400024: l3
+    400026: l4
+    400028: l5
+    400030: l6
+    400032: l7
+    400034: l8
+    400036: l9
+    2300000: gridBase
+    2300002: l1
+    2300004: l10
+    2300006: l11
+    2300008: l12
+    2300010: l13
+    2300012: l14
+    2300014: l15
+    2300016: l16
+    2300018: l17
+    2300020: l2
+    2300022: l3
+    2300024: l4
+    2300026: l5
+    2300028: l6
+    2300030: l7
+    2300032: l8
+    2300034: l9
+    3300000: gridBase
+    3300002: l1
+    3300004: l10
+    3300006: l11
+    3300008: l12
+    3300010: l13
+    3300012: l14
+    3300014: l15
+    3300016: l16
+    3300018: l17
+    3300020: l2
+    3300022: l3
+    3300024: l4
+    3300026: l5
+    3300028: l6
+    3300030: l7
+    3300032: l8
+    3300034: l9
+    4300000: gridBase
+    4300002: l1
+    4300004: l2
+    4300006: l3
+    4300008: l4
+    4300010: l5
+    4300012: l6
+    4300014: l7
+    4300016: l8
+    4300018: l9
+    4300020: l10
+    4300022: l11
+    4300024: l12
+    4300026: l13
+    4300028: l14
+    4300030: l15
+    4300032: l16
+    4300034: l17
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blackLineGrid
+    second: {fileID: 2100000, guid: e23b9c682b032f344b33c72f78d51e80, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: whiteGrid
+    second: {fileID: 2100000, guid: cc8fe444e6bbe214fbf076214165f9f6, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

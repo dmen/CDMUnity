@@ -29,7 +29,6 @@ public class Manager : MonoBehaviour
 
     private GameObject blurCanvas;
     private Material blurMat;
-    private Material gridMat;
 
     private ArrowManager arrowManager;
     private GridObjectsManager gridObjectsManager;
@@ -71,7 +70,6 @@ public class Manager : MonoBehaviour
 
         blurCanvas = GameObject.Find("blurImage");
         blurMat = blurCanvas.GetComponent<Image>().material;
-        gridMat = GameObject.Find("grid").GetComponent<Renderer>().material;
 
         arrowManager = GameObject.Find("arrows").GetComponent<ArrowManager>();
         gridObjectsManager = GameObject.Find("gridObjects").GetComponent<GridObjectsManager>();
@@ -230,9 +228,6 @@ public class Manager : MonoBehaviour
             eyeVideoScreen.GetComponent<VideoPlayer>().Stop();
             eyeVideoScreen.SetActive(false);
             blurCanvas.SetActive(false);
-
-            //open door - animation event at end of clip will call hallDoorWaitComplete()
-            GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");            
         }
 
 
@@ -245,7 +240,7 @@ public class Manager : MonoBehaviour
             //we built this course from the ground up...
             audioManager.playAudio("vo_7", playAud8);//12.5sec
 
-            gridObjectsManager.showGrid();
+            //gridObjectsManager.showGrid();//this is a bit earlier now
 
             LeanTween.delayedCall(6.5f, arrowManager.showArrows10);
         }
@@ -355,6 +350,14 @@ public class Manager : MonoBehaviour
     {
         audioManager.playAudio("vo_13", playAud14);//3.7sec
         gridObjectsManager.showRaisedBlocks();
+        LeanTween.delayedCall(1f, upTheArrow);
+    }
+    void upTheArrow()
+    {
+        GameObject g = GameObject.Find("arrowc10spec");
+        Vector3 pos = g.transform.position;
+        pos.y += .0517f;
+        g.transform.position = pos;
     }
     //additional objects were added...
     void playAud14()
@@ -555,11 +558,11 @@ public class Manager : MonoBehaviour
     void addTheStars()
     {       
         theStars.SetActive(true);
-        LeanTween.value(thePlayer, setStarLevel, 0f, .6f, 1f);
+        LeanTween.value(thePlayer, setStarLevel, 0f, .5f, 1f);
     }
     void removeTheStars()
     {
-        LeanTween.value(thePlayer, setStarLevel, .6f, 0f, 1f).setOnComplete(turnOffStars);
+        LeanTween.value(thePlayer, setStarLevel, .5f, 0f, 1f).setOnComplete(turnOffStars);
     }
     void turnOffStars()
     {
@@ -615,16 +618,30 @@ public class Manager : MonoBehaviour
     {
         LeanTween.value(thePlayer, setBlur, 3f, 0f, 1f);
         moveToNextNode();
-        audioManager.playAudio("vo_6", vo2Complete);
 
+        audioManager.playAudio("vo_6", vo2Complete);//46 sec
+
+        //open door at 30 sec
+        LeanTween.delayedCall(29f, openTheDoor);
+        //and then begin showing the grid...
+        LeanTween.delayedCall(42f, gridObjectsManager.showGrid);
+
+        //open door - animation event at end of clip will call hallDoorWaitComplete()
+        //GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");            
         LeanTween.delayedCall(18f, playFootVid);
         LeanTween.moveLocalY(eyeVideoScreen, 3f, 0f).setDelay(.2f);//move back above player
+    }
+    void openTheDoor()
+    {
+        //open door - animation event at end of clip will call hallDoorWaitComplete()
+        GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");
     }
     void playFootVid()
     {
         footVideoScreen.SetActive(true);
         fadeInFootVid();
         footVideoScreen.GetComponent<VideoPlayer>().Play();
+        LeanTween.moveLocalY(footVideoScreen, 0f, 0f).setDelay(.25f);
         LeanTween.delayedCall(3f, fadeOutFootVid);
     }
     void fadeInFootVid()
@@ -657,7 +674,7 @@ public class Manager : MonoBehaviour
     {
         //door has been opened - dim the lights and proceed        
        // setLightLevel(.1f, 5f);
-        moveToNextNode();
+        //moveToNextNode();
     }
 
 
