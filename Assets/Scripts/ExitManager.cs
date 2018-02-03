@@ -48,10 +48,12 @@ public class ExitManager : MonoBehaviour
     {
         LeanTween.value(thePlayer, setVidColor, new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1f).setOnComplete(showStuff);
     }
+
     void setVidColor(Color val)
     {
         vidMat.color = val;
     }
+
     void showStuff()
     {
         CanvasGroup c = GameObject.Find("Canvas").GetComponent<CanvasGroup>();

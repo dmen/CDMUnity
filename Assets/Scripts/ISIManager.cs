@@ -10,6 +10,8 @@ public class ISIManager : MonoBehaviour
 
     private void Start()
     {
+        GvrCardboardHelpers.Recenter();
+
         panelIndex = 1;
         panels = GameObject.Find("panels");
     }

@@ -39,6 +39,8 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
+        GvrCardboardHelpers.Recenter();
+
         persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
 
         bg = GameObject.Find("bg").GetComponent<CanvasGroup>();
