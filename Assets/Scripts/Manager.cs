@@ -205,7 +205,7 @@ public class Manager : MonoBehaviour
             eyeVideoScreen.SetActive(true);
 
             //video screen at 0,3,.4 - to start - above player - this lets white flash happen where it can't be seen
-            LeanTween.moveLocalY(eyeVideoScreen, 0f, 0f).setDelay(.25f);
+            LeanTween.moveLocalY(eyeVideoScreen, .14f, 0f).setDelay(.25f);
 
             //audio
             audioManager.playAudio("vo_3", vo2Complete);//12.5sec
