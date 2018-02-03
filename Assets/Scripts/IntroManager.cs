@@ -135,7 +135,7 @@ public class IntroManager : MonoBehaviour
     public void introComplete(bool doSkip = false)
     {
         persist.skip = doSkip;
-        SceneManager.LoadScene(1);//hall
+        SceneManager.LoadScene(1);//ISI Text
     }
 
 
