@@ -240,9 +240,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ButtonContinue.cs" />
-    <Compile Include="Assets\ButtonSlideLeft.cs" />
-    <Compile Include="Assets\ButtonSlideRight.cs" />
     <Compile Include="Assets\GaussianBlur\GaussianBlur_LiveBlur\Demo\Scripts\AlwaysFace.cs" />
     <Compile Include="Assets\GaussianBlur\GaussianBlur_LiveBlur\Demo\Scripts\DemoSliderControl.cs" />
     <Compile Include="Assets\GaussianBlur\GaussianBlur_LiveBlur\Demo\Scripts\Rotate.cs" />
@@ -355,8 +352,6 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrVRHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
-    <Compile Include="Assets\GridTest.cs" />
-    <Compile Include="Assets\ISIManager.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\OldGUIExamplesCS.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingPunch.cs" />
     <Compile Include="Assets\LeanTween\Examples\Archived\TestingRigidbodyCS.cs" />
@@ -387,15 +382,20 @@
     <Compile Include="Assets\PersistentManagaer.cs" />
     <Compile Include="Assets\Scripts\ArrowManager.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\ButtonContinue.cs" />
+    <Compile Include="Assets\Scripts\ButtonSlideLeft.cs" />
+    <Compile Include="Assets\Scripts\ButtonSlideRight.cs" />
     <Compile Include="Assets\Scripts\ButtonStart.cs" />
     <Compile Include="Assets\Scripts\EditorPath.cs" />
     <Compile Include="Assets\Scripts\ErrorHUDManager.cs" />
     <Compile Include="Assets\Scripts\ExitButtonScript.cs" />
     <Compile Include="Assets\Scripts\ExitManager.cs" />
     <Compile Include="Assets\Scripts\GridObjectsManager.cs" />
+    <Compile Include="Assets\Scripts\GridTest.cs" />
     <Compile Include="Assets\Scripts\HallDoor.cs" />
     <Compile Include="Assets\Scripts\IntroDoor.cs" />
     <Compile Include="Assets\Scripts\IntroManager.cs" />
+    <Compile Include="Assets\Scripts\ISIManager.cs" />
     <Compile Include="Assets\Scripts\LuxMeterManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\NodeData.cs" />

@@ -359,6 +359,11 @@ public class Manager : MonoBehaviour
         Vector3 pos = g.transform.position;
         pos.y += .0517f;
         g.transform.position = pos;
+        //
+        GameObject g2 = GameObject.Find("arrowc10spec2");
+        pos = g.transform.position;
+        pos.y += .0517f;
+        g2.transform.position = pos;
     }
     //additional objects were added...
     void playAud14()
@@ -554,7 +559,7 @@ public class Manager : MonoBehaviour
     }
     void showEnding()
     {
-        SceneManager.LoadScene(2);//end.
+        SceneManager.LoadScene(3);//exit scene
     }
     void addTheStars()
     {       
