@@ -361,7 +361,7 @@ public class Manager : MonoBehaviour
         g.transform.position = pos;
         //
         GameObject g2 = GameObject.Find("arrowc10spec2");
-        pos = g.transform.position;
+        pos = g2.transform.position;
         pos.y += .0517f;
         g2.transform.position = pos;
     }
