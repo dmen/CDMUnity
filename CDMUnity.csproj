@@ -379,6 +379,7 @@
     <Compile Include="Assets\Lighting Effects\Scripts\SimpleFlareSystem\ShaftVolume.cs" />
     <Compile Include="Assets\Lighting Effects\Scripts\SimpleFlareSystem\SimpleFlare.cs" />
     <Compile Include="Assets\Lighting Effects\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\Scripts\AngleBetween.cs" />
     <Compile Include="Assets\Scripts\ArrowManager.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\ButtonContinue.cs" />
