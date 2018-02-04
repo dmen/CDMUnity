@@ -430,7 +430,7 @@ public class GridObjectsManager : MonoBehaviour
         d.y -= m;
         doorRoom.transform.position = d;
 
-        //move it all back up onto the grrid in the new c11 positions
+        //move it all back up onto the grid in the new c11 positions
         LeanTween.move(noodle, c11Positions[0], .5f).setDelay(0f).setEase(LeanTweenType.easeOutBack);
         LeanTween.move(foamBall, c11Positions[1], .5f).setDelay(.1f).setEase(LeanTweenType.easeOutBack);
         LeanTween.move(stopSign, c11Positions[2], .5f).setDelay(.2f).setEase(LeanTweenType.easeOutBack);
@@ -581,7 +581,7 @@ public class GridObjectsManager : MonoBehaviour
         d.y -= m;
         doorRoom.transform.position = d;
 
-        //move it all back up onto the grrid in the new c11 positions
+        //move it all back up onto the grid in the new c10 positions
         LeanTween.move(noodle, c10Positions[0], .5f).setDelay(0f).setEase(LeanTweenType.easeOutBack);
         LeanTween.move(foamBall, c10Positions[1], .5f).setDelay(.1f).setEase(LeanTweenType.easeOutBack);
         LeanTween.move(stopSign, c10Positions[2], .5f).setDelay(.2f).setEase(LeanTweenType.easeOutBack);

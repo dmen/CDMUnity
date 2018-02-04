@@ -12,8 +12,7 @@ public class ErrorHUDManager : MonoBehaviour
     bool showing = false;
     float startTime;
     TimeSpan t;
-
-    GameObject error3;//red ball indicator
+   
     Text errorText;
 
     GameObject eb1;//errorBall
@@ -22,7 +21,9 @@ public class ErrorHUDManager : MonoBehaviour
     GameObject eb4;
     GameObject redError;//full screen red rect
     CanvasGroup redErrorAlpha;
-
+    bool goFaster;
+    bool running;
+    Material bgMat;
 
     void Awake ()
     {
@@ -30,6 +31,9 @@ public class ErrorHUDManager : MonoBehaviour
         eb2 = GameObject.Find("errorBall2");
         eb3 = GameObject.Find("errorBall3");
         eb4 = GameObject.Find("errorBall4");
+
+        bgMat = GameObject.Find("errorBG").GetComponent<Image>().material;
+        bgMat.SetColor("_Color", new Color(.392f, .721f, 1f));
 
         errorText = GameObject.Find("errorTitle").GetComponent<Text>();
 
@@ -58,7 +62,9 @@ public class ErrorHUDManager : MonoBehaviour
     public void showHUD()
     {
         showing = true;
-        startTime = 145f; //timer start time - in seconds
+        running = true;
+        goFaster = false;
+        startTime = 125f; //timer start time - in seconds
         mainHUD.SetActive(true);
         LeanTween.alphaCanvas(mainAlpha, 1f, 1f);
     }
@@ -130,15 +136,48 @@ public class ErrorHUDManager : MonoBehaviour
 
     private void Update()
     {
-        if (showing)
+        
+        if (running && showing)
         {
-            startTime += Time.deltaTime;//seconds to complete last frame
+            if (goFaster)
+            {
+                startTime += Time.deltaTime * 10f;
+            }
+            else
+            {
+                startTime += Time.deltaTime;//seconds to complete last frame
+            }
+            
             t = TimeSpan.FromSeconds(startTime);
-            timer.text = String.Format("{0:00}:{1:00}.{2:000}", t.Minutes, t.Seconds, t.Milliseconds);
+            //must stop at 3min
+            if(t.Minutes >= 3f)
+            {
+                timer.text = "TIME: 03:00.000";
+                running = false;
+                turnRed();
+            }
+            else
+            {
+                timer.text = "TIME: " + String.Format("{0:00}:{1:00}.{2:000}", t.Minutes, t.Seconds, t.Milliseconds);
+            }
+           
         }
     }
 
+    //called from Manager.playAud33()
+    public void speedUp()
+    {
+        goFaster = true;
+    }
 
+    void turnRed()
+    {
+        LeanTween.value(eb1, updateColor, new Color(.39f, .72f, 1f), new Color(1f, .392f, .392f), 2f);   
+    }
 
+    void updateColor(Color val)
+    {
+        bgMat.SetColor("_Color", val);
+    }
 
 }

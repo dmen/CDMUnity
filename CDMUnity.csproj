@@ -379,7 +379,6 @@
     <Compile Include="Assets\Lighting Effects\Scripts\SimpleFlareSystem\ShaftVolume.cs" />
     <Compile Include="Assets\Lighting Effects\Scripts\SimpleFlareSystem\SimpleFlare.cs" />
     <Compile Include="Assets\Lighting Effects\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\PersistentManagaer.cs" />
     <Compile Include="Assets\Scripts\ArrowManager.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\Scripts\ButtonContinue.cs" />
@@ -399,6 +398,7 @@
     <Compile Include="Assets\Scripts\LuxMeterManager.cs" />
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\NodeData.cs" />
+    <Compile Include="Assets\Scripts\PersistentManagaer.cs" />
     <Compile Include="Assets\Scripts\ReplayButtonScript.cs" />
     <Compile Include="Assets\Scripts\SkipButtonScript.cs" />
     <Compile Include="Assets\Scripts\StartButtonScript.cs" />

@@ -48,7 +48,7 @@ public class Manager : MonoBehaviour
     {
         GvrCardboardHelpers.Recenter();
 
-        //userSkipped = false;//TESTING
+        //userSkipped = true;//TESTING
         userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
@@ -255,13 +255,6 @@ public class Manager : MonoBehaviour
             audioManager.playAudio("vo_28", playAud29);//7.6sec
             LeanTween.delayedCall(4f, addRightEyeCover);
         }
-
-        if (nextNodeData.nodeName == "hiccup")
-        {
-            Handheld.Vibrate();
-            errorHud.showError3();
-        }
-
 
         if (nextNodeData.nodeName == "stopTimer")
         {
@@ -480,7 +473,7 @@ public class Manager : MonoBehaviour
         //waits for ~3sec then shows 11
         LeanTween.delayedCall(11f, arrowManager.hideArrows5);
         LeanTween.delayedCall(14f, arrowManager.showArrows11);
-        LeanTween.delayedCall(18f, arrowManager.hideArrows11);
+        LeanTween.delayedCall(19f, arrowManager.hideArrows11);
         LeanTween.delayedCall(22f, arrowManager.showArrows10);
     }
 
@@ -528,11 +521,17 @@ public class Manager : MonoBehaviour
     {
         errorHud.showHUD();
         audioManager.playAudio("vo_32", playAud33);//13.2sec
+        LeanTween.delayedCall(4f, errorHud.showError1);
+        LeanTween.delayedCall(6f, errorHud.showError2);
+        LeanTween.delayedCall(8f, errorHud.showError3);
+        LeanTween.delayedCall(10f, errorHud.showError4);
     }
     //in order to pass they had to complete the course...
     void playAud33()
     {
         audioManager.playAudio("vo_33", playAud34);//7.6sec
+
+        LeanTween.delayedCall(2f, errorHud.speedUp);//multiplies delta time to make timer reach 3min faster       
     }
 
     //this allowed us to compare the lowest level..
@@ -540,6 +539,7 @@ public class Manager : MonoBehaviour
     {
         audioManager.playAudio("vo_34", playAud35);//7.14sec
     }
+
     //thank you for visiting our lab
     void playAud35()
     {
