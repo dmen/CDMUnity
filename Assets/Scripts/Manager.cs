@@ -48,7 +48,7 @@ public class Manager : MonoBehaviour
     {
         GvrCardboardHelpers.Recenter();
 
-        //userSkipped = true;//TESTING
+        //userSkipped = false;//TESTING
         userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
@@ -629,7 +629,7 @@ public class Manager : MonoBehaviour
         //open door at 30 sec
         LeanTween.delayedCall(29f, openTheDoor);
         //and then begin showing the grid...
-        LeanTween.delayedCall(42f, showEnding);
+        LeanTween.delayedCall(42f, showTheGrid);
 
         //open door - animation event at end of clip will call hallDoorWaitComplete()
         //GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");            
