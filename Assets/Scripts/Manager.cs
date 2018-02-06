@@ -48,7 +48,7 @@ public class Manager : MonoBehaviour
     {
         GvrCardboardHelpers.Recenter();
 
-        //userSkipped = false;//TESTING
+        //userSkipped = true;//TESTING
         userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
@@ -110,7 +110,9 @@ public class Manager : MonoBehaviour
 
             thePlayer.transform.position = pathToFollow.pathNodes[currentPathNodeIndex - 1].transform.position;
             LeanTween.delayedCall(1f, gridObjectsManager.showItAll);
-            LeanTween.delayedCall(1.2f, skipArrows);
+            upTheArrow();
+            LeanTween.delayedCall(1.2f, arrowManager.showArrows10);
+           // LeanTween.delayedCall(4.2f, upTheArrow);
             LeanTween.delayedCall(1.5f, playAud15);
         }
         else
@@ -124,12 +126,7 @@ public class Manager : MonoBehaviour
             moveToNextNode();
         }
         
-    }
-    
-    void skipArrows()
-    {
-        arrowManager.showArrows10();
-    }
+    }    
 
     void openIntroDoor()
     {
@@ -632,12 +629,16 @@ public class Manager : MonoBehaviour
         //open door at 30 sec
         LeanTween.delayedCall(29f, openTheDoor);
         //and then begin showing the grid...
-        LeanTween.delayedCall(42f, gridObjectsManager.showGrid);
+        LeanTween.delayedCall(42f, showEnding);
 
         //open door - animation event at end of clip will call hallDoorWaitComplete()
         //GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");            
         LeanTween.delayedCall(18f, playFootVid);
         LeanTween.moveLocalY(eyeVideoScreen, 3f, 0f).setDelay(.2f);//move back above player
+    }
+    void showTheGrid()
+    {
+        gridObjectsManager.showGrid();
     }
     void openTheDoor()
     {

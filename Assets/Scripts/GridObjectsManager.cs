@@ -727,7 +727,7 @@ public class GridObjectsManager : MonoBehaviour
     //called from Manager when user chose skip to lux levels on start screen
     public void showItAll()
     {
-        showGrid();
+        showGrid(true);//don't draw the grid lines
        // stick.SetActive(true);
         foamBall.SetActive(true);
         //shrub.SetActive(true);
@@ -748,13 +748,24 @@ public class GridObjectsManager : MonoBehaviour
     }
 
 
-  
 
-    public void showGrid()
+
+    public void showGrid(bool fast = false)
     {
         Vector3 pos = grid.transform.position;
         pos.y += 1f;
-        LeanTween.move(grid, pos, 1f).setEase(LeanTweenType.easeOutBack).setOnComplete(drawGridLines);
+        if (fast)
+        {
+            for (int i = 0; i < lines.Length; i++)
+            {
+                LeanTween.scale(lines[i], new Vector3(1, 1, 1), 0f);
+            }
+            LeanTween.move(grid, pos, 1f).setEase(LeanTweenType.easeOutBack);
+        }
+        else
+        {
+            LeanTween.move(grid, pos, 1f).setEase(LeanTweenType.easeOutBack).setOnComplete(drawGridLines);
+        }        
     }
 
     void drawGridLines()
