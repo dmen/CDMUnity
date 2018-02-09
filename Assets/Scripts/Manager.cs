@@ -48,7 +48,7 @@ public class Manager : MonoBehaviour
     {
         GvrCardboardHelpers.Recenter();
 
-        userSkipped = false;//TESTING
+        userSkipped = true;//TESTING
         //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
@@ -440,7 +440,7 @@ public class Manager : MonoBehaviour
     void playAud24()
     {
         //lux meter chapter is just the 400 - 1 explanation
-        //userSkipped = false; //TESTING
+        userSkipped = false; //TESTING
         if (userSkipped)
         {
             //thank you for visiting our lab

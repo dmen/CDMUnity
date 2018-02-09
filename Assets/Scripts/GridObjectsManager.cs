@@ -728,6 +728,7 @@ public class GridObjectsManager : MonoBehaviour
     public void showItAll()
     {
         showGrid(true);//don't draw the grid lines
+        noodle.SetActive(true);
        // stick.SetActive(true);
         foamBall.SetActive(true);
         //shrub.SetActive(true);
