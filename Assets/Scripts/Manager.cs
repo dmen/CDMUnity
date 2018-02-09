@@ -48,8 +48,8 @@ public class Manager : MonoBehaviour
     {
         GvrCardboardHelpers.Recenter();
 
-        //userSkipped = false;//TESTING
-        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        userSkipped = false;//TESTING
+        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
@@ -216,9 +216,9 @@ public class Manager : MonoBehaviour
             LeanTween.delayedCall(8.7f, brightTheLights);
             LeanTween.delayedCall(9.7f, dimTheLights);
             LeanTween.delayedCall(11f, normalLightLevel);
-            LeanTween.delayedCall(13.5f, addBlur);
+            LeanTween.delayedCall(14f, addBlur);
 
-            LeanTween.delayedCall(20f, removeBlur);
+            LeanTween.delayedCall(21f, removeBlur);
         }
 
         //entrance to room
@@ -541,6 +541,10 @@ public class Manager : MonoBehaviour
     void playAud35()
     {
         errorHud.hideHUD();
+        LeanTween.delayedCall(2f, delayedEndAudio);
+    }
+    void delayedEndAudio()
+    { 
         audioManager.playAudio("vo_35", showEnding);//6.15sec
     }
 

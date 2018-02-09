@@ -613,7 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.18685105, g: 0.0129757915, b: 0.88235295, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -845,8 +845,8 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 867859493}
-  m_LocalRotation: {x: -0, y: 0.4606596, z: -0, w: 0.88757694}
-  m_LocalPosition: {x: 451, y: -392.41, z: -270}
+  m_LocalRotation: {x: -0, y: 0.8197193, z: -0, w: 0.5727655}
+  m_LocalPosition: {x: 496, y: -392.41, z: -742}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 807924643}
@@ -854,10 +854,10 @@ RectTransform:
   - {fileID: 1791371261}
   m_Father: {fileID: 1102696419}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 54.859, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 110.11301, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 451, y: -392.41}
+  m_AnchoredPosition: {x: 496, y: -392.41}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &867859495
@@ -1591,7 +1591,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0.5921569, b: 0.38431376, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1690,7 +1690,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a27be4be16eae7c4a92e3268fc356e66, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9644e88e90068946b84f7a21c7dc01c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

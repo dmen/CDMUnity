@@ -885,25 +885,13 @@ public class GridObjectsManager : MonoBehaviour
         floatPosition = new Vector3(objectDestination.x, objectDestination.y - .5f, objectDestination.z);
         raised1.transform.position = floatPosition;
         raised1.SetActive(true);
-        LeanTween.move(raised1, objectDestination, 1f).setEase(LeanTweenType.easeOutBack);
-
-        objectDestination = raised2.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .5f, objectDestination.z);
-        raised2.transform.position = floatPosition;
-        raised2.SetActive(true);
-        LeanTween.move(raised2, objectDestination, 1f).setDelay(.2f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.move(raised1, objectDestination, 1f).setEase(LeanTweenType.easeOutBack);       
 
         objectDestination = raised3.transform.position;//original grid position
         floatPosition = new Vector3(objectDestination.x, objectDestination.y - .5f, objectDestination.z);
         raised3.transform.position = floatPosition;
         raised3.SetActive(true);
-        LeanTween.move(raised3, objectDestination, 1f).setDelay(.4f).setEase(LeanTweenType.easeOutBack);
-
-        objectDestination = raised4.transform.position;//original grid position
-        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .5f, objectDestination.z);
-        raised4.transform.position = floatPosition;
-        raised4.SetActive(true);
-        LeanTween.move(raised4, objectDestination, 1f).setDelay(.6f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.move(raised3, objectDestination, 1f).setDelay(.4f).setEase(LeanTweenType.easeOutBack);       
     }
 
 
@@ -929,6 +917,19 @@ public class GridObjectsManager : MonoBehaviour
         trafficCone2.transform.position = floatPosition;
         trafficCone2.SetActive(true);
         LeanTween.move(trafficCone2, objectDestination, 1f).setDelay(.4f).setEase(LeanTweenType.easeOutBack);
+
+        //taller raised blocks
+        objectDestination = raised2.transform.position;//original grid position
+        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .5f, objectDestination.z);
+        raised2.transform.position = floatPosition;
+        raised2.SetActive(true);
+        LeanTween.move(raised2, objectDestination, 1f).setDelay(.6f).setEase(LeanTweenType.easeOutBack);
+
+        objectDestination = raised4.transform.position;//original grid position
+        floatPosition = new Vector3(objectDestination.x, objectDestination.y - .5f, objectDestination.z);
+        raised4.transform.position = floatPosition;
+        raised4.SetActive(true);
+        LeanTween.move(raised4, objectDestination, 1f).setDelay(.8f).setEase(LeanTweenType.easeOutBack);
         /*
         objectDestination = tripod.transform.position;//original grid position
         floatPosition = new Vector3(objectDestination.x, objectDestination.y - .5f, objectDestination.z);
@@ -946,7 +947,7 @@ public class GridObjectsManager : MonoBehaviour
         floatPosition = new Vector3(objectDestination.x, objectDestination.y - 2.5f, objectDestination.z);
         doorRoom.transform.position = floatPosition;
         doorRoom.SetActive(true);
-        LeanTween.move(doorRoom, objectDestination, 1f).setDelay(.8f).setEase(LeanTweenType.easeOutBack);
+        LeanTween.move(doorRoom, objectDestination, 1f).setDelay(1f).setEase(LeanTweenType.easeOutBack);
     }
 
 

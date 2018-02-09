@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public class IntroManager : MonoBehaviour
 {
     private CanvasGroup bg;
+    private CanvasGroup whiteBG;//behind video
 
     private CanvasGroup logo;
     private CanvasGroup developing;
@@ -44,6 +45,7 @@ public class IntroManager : MonoBehaviour
         persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
 
         bg = GameObject.Find("bg").GetComponent<CanvasGroup>();
+        whiteBG = GameObject.Find("whiteBG").GetComponent<CanvasGroup>();
 
         logo = GameObject.Find("luxLogo").GetComponent<CanvasGroup>();
         developing = GameObject.Find("developing").GetComponent<CanvasGroup>();
@@ -99,6 +101,7 @@ public class IntroManager : MonoBehaviour
 
     void fadeOutVideo()
     {
+        LeanTween.alphaCanvas(whiteBG, 0f, 1f);
         LeanTween.value(startBase, setVidColor, new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1f).setOnComplete(showThings);
     }
     void setVidColor(Color val)
@@ -108,7 +111,7 @@ public class IntroManager : MonoBehaviour
 
 
     void showThings()
-    {
+    { 
         LeanTween.alphaCanvas(bg, 1f, 1f);
 
         LeanTween.alphaCanvas(logo, 1f, 2f);
