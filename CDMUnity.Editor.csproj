@@ -311,6 +311,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Beautify\Editor\BeautifyEffectInspector.cs" />
+    <Compile Include="Assets\Beautify\Editor\BeautifyProfileInspector.cs" />
+    <Compile Include="Assets\Beautify\Editor\BeautifySInfo.cs" />
     <Compile Include="Assets\Editor\CourseSetter.cs" />
     <Compile Include="Assets\Editor\Instant Screenshot\ScreenshotTaker.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Editor\DemoInputManagerEditor.cs" />
@@ -331,6 +334,25 @@
     <Compile Include="Assets\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Beautify\Demos\DemoSources\Skybox\README_SKYBOX.txt" />
+    <None Include="Assets\Beautify\README.txt" />
+    <None Include="Assets\Beautify\Resources\Particles\ParticleBlendZBuffer.shader" />
+    <None Include="Assets\Beautify\Resources\Shaders\Beautify.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\Beautify.shader" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyACESFitted.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyAdvancedParams.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyBasic.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyBasic.shader" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyDoF.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyEA.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyLum.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyMobile.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyMobile.shader" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifyOrtho.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\BeautifySF.cginc" />
+    <None Include="Assets\Beautify\Resources\Shaders\CopyDepth.shader" />
+    <None Include="Assets\Beautify\Resources\Shaders\CopyDepthBiased.shader" />
+    <None Include="Assets\Beautify\Resources\Textures\README Textures.txt" />
     <None Include="Assets\GaussianBlur\GaussianBlur_LiveBlur\Resources\GaussianBlurV1.shader" />
     <None Include="Assets\GaussianBlur\GaussianBlur_LiveBlur\Resources\GaussianBlurV2.shader" />
     <None Include="Assets\GaussianBlur\GaussianBlur_LiveBlur\Resources\GaussianBlur_LiveBlur.shader" />
@@ -374,6 +396,7 @@
     <None Include="Assets\Lighting Effects\Shaders\Terrain\Fresnel\4Splat_Unity5_Fresnel.shader" />
     <None Include="Assets\Lighting Effects\Textures\Licence.txt" />
     <None Include="Assets\Materials\Blend2.shader" />
+    <None Include="Assets\Materials\Dave.shader" />
     <None Include="Assets\MobileDiffuseWithTint.shader" />
     <None Include="Assets\UnlitSlpha.shader" />
     <None Include="Assets\VacuumShaders\The Amazing Wireframe Shader\Example Scenes\Files\Example_5\Shader\Background_2D.shader" />

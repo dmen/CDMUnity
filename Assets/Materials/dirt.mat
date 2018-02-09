@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: dirt
-  m_Shader: {fileID: 4800000, guid: b5fe852fc56b5834397280273d03c337, type: 3}
+  m_Shader: {fileID: 4800000, guid: 4e20b400f51645049b2a4298d7b609c1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -84,6 +84,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.27931035, g: 0.22700503, b: 0.1814241, a: 1}
+    - _Color: {r: 0.27931032, g: 0.227005, b: 0.18142405, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}

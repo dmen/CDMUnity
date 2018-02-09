@@ -3257,6 +3257,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9108628d7909b7545a391856ce8c5c8b, type: 3}
+      propertyPath: m_Name
+      value: bushDirt
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 9108628d7909b7545a391856ce8c5c8b, type: 3}
+      propertyPath: m_Name
+      value: bushPot
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9108628d7909b7545a391856ce8c5c8b, type: 3}
   m_IsPrefabParent: 0
@@ -3758,7 +3766,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 02cdc36704d4411478a9154d8c2fce8e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1c066fda1396f0b458a9880d41a6b6b7, type: 2}
+      objectReference: {fileID: 2100000, guid: d24327f0fa8bc614dbc7217825d92328, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02cdc36704d4411478a9154d8c2fce8e, type: 3}
   m_IsPrefabParent: 0
@@ -9370,7 +9378,7 @@ Prefab:
     - target: {fileID: 2300000, guid: 02cdc36704d4411478a9154d8c2fce8e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 1c066fda1396f0b458a9880d41a6b6b7, type: 2}
+      objectReference: {fileID: 2100000, guid: d24327f0fa8bc614dbc7217825d92328, type: 2}
     - target: {fileID: 100000, guid: 02cdc36704d4411478a9154d8c2fce8e, type: 3}
       propertyPath: m_IsActive
       value: 1

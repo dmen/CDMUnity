@@ -12,8 +12,17 @@ public class GridObjectsManager : MonoBehaviour
     GameObject noodle;
     GameObject stick;
 
+    Material noodleMat;
+    Material stickMat;
+
     GameObject foamBall;
     GameObject shrub;
+    Material bushDirt;
+    Material bushPot;
+    Material bush;
+    Material foam;
+    Material foamRod;
+    Material foamBase;
 
     GameObject stopSign;
     GameObject nGon;//inside the stopSign - for moving it up/down
@@ -54,10 +63,20 @@ public class GridObjectsManager : MonoBehaviour
         grid = GameObject.Find("gridLines");
 
         noodle = GameObject.Find("noodle");
-
         stick = GameObject.Find("stick");
+        noodleMat = noodle.GetComponent<Renderer>().material;
+        stickMat = stick.GetComponent<Renderer>().material;
+
         foamBall = GameObject.Find("foamBall");
+        foamBase = foamBall.GetComponent<Renderer>().materials[0];
+        foamRod = foamBall.GetComponent<Renderer>().materials[1];
+        foam = foamBall.GetComponent<Renderer>().materials[2];
+
         shrub = GameObject.Find("theBush");
+        bushDirt = GameObject.Find("bushDirt").GetComponent<Renderer>().material;
+        bushPot = GameObject.Find("bushPot").GetComponent<Renderer>().material;
+        bush = GameObject.Find("shrub").GetComponent<Renderer>().material;
+
         stopSign = GameObject.Find("stopSign");
         nGon = GameObject.Find("NGon001");
         bh1 = GameObject.Find("blackHole");
@@ -789,18 +808,36 @@ public class GridObjectsManager : MonoBehaviour
     }
     void waitOne()
     {
-        LeanTween.delayedCall(1f, showStick);
+        LeanTween.delayedCall(1.5f, showStick);
     }
     private void showStick()
     {
-        stick.SetActive(true);
+        LeanTween.value(grid, setNoodleVal, 1f, 0f, .5f).setOnComplete(fadeInStick);
+    }
+    void setNoodleVal(float val)
+    {
+        noodleMat.SetColor("_Color", new Color(.10588f, .45098f, .8588f, val));        
+    }
+    void fadeInStick()
+    {
         noodle.SetActive(false);
-        LeanTween.delayedCall(2f, hideStick);
+        stick.SetActive(true);
+        LeanTween.value(grid, setStickVal, 0f, 1f, .5f);
+        LeanTween.delayedCall(1.5f, hideStick);
+    }
+    void setStickVal(float val)
+    {
+        stickMat.SetColor("_Color", new Color(.2706f, .22745f, .09412f, val));
     }
     private void hideStick()
     {
+        LeanTween.value(grid, setStickVal, 1f, 0f, .5f).setOnComplete(showNoodle2);
+    }
+    private void showNoodle2()
+    {
         stick.SetActive(false);
         noodle.SetActive(true);
+        LeanTween.value(grid, setNoodleVal, 0f, 1f, .5f);
     }
 
 
@@ -811,21 +848,41 @@ public class GridObjectsManager : MonoBehaviour
         foamBall.transform.position = floatPosition;
         foamBall.SetActive(true);
         LeanTween.move(foamBall, objectDestination, 1f).setEase(LeanTweenType.easeOutBack);
-        LeanTween.delayedCall(8f, showShrub);
+        LeanTween.delayedCall(8f, fadeOutFoam);
     }
-    private void showShrub()
+    private void fadeOutFoam()
     {
-        shrub.SetActive(true);
+        LeanTween.value(grid, setFoamVal, 1f, 0f, .5f).setOnComplete(fadeInShrub);
+    }
+    void setFoamVal(float val)
+    {
+        foam.SetColor("_Color", new Color(.8196f, .8196f, .8196f, val));
+        foamRod.SetColor("_Color", new Color(.0117f, .0117f, .0117f, val));
+        foamBase.SetColor("_Color", new Color(.4509f, .4509f, .4509f, val));
+    }
+    void fadeInShrub()
+    {
         foamBall.SetActive(false);
-        LeanTween.delayedCall(3f, hideShrub);
+        shrub.SetActive(true);
+        LeanTween.value(grid, setShrubVal, 0f, 1f, .5f);
+        LeanTween.delayedCall(2f, fadeOutShrub);
     }
-    private void hideShrub()
+    void setShrubVal(float val)
     {
-        shrub.SetActive(false);
-        foamBall.SetActive(true);
+        bushPot.SetColor("_Color", new Color(1f, 1f, 1f, val));
+        bushDirt.SetColor("_Color", new Color(.2784f, .2274f, .1804f, val));
+        bush.SetColor("_Color", new Color(1f, 1f, 1f, val));
     }
-
-
+    void fadeOutShrub()
+    {
+        LeanTween.value(grid, setShrubVal, 1f, 0f, .5f).setOnComplete(showFoam2);
+    }
+    void showFoam2()
+    {
+        foamBall.SetActive(true);
+        shrub.SetActive(false);
+        LeanTween.value(grid, setFoamVal, 0f, 1f, .5f);
+    }
     public void showStopSign()
     {
         objectDestination = stopSign.transform.position;//original grid position
