@@ -154,13 +154,13 @@ public class Manager : MonoBehaviour
         }
 
         //need to re-render the probes so the reflection is modified
-        if (!inTheRoom)
+        if (inTheRoom)
         {
-            hallProbe.RenderProbe();
+            roomProbe.RenderProbe();            
         }
         else
         {
-            roomProbe.RenderProbe();
+            hallProbe.RenderProbe();
         }
     }
 
@@ -233,6 +233,7 @@ public class Manager : MonoBehaviour
         if (nextNodeData.nodeName == "enterRoom")
         {
             inTheRoom = true;
+            //hallProbe.
             roomProbe.RenderProbe();
 
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");

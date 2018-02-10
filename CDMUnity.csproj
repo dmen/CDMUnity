@@ -398,6 +398,7 @@
     <Compile Include="Assets\Scripts\ErrorHUDManager.cs" />
     <Compile Include="Assets\Scripts\ExitButtonScript.cs" />
     <Compile Include="Assets\Scripts\ExitManager.cs" />
+    <Compile Include="Assets\Scripts\ExitSign.cs" />
     <Compile Include="Assets\Scripts\GridObjectsManager.cs" />
     <Compile Include="Assets\Scripts\GridTest.cs" />
     <Compile Include="Assets\Scripts\HallDoor.cs" />

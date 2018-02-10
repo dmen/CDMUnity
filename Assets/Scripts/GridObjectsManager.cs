@@ -684,8 +684,8 @@ public class GridObjectsManager : MonoBehaviour
         c10Positions.Add(new Vector3(4.54f, -1.429f, 3.183f));//blackHole
         c10Positions.Add(new Vector3(3.163f, -1.429f, 2.273f));//blackHole2
         c10Positions.Add(new Vector3(1.789f, -1.429f, 3.643f));//blackHole3
-        c10Positions.Add(new Vector3(5.45f, -1.421f, 3.641f));//grass1
-        c10Positions.Add(new Vector3(2.245f, -1.421f, 1.816f));//grass2
+        c10Positions.Add(new Vector3(5.45f, -1.429f, 3.641f));//grass1
+        c10Positions.Add(new Vector3(2.245f, -1.429f, 1.816f));//grass2
         c10Positions.Add(new Vector3(4.989f, -1.429f, 2.729f));//raised1
         c10Positions.Add(new Vector3(4.533f, -1.431f, 2.27f));//raised2
         c10Positions.Add(new Vector3(2.706f, -1.429f, 3.182f));//raised3
@@ -707,8 +707,8 @@ public class GridObjectsManager : MonoBehaviour
         c5Positions.Add(new Vector3(1.335f, -1.429f, 1.812f));//blackHole
         c5Positions.Add(new Vector3(3.621f, -1.429f, 3.185f));//blackHole2
         c5Positions.Add(new Vector3(4.994f, -1.429f, 2.272f));//blackHole3
-        c5Positions.Add(new Vector3(4.992f, -1.421f, 3.187f));//grass1
-        c5Positions.Add(new Vector3(2.703f, -1.421f, 2.27f));//grass2
+        c5Positions.Add(new Vector3(4.992f, -1.429f, 3.187f));//grass1
+        c5Positions.Add(new Vector3(2.703f, -1.429f, 2.27f));//grass2
         c5Positions.Add(new Vector3(1.791f, -1.429f, 2.729f));//raised1
         c5Positions.Add(new Vector3(3.61f, -1.431f, 1.819f));//raised2
         c5Positions.Add(new Vector3(3.16f, -1.429f, 2.73f));//raised3
@@ -729,8 +729,8 @@ public class GridObjectsManager : MonoBehaviour
         c11Positions.Add(new Vector3(1.789f, -1.429f, 3.641f));//blackHole
         c11Positions.Add(new Vector3(1.79f, -1.429f, 1.816f));//blackHole2
         c11Positions.Add(new Vector3(4.536f, -1.429f, 3.187f));//blackHole3
-        c11Positions.Add(new Vector3(3.6189f, -1.421f, 1.816f));//grass1
-        c11Positions.Add(new Vector3(5.448f, -1.421f, 3.638f));//grass2
+        c11Positions.Add(new Vector3(3.6189f, -1.429f, 1.816f));//grass1
+        c11Positions.Add(new Vector3(5.448f, -1.429f, 3.638f));//grass2
         c11Positions.Add(new Vector3(3.164f, -1.429f, 2.269f));//raised1
         c11Positions.Add(new Vector3(3.166f, -1.431f, 3.186f));//raised2
         c11Positions.Add(new Vector3(4.99f, -1.429f, 2.73f));//raised3
