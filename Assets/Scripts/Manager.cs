@@ -232,9 +232,10 @@ public class Manager : MonoBehaviour
 
         if (nextNodeData.nodeName == "enterRoom")
         {
-            inTheRoom = true;
+            //MOVED TO openTheDoor() - update ref soon as door opens...
+            //inTheRoom = true;
             //hallProbe.
-            normalLightLevel();//effort to get ref probe to update
+            //normalLightLevel();//effort to get ref probe to update
 
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
 
@@ -647,6 +648,10 @@ public class Manager : MonoBehaviour
     }
     void openTheDoor()
     {
+        inTheRoom = true;
+        //hallProbe.
+        normalLightLevel();//effort to get ref probe to update
+
         //open door - animation event at end of clip will call hallDoorWaitComplete()
         GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("openDoor");
     }
