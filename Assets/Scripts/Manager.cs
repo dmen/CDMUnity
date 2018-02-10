@@ -234,7 +234,7 @@ public class Manager : MonoBehaviour
         {
             inTheRoom = true;
             //hallProbe.
-            roomProbe.RenderProbe();
+            normalLightLevel();//effort to get ref probe to update
 
             GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
 
