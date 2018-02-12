@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
 
     private void playSFX()
     {
-        sfxSource.volume = .3f;
+        sfxSource.volume = .5f;
         sfxSource.PlayOneShot(sfxClip);
     }
     

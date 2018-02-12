@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-//used in Intro scene to keep user choice
+
 public class PersistentManagaer : MonoBehaviour
 {
     bool _skip = false;
-
+    bool _vr = false;
 
     void Awake()
     {
@@ -24,6 +24,18 @@ public class PersistentManagaer : MonoBehaviour
         set
         {
             _skip = value;
+        }
+    }
+
+    public bool vr
+    {
+        get
+        {
+            return _vr;
+        }
+        set
+        {
+            _vr = value;
         }
     }
 }
