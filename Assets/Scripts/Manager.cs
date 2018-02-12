@@ -407,21 +407,21 @@ public class Manager : MonoBehaviour
     {
         audioManager.playAudio("vo_19", playAud20, "sfx_trainCar", 7f);//4.3sec
         luxMeterManager.lux125();
-        setLightLevel(.52f, 2f);
+        setLightLevel(.46f, 2f);
     }
     //50 lux, an outdoor train station at night - trains passing
     void playAud20()
     {
         audioManager.playAudio("vo_20", playAud21, "sfx_trainPassing", 4f);//3.3sec
         luxMeterManager.lux50();
-        setLightLevel(.36f, 2f);
+        setLightLevel(.30f, 2f);
     }
     //10 lux, a city one hour after sunset
     void playAud21()
     {
         audioManager.playAudio("vo_21", playAud22, "sfx_city", 4f);//4.06sec
         luxMeterManager.lux10();
-        setLightLevel(.25f, 2f);
+        setLightLevel(.15f, 2f);
     }
     //4 lux was equivalent to a parking lot at night
     void playAud22()
