@@ -8,6 +8,6 @@ public class ISIManager : MonoBehaviour
     //called by clicking continue
     public void begin()
     {
-        SceneManager.LoadScene(2);//Hall
+        SceneManager.LoadScene(5);//Hall
     }
 }

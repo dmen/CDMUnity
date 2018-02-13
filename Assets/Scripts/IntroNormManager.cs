@@ -25,7 +25,7 @@ public class IntroNormManager : MonoBehaviour
         man = GameObject.Find("Manager");
 
         //defined in select scene
-        //persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
+        persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
 
         bg = GameObject.Find("bg").GetComponent<CanvasGroup>();
 
@@ -85,7 +85,7 @@ public class IntroNormManager : MonoBehaviour
     public void exploreEndpoint()
     {
         persist.skip = false;
-        SceneManager.LoadScene(1);//ISI Text
+        SceneManager.LoadScene(4);//ISI Text
     }
 
     void setVidColor(Color val)
@@ -97,6 +97,6 @@ public class IntroNormManager : MonoBehaviour
     public void skipToLUX()
     {
         persist.skip = true;
-        SceneManager.LoadScene(1);//ISI Text
+        SceneManager.LoadScene(4);//ISI Text
     }
 }

@@ -26,10 +26,7 @@ public class IntroManager : MonoBehaviour
     private PersistentManagaer persist;
 
 
-    void Awake()
-    {
-        Application.targetFrameRate = 60;
-    }
+   
 
 
     void Start()
@@ -127,7 +124,7 @@ public class IntroManager : MonoBehaviour
     public void introComplete(bool doSkip = false)
     {
         persist.skip = doSkip;
-        SceneManager.LoadScene(1);//ISI Text
+        SceneManager.LoadScene(3);//ISICircle
     }
 
 

@@ -7,11 +7,19 @@ public class SelectManager : MonoBehaviour
 {
     private PersistentManagaer persist;
 
+
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
+
     void Start()
     {
         //defined in select scene
         persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
     }
+
 
     public void doVR()
     {

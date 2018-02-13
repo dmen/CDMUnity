@@ -6,14 +6,26 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/select.unity
+    guid: 2cb1ff0e6d4a00a4b81b3c28e9833a52
+  - enabled: 1
     path: Assets/intro.unity
     guid: 1abc53c9122833448a7edc31ab0df8dd
   - enabled: 1
+    path: Assets/introNorm.unity
+    guid: eccc1e6d0b4d0bd4aba0303dfd405165
+  - enabled: 1
     path: Assets/isiCircle.unity
     guid: 79f324675dda2c14bb4d6d66250955b7
+  - enabled: 1
+    path: Assets/isiNorm.unity
+    guid: eb5fb343c552d2645bef95067cf60932
   - enabled: 1
     path: Assets/hall.unity
     guid: 505fd97aaf6ed0b4f821d45e5ff885cd
   - enabled: 1
     path: Assets/exit.unity
     guid: 281f06ed03ca0914891bd81d23c98e76
+  - enabled: 1
+    path: Assets/exitNorm.unity
+    guid: 8f0ffd9a64a432243bc93ffced3ca33c

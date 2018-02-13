@@ -41,6 +41,7 @@ public class Manager : MonoBehaviour
    
     private ErrorHUDManager errorHud;
     private bool userSkipped;
+    private bool isVRMode;
 
     private bool inTheRoom;//when true the hall probe doesnt get updated
 
@@ -48,8 +49,10 @@ public class Manager : MonoBehaviour
     {
         //GvrCardboardHelpers.Recenter();
 
-        //userSkipped = false;//TESTING
-        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        userSkipped = false;//TESTING
+        isVRMode = true;
+        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        //isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
@@ -564,8 +567,16 @@ public class Manager : MonoBehaviour
     }
     void showEnding()
     {
-        SceneManager.LoadScene(3);//exit scene
+        if (isVRMode)
+        {
+            SceneManager.LoadScene(6);//exit scene
+        }
+        else
+        {
+            SceneManager.LoadScene(7);//exit scene
+        }
     }
+       
     void addTheStars()
     {       
         theStars.SetActive(true);
