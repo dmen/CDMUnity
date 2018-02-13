@@ -5576,7 +5576,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: f16e99ed0297e864ba22813574a7d378, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: f16e99ed0297e864ba22813574a7d378, type: 3}
       propertyPath: m_CastShadows
@@ -7127,7 +7127,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.05
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -9427,7 +9427,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1101421081}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.956, y: 0, z: -0.962}
+  m_LocalPosition: {x: 8.522, y: 0, z: -1.044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 498680026}
@@ -13373,7 +13373,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 51f660b5ef464e9418f8cb97dddfc6b5, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 51f660b5ef464e9418f8cb97dddfc6b5, type: 3}
       propertyPath: m_CastShadows
