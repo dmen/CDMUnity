@@ -45,6 +45,9 @@ public class IntroNormManager : MonoBehaviour
         vidMat = GameObject.Find("vidShow").GetComponent<Image>().material;
         vidMat.color = new Color(1, 1, 1, 0);
 
+        //NOT SURE PLACEMENT OF THIS - MAYBE IN SELECT
+        Camera.main.ResetAspect();
+
         LeanTween.delayedCall(1f, startVideo);
     }
 

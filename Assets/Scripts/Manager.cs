@@ -45,6 +45,10 @@ public class Manager : MonoBehaviour
 
     private bool inTheRoom;//when true the hall probe doesnt get updated
 
+    private Transform mainCamera;//used for setting local rotation when in non-vr mode
+
+
+
 
     void Start()
     {
@@ -81,6 +85,9 @@ public class Manager : MonoBehaviour
         gridObjectsManager = GameObject.Find("gridObjects").GetComponent<GridObjectsManager>();
         luxMeterManager = GameObject.Find("LUXMeter").GetComponent<LuxMeterManager>();
 
+        mainCamera = Camera.main.GetComponent<Transform>();
+
+
         inTheRoom = false;
         hallProbe.RenderProbe();//probe set to scripted update
         roomProbe.RenderProbe();
@@ -102,11 +109,7 @@ public class Manager : MonoBehaviour
         LeanTween.delayedCall(2f, openIntroDoor);
         normalLightLevel();
 
-        if (!isVRMode)
-        {
-            XRSettings.enabled = true;
-        }
-
+        //dud user skip to lux level chapter
         if(userSkipped)
         {
             inTheRoom = true;
@@ -135,7 +138,16 @@ public class Manager : MonoBehaviour
             moveToNextNode();
         }
         
-    }    
+    }
+
+
+    private void Update()
+    {
+        if (!isVRMode)
+        {
+            mainCamera.localRotation = InputTracking.GetLocalRotation(XRNode.CenterEye);
+        }
+    }
 
     void openIntroDoor()
     {

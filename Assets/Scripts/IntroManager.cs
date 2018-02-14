@@ -65,17 +65,13 @@ public class IntroManager : MonoBehaviour
         startBase.SetActive(false);
         skipBase.SetActive(false);
 
-        StartCoroutine(startVR());
+        //user selected VR path
+        XRSettings.enabled = true;
+
         LeanTween.delayedCall(1f, startVideo);
     }
 
 
-    public IEnumerator startVR()
-    {
-        XRSettings.LoadDeviceByName("cardboard");
-        yield return null;
-        XRSettings.enabled = true;
-    }
 
 
     void startVideo()

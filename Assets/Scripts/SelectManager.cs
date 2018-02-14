@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class SelectManager : MonoBehaviour
 {
@@ -12,13 +13,24 @@ public class SelectManager : MonoBehaviour
     {
         Application.targetFrameRate = 60;
     }
-
+    
 
     void Start()
     {
         //defined in select scene
         persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
+
+        StartCoroutine(startVR());
     }
+
+
+    public IEnumerator startVR()
+    {
+        XRSettings.LoadDeviceByName("cardboard");
+        yield return null;
+        XRSettings.enabled = false;
+    }
+
 
 
     public void doVR()
