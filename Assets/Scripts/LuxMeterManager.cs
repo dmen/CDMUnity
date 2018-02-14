@@ -14,6 +14,7 @@ public class LuxMeterManager : MonoBehaviour
     public Sprite sp10;
     public Sprite sp4;
     public Sprite sp1;
+    public Sprite spErrorCodes;
 
     public Sprite blackArrow;
     public Sprite whiteArrow;
@@ -202,12 +203,15 @@ public class LuxMeterManager : MonoBehaviour
         LeanTween.value(player, tweenLastFill, 1f, .15f, fillTime);
     }
 
+    //called with setBar1 = true when user has skipped
     public void noLux(bool setBar1 = false)
     {
-        numbers.sprite = spNo;
+        numbers.sprite = spErrorCodes;
         LeanTween.alphaCanvas(arrowCan, 0f, .5f);
         if (setBar1)
         {
+            numbers.sprite = spNo;
+            //user is doing lux leveel chapter only
             LeanTween.value(player, tweenFill, 1f, .15f, fillTime);//sets curBar which is bar1
         }
     }

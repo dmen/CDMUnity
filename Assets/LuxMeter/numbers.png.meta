@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 6437228ed72642d4da6191a7b92f57be
-timeCreated: 1516017326
+timeCreated: 1518615071
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -12,6 +12,7 @@ TextureImporter:
     21300010: numbers_5
     21300012: numbers_6
     21300014: numbers_7
+    21300016: numbers_8
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -121,7 +122,7 @@ TextureImporter:
         width: 78
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,7 +136,7 @@ TextureImporter:
         width: 78
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -149,7 +150,7 @@ TextureImporter:
         width: 78
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,7 +164,7 @@ TextureImporter:
         width: 78
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,7 +178,7 @@ TextureImporter:
         width: 78
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -191,7 +192,7 @@ TextureImporter:
         width: 78
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,7 +206,7 @@ TextureImporter:
         width: 78
         height: 867
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,8 +215,22 @@ TextureImporter:
       name: numbers_7
       rect:
         serializedVersion: 2
-        x: 1115
-        y: 82
+        x: 1116
+        y: 79
+        width: 78
+        height: 867
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: numbers_8
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 79
         width: 78
         height: 867
       alignment: 0
