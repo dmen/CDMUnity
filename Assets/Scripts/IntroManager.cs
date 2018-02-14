@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 using UnityEngine.EventSystems;
+using UnityEngine.XR;
+
 
 public class IntroManager : MonoBehaviour
 {
@@ -63,7 +65,16 @@ public class IntroManager : MonoBehaviour
         startBase.SetActive(false);
         skipBase.SetActive(false);
 
+        StartCoroutine(startVR());
         LeanTween.delayedCall(1f, startVideo);
+    }
+
+
+    public IEnumerator startVR()
+    {
+        XRSettings.LoadDeviceByName("cardboard");
+        yield return null;
+        XRSettings.enabled = true;
     }
 
 

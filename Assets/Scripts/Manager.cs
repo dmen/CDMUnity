@@ -5,7 +5,7 @@ using UnityEngine.Video;
 using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.XR;
 
 public class Manager : MonoBehaviour
 {
@@ -44,6 +44,7 @@ public class Manager : MonoBehaviour
     private bool isVRMode;
 
     private bool inTheRoom;//when true the hall probe doesnt get updated
+
 
     void Start()
     {
@@ -100,6 +101,11 @@ public class Manager : MonoBehaviour
         blurCanvas.SetActive(false);
         LeanTween.delayedCall(2f, openIntroDoor);
         normalLightLevel();
+
+        if (!isVRMode)
+        {
+            XRSettings.enabled = true;
+        }
 
         if(userSkipped)
         {
