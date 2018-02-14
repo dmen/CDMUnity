@@ -28,7 +28,9 @@ public class Manager : MonoBehaviour
     private AudioManager audioManager;
 
     private GameObject blurCanvas;
+    private GameObject blurCanvasPhone;
     private Material blurMat;
+    private Material blurMatPhone;
 
     private ArrowManager arrowManager;
     private GridObjectsManager gridObjectsManager;
@@ -38,7 +40,11 @@ public class Manager : MonoBehaviour
     private GameObject theStars;
     private GameObject coverLeft;
     private GameObject coverRight;
-   
+
+    private GameObject theStarsPhone;
+    private GameObject coverLeftPhone;
+    private GameObject coverRightPhone;
+
     private ErrorHUDManager errorHud;
     private bool userSkipped;
     private bool isVRMode;
@@ -54,7 +60,7 @@ public class Manager : MonoBehaviour
     {
         //GvrCardboardHelpers.Recenter();
 
-        //userSkipped = true;//TESTING
+        //userSkipped = false;//TESTING
         //isVRMode = true;
         userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
         isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
@@ -80,6 +86,8 @@ public class Manager : MonoBehaviour
 
         blurCanvas = GameObject.Find("blurImage");
         blurMat = blurCanvas.GetComponent<Image>().material;
+        blurCanvasPhone = GameObject.Find("blurImagePhone");
+        blurMatPhone = blurCanvasPhone.GetComponent<Image>().material;
 
         arrowManager = GameObject.Find("arrows").GetComponent<ArrowManager>();
         gridObjectsManager = GameObject.Find("gridObjects").GetComponent<GridObjectsManager>();
@@ -87,29 +95,38 @@ public class Manager : MonoBehaviour
 
         mainCamera = Camera.main.GetComponent<Transform>();
 
-
         inTheRoom = false;
         hallProbe.RenderProbe();//probe set to scripted update
         roomProbe.RenderProbe();
 
         //starCanvas
-        theStars = GameObject.Find("theStars");
+        theStars = GameObject.Find("theStars");//for setActive
         theStars.GetComponent<CanvasGroup>().alpha = 0;
         theStars.SetActive(false);
+        theStarsPhone = GameObject.Find("theStarsPhone");//for setActive
+        theStarsPhone.GetComponent<CanvasGroup>().alpha = 0;
+        theStarsPhone.SetActive(false);
         coverLeft = GameObject.Find("coverLeft");
         coverRight = GameObject.Find("coverRight");
+        coverLeftPhone = GameObject.Find("coverLeftPhone");
+        coverRightPhone = GameObject.Find("coverRightPhone");
         coverLeft.GetComponent<CanvasGroup>().alpha = 0;
         coverRight.GetComponent<CanvasGroup>().alpha = 0;
+        coverLeftPhone.GetComponent<CanvasGroup>().alpha = 0;
+        coverRightPhone.GetComponent<CanvasGroup>().alpha = 0;
         coverLeft.SetActive(false);
         coverRight.SetActive(false);
+        coverLeftPhone.SetActive(false);
+        coverRightPhone.SetActive(false);
 
         luxMeterManager.hideMeter(true);
         errorHud.hideHUD(true);
         blurCanvas.SetActive(false);
+        blurCanvasPhone.SetActive(false);
         LeanTween.delayedCall(2f, openIntroDoor);
         normalLightLevel();
 
-        //dud user skip to lux level chapter
+        //did user skip to lux level chapter
         if(userSkipped)
         {
             inTheRoom = true;
@@ -148,6 +165,7 @@ public class Manager : MonoBehaviour
             mainCamera.localRotation = InputTracking.GetLocalRotation(XRNode.CenterEye);
         }
     }
+
 
     void openIntroDoor()
     {
@@ -596,8 +614,16 @@ public class Manager : MonoBehaviour
     }
        
     void addTheStars()
-    {       
-        theStars.SetActive(true);
+    {
+        if (isVRMode)
+        {
+            theStars.SetActive(true);
+        }
+        else
+        {
+            theStarsPhone.SetActive(true);
+        }
+        
         LeanTween.value(thePlayer, setStarLevel, 0f, .5f, 1f);
     }
     void removeTheStars()
@@ -606,29 +632,65 @@ public class Manager : MonoBehaviour
     }
     void turnOffStars()
     {
-        theStars.SetActive(false);
+        if (isVRMode)
+        {
+            theStars.SetActive(false);
+        }
+        else
+        {
+            theStarsPhone.SetActive(false);
+        }
     }
     void setStarLevel(float val)
     {
-        theStars.GetComponent<CanvasGroup>().alpha = val;
+        if (isVRMode)
+        {
+            theStars.GetComponent<CanvasGroup>().alpha = val;
+        }
+        else
+        {
+            theStarsPhone.GetComponent<CanvasGroup>().alpha = val;
+        }
     }
     //EYE COVERS
     void addRightEyeCover()
     {
-        coverRight.SetActive(true);
+        if (isVRMode)
+        {
+            coverRight.SetActive(true);
+        }
+        else
+        {
+            coverRightPhone.SetActive(true);
+        }
         LeanTween.value(thePlayer, setRightCover, 0f, 1f, 1f);
     }
+
     void removeRightEyeCover()
     {
         LeanTween.value(thePlayer, setRightCover, 1f, 0f, 1f).setOnComplete(turnOffRightEyeCover);
     }
     void turnOffRightEyeCover()
     {
-        coverRight.SetActive(false);
+        if (isVRMode)
+        {
+            coverRight.SetActive(false);
+        }
+        else
+        {
+            coverRightPhone.SetActive(false);
+        }
     }
     void addLeftEyeCover()
     {
-        coverLeft.SetActive(true);
+        if (isVRMode)
+        {
+            coverLeft.SetActive(true);
+        }
+        else
+        {
+            coverLeftPhone.SetActive(true);
+        }
         LeanTween.value(thePlayer, setLeftCover, 0f, 1f, 1f);
     }
     void removeLeftEyeCover()
@@ -637,20 +699,48 @@ public class Manager : MonoBehaviour
     }
     void turnOffLeftEyeCover()
     {
-        coverLeft.SetActive(false);
+        if (isVRMode)
+        {
+            coverLeft.SetActive(false);
+        }
+        else
+        {
+            coverLeftPhone.SetActive(false);
+        }
     }
     void setRightCover(float val)
     {
-        coverRight.GetComponent<CanvasGroup>().alpha = val;
+        if (isVRMode)
+        {
+            coverRight.GetComponent<CanvasGroup>().alpha = val;
+        }
+        else
+        {
+            coverRightPhone.GetComponent<CanvasGroup>().alpha = val;
+        }
     }
     void setLeftCover(float val)
     {
-        coverLeft.GetComponent<CanvasGroup>().alpha = val;
+        if (isVRMode)
+        {
+            coverLeft.GetComponent<CanvasGroup>().alpha = val;
+        }
+        else
+        {
+            coverLeftPhone.GetComponent<CanvasGroup>().alpha = val;
+        }
     }
 
     void addBlur()
     {
-        blurCanvas.SetActive(true);
+        if (isVRMode)
+        {
+            blurCanvas.SetActive(true);
+        }
+        else
+        {
+            blurCanvasPhone.SetActive(true);
+        }
         LeanTween.value(thePlayer, setBlur, 0f, 3f, 1f);        
     }
 
@@ -710,8 +800,16 @@ public class Manager : MonoBehaviour
     }
     void setBlur(float val)
     {
-        blurMat.SetFloat("_BlurSize", val);
-        blurMat.SetFloat("_Lightness", 0f - (val * .25f));
+        if (isVRMode)
+        {
+            blurMat.SetFloat("_BlurSize", val);
+            blurMat.SetFloat("_Lightness", 0f - (val * .25f));
+        }
+        else
+        {
+            blurMatPhone.SetFloat("_BlurSize", val);
+            blurMatPhone.SetFloat("_Lightness", 0f - (val * .25f));
+        }
     }
     
 
