@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 4}
-  m_MinSize: {x: 950, y: 471}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -40,8 +40,8 @@ MonoBehaviour:
     y: 402
     width: 922
     height: 545
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 13}
@@ -69,10 +69,10 @@ MonoBehaviour:
     y: 0
     width: 922
     height: 947
-  m_MinSize: {x: 202, y: 421}
-  m_MaxSize: {x: 4002, y: 8021}
+  m_MinSize: {x: 202, y: 442}
+  m_MaxSize: {x: 4002, y: 8042}
   vertical: 1
-  controlID: 80
+  controlID: 36
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -159,10 +159,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 917, y: 421}
+  m_MinSize: {x: 917, y: 442}
   m_MaxSize: {x: 22012, y: 10021}
   vertical: 0
-  controlID: 11
+  controlID: 139
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -444,14 +444,14 @@ MonoBehaviour:
     width: 920
     height: 381
   m_SceneLighting: 1
-  lastFramingTime: 5119.483507259751
+  lastFramingTime: 1747.5889818829062
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -9.203084, y: 0.19332802, z: 4.574938}
+    m_Target: {x: 97.84005, y: 0.02999878, z: 4.419983}
     speed: 2
-    m_Value: {x: -9.203084, y: 0.19332802, z: 4.574938}
+    m_Value: {x: 97.84005, y: 0.02999878, z: 4.419983}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -474,13 +474,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.06799798, y: 0.90071714, z: -0.15276049, w: 0.40093544}
+    m_Target: {x: 0.1406842, y: 0.7176427, z: -0.15183559, w: 0.6649383}
     speed: 2
-    m_Value: {x: 0.06799798, y: 0.90071714, z: -0.15276049, w: 0.40093544}
+    m_Value: {x: 0.1406842, y: 0.7176427, z: -0.15183559, w: 0.6649383}
   m_Size:
-    m_Target: 1.9914848
+    m_Target: 420.99707
     speed: 2
-    m_Value: 1.9914848
+    m_Value: 420.99707
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -574,7 +574,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 3c58fffff26fffffb288ffffa6c4ffffa6fbffff00000000a2490000da4a00008a4b0000244c00001a4d0000
+    m_ExpandedIDs: a6fbffff00000000424000004441000086410000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -635,19 +635,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Materials
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Scripts
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\dmennenoh\Documents\GitHub\CDMUnity
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 16360000
-    m_LastClickedID: 13846
-    m_ExpandedIDs: 00000000202d00005c2d0000822e00009c2e0000da2e00005c2f0000b22f00001e30000028300000e631000048360000763600000a3a0000be3b00006e3c0000b8460000ba460000bc460000be460000c0460000c246000000ca9a3bffffff7f
+    m_SelectedIDs: 683c0000
+    m_LastClickedID: 15464
+    m_ExpandedIDs: 00000000202d00005c2d0000842e00009e2e0000dc2e00005e2f0000b62f0000223000002c300000ea3100004e3600007c360000103a0000ce3b00007e3c0000f4460000f6460000f8460000fa460000fc460000fe46000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -675,7 +675,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000202d00005c2d0000822e00009c2e0000da2e00005c2f0000b22f00001e30000028300000e631000048360000763600000a3a0000be3b00006e3c0000b8460000ba460000bc460000be460000c0460000c2460000
+    m_ExpandedIDs: 00000000202d00005c2d0000842e00009e2e0000dc2e00005e2f0000b62f0000223000002c300000ea3100004e3600007c360000103a0000ce3b00007e3c0000f4460000f6460000f8460000fa460000fc460000fe460000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -702,7 +702,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 2cf50000ca310000dc380000ba3100003a4100000e2e0000122e00002a3000001033000038340000e43900000e340000183a0000a6340000000000002c490000942f0000483500008e350000264f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -727,7 +727,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 1127}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 16
   m_DirectoriesAreaWidth: 190
 --- !u!114 &20
@@ -814,7 +814,7 @@ MonoBehaviour:
     y: 92
     width: 359
     height: 926
-  m_InitialOpenURL: https://public-cdn.cloud.unity3d.com/editor/production/cloud/build
+  m_InitialOpenURL: https://public-cdn.cloud.unity3d.com/editor/production/cloud/hub
   m_GlobalObjectTypeName: 
   m_RegisteredViewURLs:
   - https://public-cdn.cloud.unity3d.com/editor/production/cloud/hub

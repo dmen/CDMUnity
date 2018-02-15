@@ -108,8 +108,14 @@ public class LuxMeterManager : MonoBehaviour
         scoresCG.alpha = 1;
     }
 
-    public void showMeter()
+    public void showMeter(bool isVRMode)
     {
+        //if not vr mode (phone mode) need to scale and position the hud
+        if (!isVRMode)
+        {
+            mainLux.GetComponent<RectTransform>().localPosition = new Vector3(.23f, -0.01f, .38f);
+            mainLux.GetComponent<RectTransform>().localScale = new Vector3(.16f, .24f, 1f);
+        }
         mainLux.SetActive(true);
         LeanTween.alphaCanvas(luxMeter, 1f, 1f);
     }

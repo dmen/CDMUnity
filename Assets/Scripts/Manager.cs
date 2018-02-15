@@ -60,8 +60,9 @@ public class Manager : MonoBehaviour
     {
         //GvrCardboardHelpers.Recenter();
 
-        //userSkipped = false;//TESTING
-        //isVRMode = true;
+        //userSkipped = true;//TESTING
+        //isVRMode = false;
+
         userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
         isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
 
@@ -398,6 +399,8 @@ public class Manager : MonoBehaviour
         pos.y += .0517f;
         g2.transform.position = pos;
     }
+
+
     //additional objects were added...
     void playAud14()
     {
@@ -405,6 +408,7 @@ public class Manager : MonoBehaviour
         gridObjectsManager.showRemaining();
     }
     
+
     //LUX CHAPTER
     //to siumlate the real world... lux levels
     //begin to build lux meter
@@ -413,14 +417,21 @@ public class Manager : MonoBehaviour
         if (userSkipped)
         {
             audioManager.playAudio("luxLevelIntro", playAud16);//24.6
-            LeanTween.delayedCall(18f, luxMeterManager.showMeter);//show meter at 'we added 7 different lux levels'
+            LeanTween.delayedCall(18f, showTheLux);//show meter at 'we added 7 different lux levels'
         }
         else
         {
             audioManager.playAudio("vo_15", playAud16);//21.2sec
-            LeanTween.delayedCall(4f, luxMeterManager.showMeter);//show meter at 'we added 7 different lux levels'
+            LeanTween.delayedCall(4f, showTheLux);//show meter at 'we added 7 different lux levels'
         }
     }
+
+
+    void showTheLux()
+    {
+        luxMeterManager.showMeter(isVRMode);
+    }
+
 
     //the 7 lux levels ranged from 1 to 400
     void playAud16()
@@ -481,7 +492,7 @@ public class Manager : MonoBehaviour
     void playAud24()
     {
         //lux meter chapter is just the 400 - 1 explanation
-        //userSkipped = false; //TESTING
+       // userSkipped = false; //TESTING
         if (userSkipped)
         {
             //thank you for visiting our lab
@@ -557,7 +568,7 @@ public class Manager : MonoBehaviour
     //error hud appears - ~29 sec of audio until it hides
     void playAud32()
     {
-        errorHud.showHUD();
+        errorHud.showHUD(isVRMode);
         audioManager.playAudio("vo_32", playAud33);//13.2sec
         LeanTween.delayedCall(4f, errorHud.showError1);
         LeanTween.delayedCall(6f, errorHud.showError2);
@@ -736,17 +747,26 @@ public class Manager : MonoBehaviour
         if (isVRMode)
         {
             blurCanvas.SetActive(true);
+            LeanTween.value(thePlayer, setBlur, 0f, 3f, 1f);
         }
         else
         {
             blurCanvasPhone.SetActive(true);
+            LeanTween.value(thePlayer, setBlur, 0f, 6f, 1f);
         }
-        LeanTween.value(thePlayer, setBlur, 0f, 3f, 1f);        
+              
     }
 
     void removeBlur()
     {
-        LeanTween.value(thePlayer, setBlur, 3f, 0f, 1f);
+        if (isVRMode)
+        {
+            LeanTween.value(thePlayer, setBlur, 3f, 0f, 1f);
+        }
+        else
+        {
+            LeanTween.value(thePlayer, setBlur, 6f, 0f, 1f);
+        }
         moveToNextNode();
 
         audioManager.playAudio("vo_6", vo2Complete);//46 sec

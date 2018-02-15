@@ -59,12 +59,20 @@ public class ErrorHUDManager : MonoBehaviour
     //called from Manager.playAud32()
     //we have about 29sec of VO to count up to the end time... 3min?
     //and to show the 3 or 4 error dots and shake the camera...
-    public void showHUD()
+    public void showHUD(bool isVRMode)
     {
         showing = true;
         running = true;
         goFaster = false;
         startTime = 125f; //timer start time - in seconds
+
+        //if not vr mode (phone mode) need to scale and position the hud
+        if (!isVRMode)
+        {
+            mainHUD.GetComponent<RectTransform>().localPosition = new Vector3(.04f, .01f, .39f);
+            mainHUD.GetComponent<RectTransform>().localScale = new Vector3(.2f, .2f, 1f);
+        }
+
         mainHUD.SetActive(true);
         LeanTween.alphaCanvas(mainAlpha, 1f, 1f);
     }
