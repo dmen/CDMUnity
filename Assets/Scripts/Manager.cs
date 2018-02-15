@@ -158,7 +158,7 @@ public class Manager : MonoBehaviour
         
     }
 
-
+    
     private void Update()
     {
         if (!isVRMode)
@@ -166,7 +166,7 @@ public class Manager : MonoBehaviour
             mainCamera.localRotation = InputTracking.GetLocalRotation(XRNode.CenterEye);
         }
     }
-
+    
 
     void openIntroDoor()
     {
