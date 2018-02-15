@@ -28,13 +28,18 @@ public class ExitSign : MonoBehaviour
                 progressImage.fillAmount = 0;
                 isEntered = false;
 
-                SceneManager.LoadScene(0);//intro menu
+                SceneManager.LoadScene(0);//selector
             }
         }
         else
         {
             timeElapsed = 0;
         }
+    }
+
+    public void exitClicked()
+    {
+        SceneManager.LoadScene(0);//selector
     }
 
 
