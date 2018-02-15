@@ -60,11 +60,11 @@ public class Manager : MonoBehaviour
     {
         //GvrCardboardHelpers.Recenter();
 
-        //userSkipped = true;//TESTING
-        //isVRMode = false;
+        userSkipped = false;//TESTING
+        isVRMode = false;
 
-        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
-        isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
+        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        //isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
 
         errorHud = GameObject.Find("errorHUD").GetComponent<ErrorHUDManager>();
 
