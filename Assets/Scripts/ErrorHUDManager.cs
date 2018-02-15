@@ -71,6 +71,7 @@ public class ErrorHUDManager : MonoBehaviour
         {
             mainHUD.GetComponent<RectTransform>().localPosition = new Vector3(.04f, .01f, .39f);
             mainHUD.GetComponent<RectTransform>().localScale = new Vector3(.2f, .2f, 1f);
+            redError.GetComponent<RectTransform>().localScale = new Vector3(4f, 3.39f, 1f);
         }
 
         mainHUD.SetActive(true);
