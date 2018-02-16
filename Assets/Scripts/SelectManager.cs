@@ -17,6 +17,8 @@ public class SelectManager : MonoBehaviour
 
     void Start()
     {
+        GvrCardboardHelpers.Recenter();
+
         //defined in select scene
         persist = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>();
 
