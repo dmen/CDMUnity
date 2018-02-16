@@ -701,6 +701,7 @@ GameObject:
   - component: {fileID: 1104439936}
   - component: {fileID: 1104439938}
   - component: {fileID: 1104439937}
+  - component: {fileID: 1104439939}
   m_Layer: 5
   m_Name: vidShow
   m_TagString: Untagged
@@ -759,6 +760,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1104439935}
+--- !u!225 &1104439939
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1104439935}
+  m_Enabled: 1
+  m_Alpha: 0.03
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1325269494
 GameObject:
   m_ObjectHideFlags: 0
