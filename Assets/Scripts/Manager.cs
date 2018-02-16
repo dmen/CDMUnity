@@ -277,7 +277,7 @@ public class Manager : MonoBehaviour
             //hallProbe.
             //normalLightLevel();//effort to get ref probe to update
 
-            GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
+            
 
             //we built this course from the ground up...
             audioManager.playAudio("vo_7", playAud8);//12.5sec
@@ -287,6 +287,10 @@ public class Manager : MonoBehaviour
             LeanTween.delayedCall(6.5f, arrowManager.showArrows10);
         }
 
+        if(nextNodeData.nodeName == "roomWait")
+        {
+            GameObject.Find("hallDoor").GetComponent<Animator>().SetTrigger("closeDoor");
+        }
 
         if (nextNodeData.nodeName == "courseStart")
         {

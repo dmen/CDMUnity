@@ -17,7 +17,7 @@ public class IntroNormManager : MonoBehaviour
     private CanvasGroup skipButton;
     private GameObject man;
 
-    private Material vidMat;
+    private CanvasGroup vidMat;
 
 
     void Start()
@@ -42,8 +42,8 @@ public class IntroNormManager : MonoBehaviour
         startButton.alpha = 0;
         skipButton.alpha = 0;
 
-        vidMat = GameObject.Find("vidShow").GetComponent<Image>().material;
-        vidMat.color = new Color(1, 1, 1, 0);
+        vidMat = GameObject.Find("vidShow").GetComponent<CanvasGroup>();
+        vidMat.alpha = 0;
 
         //NOT SURE PLACEMENT OF THIS - MAYBE IN SELECT
         Camera.main.ResetAspect();
@@ -62,14 +62,14 @@ public class IntroNormManager : MonoBehaviour
 
     void moveVideoDown()
     {
-        LeanTween.value(man, setVidColor, new Color(1, 1, 1, 0), new Color(1, 1, 1, 1), .5f);
+        LeanTween.alphaCanvas(vidMat, 1f, .5f);
         GameObject.Find("vidShow").GetComponent<RectTransform>().localPosition = new Vector3(0, 0, 0);
     }
 
 
     void fadeOutVideo()
-    {        
-        LeanTween.value(man, setVidColor, new Color(1, 1, 1, 1), new Color(1, 1, 1, 0), 1f).setOnComplete(showThings);
+    {
+        LeanTween.alphaCanvas(vidMat, 0f, 1f).setOnComplete(showThings);
     }
 
 
@@ -89,13 +89,7 @@ public class IntroNormManager : MonoBehaviour
     {
         persist.skip = false;
         SceneManager.LoadScene(4);//ISI Text
-    }
-
-    void setVidColor(Color val)
-    {
-        vidMat.color = val;
-    }
-
+    }    
 
     public void skipToLUX()
     {

@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 02 - Default
-  m_Shader: {fileID: 4800000, guid: b5fe852fc56b5834397280273d03c337, type: 3}
+  m_Shader: {fileID: 4800000, guid: f67161c6b48f5fd479ea0474a01122db, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -64,21 +64,21 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.331
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Shininess: 1
+    - _Shininess: 0.01
     - _SmoothnessTextureChannel: 0
-    - _SpecPower: 0.22
+    - _SpecPower: 0.86
     - _SpecUVTile: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.5411765, b: 0.3844219, a: 1}
+    - _Color: {r: 0.30147058, g: 0.31477076, b: 0.31477076, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
-    - _SpecColor: {r: 0.7827586, g: 0.7827586, b: 0.7827586, a: 1}
+    - _SpecColor: {r: 0.5514706, g: 0.5514706, b: 0.5514706, a: 1}

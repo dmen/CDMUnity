@@ -11,26 +11,36 @@ ModelImporter:
     100006: Line001
     100008: Rectangle001
     100010: knob
+    100012: Omni001
+    100014: Rectangle002
     400000: door_roomDoor
     400002: door_roomFrame
     400004: //RootNode
     400006: Line001
     400008: Rectangle001
     400010: knob
+    400012: Omni001
+    400014: Rectangle002
     2300000: door_roomDoor
     2300002: door_roomFrame
     2300004: Line001
     2300006: knob
     2300008: //RootNode
+    2300010: Rectangle001
+    2300012: Rectangle002
     3300000: door_roomDoor
     3300002: door_roomFrame
     3300004: Line001
     3300006: knob
     3300008: //RootNode
+    3300010: Rectangle001
+    3300012: Rectangle002
     4300000: door_roomDoor
     4300002: door_roomFrame
     4300004: Line001
     4300006: knob
+    4300008: Rectangle001
+    4300010: Rectangle002
   externalObjects:
   - first:
       type: UnityEngine:Material

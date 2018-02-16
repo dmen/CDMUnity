@@ -17,8 +17,6 @@ public class GridObjectsManager : MonoBehaviour
 
     GameObject foamBall;
     GameObject shrub;
-    Material bushDirt;
-    Material bushPot;
     Material bush;
     Material foam;
     Material foamRod;
@@ -72,10 +70,8 @@ public class GridObjectsManager : MonoBehaviour
         foamRod = foamBall.GetComponent<Renderer>().materials[1];
         foam = foamBall.GetComponent<Renderer>().materials[2];
 
-        shrub = GameObject.Find("theBush");
-        bushDirt = GameObject.Find("bushDirt").GetComponent<Renderer>().material;
-        bushPot = GameObject.Find("bushPot").GetComponent<Renderer>().material;
-        bush = GameObject.Find("shrub").GetComponent<Renderer>().material;
+        shrub = GameObject.Find("tree");
+        bush = GameObject.Find("treePlane").GetComponent<Renderer>().material;
 
         stopSign = GameObject.Find("stopSign");
         nGon = GameObject.Find("NGon001");
@@ -89,7 +85,7 @@ public class GridObjectsManager : MonoBehaviour
         raised3 = GameObject.Find("raised3");
         raised4 = GameObject.Find("raised4");
         //remaining
-        wasteBasket = GameObject.Find("wasteBasket");
+        wasteBasket = GameObject.Find("wasteBasket2");
         trafficCone = GameObject.Find("trafficCone");
         trafficCone2 = GameObject.Find("trafficCone2");        
         doorRoom = GameObject.Find("doorRoom");
@@ -690,7 +686,7 @@ public class GridObjectsManager : MonoBehaviour
         c10Positions.Add(new Vector3(4.533f, -1.431f, 2.27f));//raised2
         c10Positions.Add(new Vector3(2.706f, -1.429f, 3.182f));//raised3
         c10Positions.Add(new Vector3(3.618f, -1.431f, 3.642f));//raised4
-        c10Positions.Add(new Vector3(1.328f, -0.931f, 1.808f));//wastebasket
+        c10Positions.Add(new Vector3(1.33f, -1.44f, 1.814f));//wastebasket
         c10Positions.Add(new Vector3(1.315f, -1.211f, 2.73f));//trafficCone
         c10Positions.Add(new Vector3(3.596f, -1.211f, 2.73f));//trafficCone2
         c10Positions.Add(new Vector3(1.1120f, -1.46f, 4.07f));//doorRoom
@@ -713,7 +709,7 @@ public class GridObjectsManager : MonoBehaviour
         c5Positions.Add(new Vector3(3.61f, -1.431f, 1.819f));//raised2
         c5Positions.Add(new Vector3(3.16f, -1.429f, 2.73f));//raised3
         c5Positions.Add(new Vector3(2.244f, -1.431f, 3.642f));//raised4
-        c5Positions.Add(new Vector3(4.989f, -0.931f, 1.808f));//wastebasket
+        c5Positions.Add(new Vector3(4.989f, -1.44f, 1.814f));//wastebasket
         c5Positions.Add(new Vector3(2.688f, -1.213f, 3.205f));//trafficCone
         c5Positions.Add(new Vector3(3.595f, -1.211f, 2.73f));//trafficCone2
         c5Positions.Add(new Vector3(4.324f, -1.46f, 1.37f));//doorRoom
@@ -735,7 +731,7 @@ public class GridObjectsManager : MonoBehaviour
         c11Positions.Add(new Vector3(3.166f, -1.431f, 3.186f));//raised2
         c11Positions.Add(new Vector3(4.99f, -1.429f, 2.73f));//raised3
         c11Positions.Add(new Vector3(4.535f, -1.431f, 2.27f));//raised4
-        c11Positions.Add(new Vector3(1.33f, -0.931f, 3.648f));//wastebasket
+        c11Positions.Add(new Vector3(1.33f, -1.44f, 3.63f));//wastebasket
         c11Positions.Add(new Vector3(1.318f, -1.211f, 2.736f));//trafficCone
         c11Positions.Add(new Vector3(3.599f, -1.211f, 2.736f));//trafficCone2
         c11Positions.Add(new Vector3(1.162f, -1.46f, 1.396f));//doorRoom - rotation: 0,180,0
@@ -869,8 +865,6 @@ public class GridObjectsManager : MonoBehaviour
     }
     void setShrubVal(float val)
     {
-        bushPot.SetColor("_Color", new Color(1f, 1f, 1f, val));
-        bushDirt.SetColor("_Color", new Color(.2784f, .2274f, .1804f, val));
         bush.SetColor("_Color", new Color(1f, 1f, 1f, val));
     }
     void fadeOutShrub()
