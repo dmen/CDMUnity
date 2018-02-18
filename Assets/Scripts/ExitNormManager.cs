@@ -5,6 +5,9 @@ using UnityEngine.UI;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
+/*
+ * Attached to Manager in scene: exitNorm
+ */
 public class ExitNormManager : MonoBehaviour
 {
     private CanvasGroup logo;
@@ -61,9 +64,10 @@ public class ExitNormManager : MonoBehaviour
         LeanTween.alphaCanvas(startButton, 1f, 2f).setDelay(2f);
     }
 
+    //called by clicking quit button 
     public void doQuit()
     {
-        SceneManager.LoadScene(0);//vr/norm selector
+        SceneManager.LoadScene(2);//phone mode main menu
     }
     
 

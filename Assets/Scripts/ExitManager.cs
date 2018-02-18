@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
 
+/*
+ * Attached to Manager in scene: exit (VR)
+ */
 public class ExitManager : MonoBehaviour
 {
     private Material vidMat;
@@ -57,9 +60,11 @@ public class ExitManager : MonoBehaviour
         LeanTween.alphaCanvas(screen, 1f, 2f);
     }
 
+    //called by gaze selecting the exit button
+    //called from ExitButtonScript
     public void doExit()
     {
-        SceneManager.LoadScene(0);//intro
+        SceneManager.LoadScene(1);//vr mode main menu
     }
 
  }

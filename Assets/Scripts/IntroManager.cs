@@ -7,6 +7,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.XR;
 
 
+//Manager for scene: intro 
+//main menu for VR
+
 public class IntroManager : MonoBehaviour
 {
     private CanvasGroup bg;
@@ -17,18 +20,17 @@ public class IntroManager : MonoBehaviour
     private CanvasGroup startButton;
     private CanvasGroup skipButton;
     private CanvasGroup skip;
+    private CanvasGroup restartButton;
 
     private GameObject startBase;
     private GameObject skipBase;
+    private GameObject restartBase;
 
     private AudioSource vo;
     
     private Material vidMat;
 
-    private PersistentManagaer persist;
-
-
-   
+    private PersistentManagaer persist;   
 
 
     void Start()
@@ -45,9 +47,11 @@ public class IntroManager : MonoBehaviour
 
         startBase = GameObject.Find("buttonStart");
         skipBase = GameObject.Find("buttonSkip");
+        restartBase = GameObject.Find("buttonRestart");
 
         startButton = GameObject.Find("buttonStart").GetComponent<CanvasGroup>();
         skipButton = GameObject.Find("buttonSkip").GetComponent<CanvasGroup>();
+        restartButton = GameObject.Find("buttonRestart").GetComponent<CanvasGroup>();
         skip = GameObject.Find("skip").GetComponent<CanvasGroup>();
 
         vo = GameObject.Find("VO").GetComponent<AudioSource>();
@@ -60,10 +64,12 @@ public class IntroManager : MonoBehaviour
         mainText.alpha = 0;
         startButton.alpha = 0;
         skipButton.alpha = 0;
+        restartButton.alpha = 0;
         skip.alpha = 0;
 
         startBase.SetActive(false);
         skipBase.SetActive(false);
+        restartBase.SetActive(false);
 
         //user selected VR path
         XRSettings.enabled = true;
@@ -117,21 +123,21 @@ public class IntroManager : MonoBehaviour
         LeanTween.alphaCanvas(startButton, 1f, 2f).setDelay(2f);
         LeanTween.alphaCanvas(skipButton, 1f, 2f).setDelay(2.5f);
         LeanTween.alphaCanvas(skip, 1f, 2f).setDelay(2.5f);
+        LeanTween.alphaCanvas(restartButton, 1f, 2f).setDelay(3f);
 
         //LeanTween.delayedCall(4f, startVO);
 
         startBase.SetActive(true);//responds to gaze now
         skipBase.SetActive(true);
-    }
-
-  
+        restartBase.SetActive(true);
+    }  
 
 
     //called from StartButtonScript
     public void introComplete(bool doSkip = false)
     {
         persist.skip = doSkip;
-        SceneManager.LoadScene(3);//ISICircle
+        SceneManager.LoadScene(3);//ISICircle VR
     }
 
 

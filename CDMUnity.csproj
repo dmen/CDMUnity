@@ -410,6 +410,7 @@
     <Compile Include="Assets\Scripts\Manager.cs" />
     <Compile Include="Assets\Scripts\NodeData.cs" />
     <Compile Include="Assets\Scripts\PersistentManagaer.cs" />
+    <Compile Include="Assets\Scripts\RestartButtonScript.cs" />
     <Compile Include="Assets\Scripts\SelectManager.cs" />
     <Compile Include="Assets\Scripts\SkipButtonScript.cs" />
     <Compile Include="Assets\Scripts\StartButtonScript.cs" />

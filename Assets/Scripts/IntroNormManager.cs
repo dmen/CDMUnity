@@ -15,6 +15,7 @@ public class IntroNormManager : MonoBehaviour
 
     private CanvasGroup startButton;
     private CanvasGroup skipButton;
+    private CanvasGroup restartButton;
     private GameObject man;
 
     private CanvasGroup vidMat;
@@ -35,12 +36,14 @@ public class IntroNormManager : MonoBehaviour
 
         startButton = GameObject.Find("buttonStart").GetComponent<CanvasGroup>();
         skipButton = GameObject.Find("buttonSkip").GetComponent<CanvasGroup>();
+        restartButton = GameObject.Find("buttonRestart").GetComponent<CanvasGroup>();
 
         bg.alpha = 0;
         logo.alpha = 0;
         mainText.alpha = 0;
         startButton.alpha = 0;
         skipButton.alpha = 0;
+        restartButton.alpha = 0;
 
         vidMat = GameObject.Find("vidShow").GetComponent<CanvasGroup>();
         vidMat.alpha = 0;
@@ -81,7 +84,8 @@ public class IntroNormManager : MonoBehaviour
         LeanTween.alphaCanvas(mainText, 1f, 1f).setDelay(.5f);
 
         LeanTween.alphaCanvas(startButton, 1f, 2f).setDelay(2f);
-        LeanTween.alphaCanvas(skipButton, 1f, 2f).setDelay(2.5f);        
+        LeanTween.alphaCanvas(skipButton, 1f, 2f).setDelay(2.5f);
+        LeanTween.alphaCanvas(restartButton, 1f, 2f).setDelay(3f);
     }
 
 
@@ -95,5 +99,10 @@ public class IntroNormManager : MonoBehaviour
     {
         persist.skip = true;
         SceneManager.LoadScene(4);//ISI Text
+    }
+
+    public void restart()
+    {
+        SceneManager.LoadScene(0);//VR / Phone selector
     }
 }

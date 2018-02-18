@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * Used in scene: Hall
+ * Attached to both of the main exit sign objects
+ * allows exiting by clicking the sign - ie when in Phone mode
+ */
 public class ExitTouch : MonoBehaviour
 {
+    Manager theManager;
     RaycastHit hit;
     Ray ray;
     string n;
+
+    private void Start()
+    {
+        theManager = GameObject.Find("theManaer").GetComponent<Manager>();
+    }
+
 
     void FixedUpdate()
     {
@@ -24,7 +36,7 @@ public class ExitTouch : MonoBehaviour
                     n = hit.collider.name;
                     if(n == "exitSign" || n == "exitSign2")
                     {
-                        SceneManager.LoadScene(0);
+                        theManager.exitSignExit();
                     }
                 }
             }

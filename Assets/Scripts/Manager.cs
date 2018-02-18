@@ -838,6 +838,20 @@ public class Manager : MonoBehaviour
             blurMatPhone.SetFloat("_Lightness", 0f - (val * .25f));
         }
     }
+
+
+    //called from clicking or gazing on an exit sign
+    public void exitSignExit()
+    {
+        if (isVRMode)
+        {
+            SceneManager.LoadScene(1);
+        }
+        else
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
     
 
     /**

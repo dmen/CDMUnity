@@ -4,17 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/*
+ * Used in scene: Hall
+ * attached to both exits signs - attached to exRed image object
+ * in the exit signs canvas - handles gaze selection exiting
+ */
 
 public class ExitSign : MonoBehaviour
 {
+    Manager theManager;
 
     public Image progressImage;
 
     bool isEntered = false;
     float timeElapsed = 0f;
     float GazeActivationTime = 2f;
-    
-   
+
+
+    private void Start()
+    {
+        theManager = GameObject.Find("theManaer").GetComponent<Manager>();
+    }
+
+
     void Update()
     {
         if (isEntered)
@@ -28,7 +40,7 @@ public class ExitSign : MonoBehaviour
                 progressImage.fillAmount = 0;
                 isEntered = false;
 
-                SceneManager.LoadScene(0);//selector
+                theManager.exitSignExit();
             }
         }
         else
@@ -36,12 +48,7 @@ public class ExitSign : MonoBehaviour
             timeElapsed = 0;
         }
     }
-
-    public void exitClicked()
-    {
-        SceneManager.LoadScene(0);//selector
-    }
-
+    
 
     public void OnGazeEnter(string s)
     {

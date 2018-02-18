@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
+//This is scene 0 - VR / Phone mode selection
+
 public class SelectManager : MonoBehaviour
 {
     private PersistentManagaer persist;
