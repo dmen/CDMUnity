@@ -843,6 +843,8 @@ public class Manager : MonoBehaviour
     //called from clicking or gazing on an exit sign
     public void exitSignExit()
     {
+        LeanTween.cancelAll();
+
         if (isVRMode)
         {
             SceneManager.LoadScene(1);

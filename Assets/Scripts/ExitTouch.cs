@@ -17,7 +17,7 @@ public class ExitTouch : MonoBehaviour
 
     private void Start()
     {
-        theManager = GameObject.Find("theManaer").GetComponent<Manager>();
+        theManager = GameObject.Find("theManager").GetComponent<Manager>();
     }
 
 
