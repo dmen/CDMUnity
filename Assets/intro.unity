@@ -553,7 +553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08fd9a109d9dbd45b428c5883d1de22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  progressImage: {fileID: 0}
+  progressImage: {fileID: 1965105216}
 --- !u!225 &521775227
 CanvasGroup:
   m_ObjectHideFlags: 0
