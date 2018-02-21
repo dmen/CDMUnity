@@ -12,6 +12,7 @@ public class ExitNormManager : MonoBehaviour
 {
     private CanvasGroup logo;
     private CanvasGroup mainText;
+    private CanvasGroup legalBottomText;
     private CanvasGroup vidCan;
 
     private CanvasGroup startButton;
@@ -23,6 +24,7 @@ public class ExitNormManager : MonoBehaviour
         man = GameObject.Find("Manager");
         logo = GameObject.Find("luxLogo").GetComponent<CanvasGroup>();
         mainText = GameObject.Find("mainText").GetComponent<CanvasGroup>();
+        legalBottomText = GameObject.Find("legalBottomText").GetComponent<CanvasGroup>();
         startButton = GameObject.Find("buttonExit").GetComponent<CanvasGroup>();
 
         vidCan = GameObject.Find("vid").GetComponent<CanvasGroup>();
@@ -30,6 +32,7 @@ public class ExitNormManager : MonoBehaviour
 
         logo.alpha = 0;
         mainText.alpha = 0;
+        legalBottomText.alpha = 0;
         startButton.alpha = 0;
 
         LeanTween.delayedCall(.5f, startVideo);
@@ -60,7 +63,7 @@ public class ExitNormManager : MonoBehaviour
     {
         LeanTween.alphaCanvas(logo, 1f, 2f);
         LeanTween.alphaCanvas(mainText, 1f, 1f).setDelay(.5f);
-
+        LeanTween.alphaCanvas(legalBottomText, 1f, 1f).setDelay(1f);
         LeanTween.alphaCanvas(startButton, 1f, 2f).setDelay(2f);
     }
 

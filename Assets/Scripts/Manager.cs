@@ -471,28 +471,28 @@ public class Manager : MonoBehaviour
     {
         audioManager.playAudio("vo_20", playAud21, "sfx_trainPassing", 4f);//3.3sec
         luxMeterManager.lux50();
-        setLightLevel(.30f, 2f);
+        setLightLevel(.33f, 2f);
     }
     //10 lux, a city one hour after sunset
     void playAud21()
     {
         audioManager.playAudio("vo_21", playAud22, "sfx_city", 4f);//4.06sec
         luxMeterManager.lux10();
-        setLightLevel(.15f, 2f);
+        setLightLevel(.22f, 2f);
     }
     //4 lux was equivalent to a parking lot at night
     void playAud22()
     {
         audioManager.playAudio("vo_22", playAud23, "sfx_carDoor", 3.5f);//3.1sec
         luxMeterManager.lux4();
-        setLightLevel(.1f, 2f);
+        setLightLevel(.15f, 2f);
     }
     //1 lux, darkest - moonless summer night
     void playAud23()
     {
         audioManager.playAudio("vo_23", playAud24, "sfx_summerNight", 4.5f);//4.8sec
         luxMeterManager.lux1();
-        setLightLevel(.05f, 2f);
+        setLightLevel(.1f, 2f);
     }
 
     //each lux level assigned score code
