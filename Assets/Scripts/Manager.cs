@@ -235,7 +235,7 @@ public class Manager : MonoBehaviour
         if (curPlayerRotation != nextNodeData.rotation)
         {
             curPlayerRotation = nextNodeData.rotation;
-            LeanTween.rotate(thePlayer, new Vector3(0, curPlayerRotation, 0), 1.5f);
+           // LeanTween.rotate(thePlayer, new Vector3(0, curPlayerRotation, 0), 1.5f);
         }
         if (nextNodeData.nodeName == "intro")
         {
