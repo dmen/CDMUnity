@@ -448,7 +448,7 @@ GameObject:
   - component: {fileID: 620160446}
   - component: {fileID: 620160448}
   m_Layer: 5
-  m_Name: logo
+  m_Name: luxLogo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2247,7 +2247,7 @@ MonoBehaviour:
   nodeName: c1
   ease: 0
   waitAtNode: 0
-  rotation: 180
+  rotation: 120
 --- !u!1001 &241101413
 Prefab:
   m_ObjectHideFlags: 0
