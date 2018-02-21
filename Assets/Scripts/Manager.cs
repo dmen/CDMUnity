@@ -52,17 +52,17 @@ public class Manager : MonoBehaviour
     private bool inTheRoom;//when true the hall probe doesnt get updated
 
     private Transform mainCamera;//used for setting local rotation when in non-vr mode
-
+    private float curPlayerRotation = 90;
 
 
 
     void Start()
     {
-        //userSkipped = false;//TESTING
-        //isVRMode = false;
+        userSkipped = false;//TESTING
+        isVRMode = true;
 
-        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
-        isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
+        //userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+       // isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
 
         if (!isVRMode)
         {
@@ -232,6 +232,11 @@ public class Manager : MonoBehaviour
      */
     void nodeReached()
     {
+        if (curPlayerRotation != nextNodeData.rotation)
+        {
+            curPlayerRotation = nextNodeData.rotation;
+            LeanTween.rotate(thePlayer, new Vector3(0, curPlayerRotation, 0), 1.5f);
+        }
         if (nextNodeData.nodeName == "intro")
         {
             audioManager.playAudio("vo_1", introComplete);//introComplete function will be called when audio is finished

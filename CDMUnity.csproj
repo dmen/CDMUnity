@@ -414,6 +414,7 @@
     <Compile Include="Assets\Scripts\SelectManager.cs" />
     <Compile Include="Assets\Scripts\SkipButtonScript.cs" />
     <Compile Include="Assets\Scripts\StartButtonScript.cs" />
+    <Compile Include="Assets\Scripts\WorldRotate.cs" />
     <Compile Include="Assets\VacuumShaders\The Amazing Wireframe Shader\Example Scenes\Files\Example_2\Scriptes\Example_2_Mask.cs" />
     <Compile Include="Assets\VacuumShaders\The Amazing Wireframe Shader\Example Scenes\Files\Example_2\Scriptes\Example_2_RandomRotate.cs" />
     <Compile Include="Assets\VacuumShaders\The Amazing Wireframe Shader\Example Scenes\Files\Example_3\Scripts\Example_3_Mask.cs" />

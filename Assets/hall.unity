@@ -235,6 +235,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &11917596
 Transform:
   m_ObjectHideFlags: 0
@@ -977,6 +978,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &66385322
 Transform:
   m_ObjectHideFlags: 0
@@ -1794,6 +1796,7 @@ MonoBehaviour:
   nodeName: eyeStart
   ease: 0
   waitAtNode: 1
+  rotation: 90
 --- !u!4 &214174244
 Transform:
   m_ObjectHideFlags: 0
@@ -1919,6 +1922,7 @@ MonoBehaviour:
   nodeName: enterRoom
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!1001 &222072765
 Prefab:
   m_ObjectHideFlags: 0
@@ -2243,6 +2247,7 @@ MonoBehaviour:
   nodeName: c1
   ease: 0
   waitAtNode: 0
+  rotation: 180
 --- !u!1001 &241101413
 Prefab:
   m_ObjectHideFlags: 0
@@ -3201,6 +3206,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!1001 &315874661
 Prefab:
   m_ObjectHideFlags: 0
@@ -3370,6 +3376,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &325707091
 Transform:
   m_ObjectHideFlags: 0
@@ -4211,6 +4218,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!4 &432435474 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: ac28315dfeb4970409297ba6ecb31baa, type: 3}
@@ -5370,6 +5378,7 @@ MonoBehaviour:
   nodeName: courseStart
   ease: 1
   waitAtNode: 1
+  rotation: 90
 --- !u!1 &538835631
 GameObject:
   m_ObjectHideFlags: 0
@@ -5401,6 +5410,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 0
 --- !u!4 &538835633
 Transform:
   m_ObjectHideFlags: 0
@@ -5728,6 +5738,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 0
 --- !u!1 &593955457
 GameObject:
   m_ObjectHideFlags: 0
@@ -6173,6 +6184,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &619252885
 Transform:
   m_ObjectHideFlags: 0
@@ -8455,6 +8467,7 @@ MonoBehaviour:
   nodeName: door
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!4 &869951059 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 8ff686d274dd9df4b83509ce141d5b69, type: 3}
@@ -9123,6 +9136,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 0
 --- !u!4 &939752070
 Transform:
   m_ObjectHideFlags: 0
@@ -9912,6 +9926,7 @@ MonoBehaviour:
   nodeName: roomWait
   ease: 1
   waitAtNode: 1
+  rotation: 90
 --- !u!4 &1101421083
 Transform:
   m_ObjectHideFlags: 0
@@ -10442,6 +10457,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!4 &1144991206
 Transform:
   m_ObjectHideFlags: 0
@@ -11036,6 +11052,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!4 &1251198072
 Transform:
   m_ObjectHideFlags: 0
@@ -11355,6 +11372,7 @@ MonoBehaviour:
   nodeName: stopTimer
   ease: 0
   waitAtNode: 0
+  rotation: 0
 --- !u!1001 &1303413382
 Prefab:
   m_ObjectHideFlags: 0
@@ -11995,6 +12013,7 @@ MonoBehaviour:
   nodeName: end
   ease: 0
   waitAtNode: 0
+  rotation: 0
 --- !u!1001 &1410189140
 Prefab:
   m_ObjectHideFlags: 0
@@ -12263,6 +12282,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!1 &1441520186
 GameObject:
   m_ObjectHideFlags: 0
@@ -12307,6 +12327,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!1001 &1441605607
 Prefab:
   m_ObjectHideFlags: 0
@@ -12424,6 +12445,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &1454001181
 Transform:
   m_ObjectHideFlags: 0
@@ -12549,6 +12571,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!1001 &1500719093
 Prefab:
   m_ObjectHideFlags: 0
@@ -12835,6 +12858,7 @@ MonoBehaviour:
   nodeName: zero
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!1 &1518625582
 GameObject:
   m_ObjectHideFlags: 0
@@ -13443,6 +13467,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &1632896513 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 34847aa6b5c51424aa6632f2f6507bdc, type: 3}
@@ -13820,6 +13845,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &1679405327
 Transform:
   m_ObjectHideFlags: 0
@@ -14302,6 +14328,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 0
 --- !u!4 &1760715204
 Transform:
   m_ObjectHideFlags: 0
@@ -14346,6 +14373,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &1763984968
 Transform:
   m_ObjectHideFlags: 0
@@ -14738,6 +14766,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 0
 --- !u!1 &1852392989
 GameObject:
   m_ObjectHideFlags: 0
@@ -15024,6 +15053,7 @@ MonoBehaviour:
   nodeName: errorPause
   ease: 0
   waitAtNode: 0
+  rotation: -90
 --- !u!4 &1923213697
 Transform:
   m_ObjectHideFlags: 0
@@ -16438,6 +16468,7 @@ MonoBehaviour:
   nodeName: 
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!4 &2069621295
 Transform:
   m_ObjectHideFlags: 0
@@ -16658,6 +16689,7 @@ MonoBehaviour:
   nodeName: intro
   ease: 0
   waitAtNode: 0
+  rotation: 90
 --- !u!4 &2090697995
 Transform:
   m_ObjectHideFlags: 0

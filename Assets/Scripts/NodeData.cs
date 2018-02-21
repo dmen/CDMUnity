@@ -10,4 +10,5 @@ public class NodeData : MonoBehaviour
     public string nodeName;
     public bool ease;
     public bool waitAtNode;
+    public float rotation;
 }
