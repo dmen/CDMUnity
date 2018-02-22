@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0acc96b3bd0b65d44a993c49c39fd3ab
+timeCreated: 1519271375
+licenseType: Pro
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Encode Sans Normal
+  fontNames:
+  - Encode Sans Normal
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
