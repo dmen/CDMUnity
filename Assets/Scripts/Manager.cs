@@ -237,6 +237,7 @@ public class Manager : MonoBehaviour
             curPlayerRotation = nextNodeData.rotation;
             LeanTween.rotate(thePlayer, new Vector3(0, curPlayerRotation, 0), 1.5f);
         }
+
         if (nextNodeData.nodeName == "intro")
         {
             audioManager.playAudio("vo_1", introComplete);//introComplete function will be called when audio is finished
