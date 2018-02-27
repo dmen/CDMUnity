@@ -58,11 +58,11 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        userSkipped = false;//TESTING
-        isVRMode = true;
+        //userSkipped = false;//TESTING
+        //isVRMode = true;
 
-       // userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
-        //isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
+        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
 
         if (!isVRMode)
         {

@@ -792,66 +792,47 @@ public class GridObjectsManager : MonoBehaviour
         }
     }
 
-    //this moves the noodle up from under the floor
     public void showNoodle()
     {
         objectDestination = noodle.transform.position;//original grid position
         Vector3 floatPosition = new Vector3(objectDestination.x, objectDestination.y - 1f, objectDestination.z);
         noodle.transform.position = floatPosition;
         noodle.SetActive(true);
-
-        LeanTween.move(noodle, objectDestination, 1f).setEase(LeanTweenType.easeOutBack);
-        LeanTween.delayedCall(3f, showStick);
+        // noodle.GetComponent<Animator>().SetTrigger("noodleMotion");
+        LeanTween.move(noodle, objectDestination, 2f).setEase(LeanTweenType.easeOutBack).setOnComplete(waitOne);
     }
-    //turn noodle brown over 2 sec
+    void waitOne()
+    {
+        LeanTween.delayedCall(1.5f, showStick);
+    }
     private void showStick()
     {
-        LeanTween.value(grid, setNoodleVal1, 1f, 0f, 2f);
-        LeanTween.delayedCall(2f, fadeInStick);
+        LeanTween.value(grid, setNoodleVal, 1f, 0f, .5f).setOnComplete(fadeInStick);
     }
-    //turns noodle from blue to brown
-    void setNoodleVal1(float val)
-    {
-        // noodle.transform.localScale = new Vector3(1.1561f, 1.1561f, val * .74f);
-        noodleMat.SetColor("_Color", new Color(.10588f + (.16472f * (1f - val)), .45098f - (.22353f * (1f - val)), .8588f - (.76468f * (1f - val)), 1f));
-    }
-    //fades blue noodle
-    void fadeNoodle(float val)
+    void setNoodleVal(float val)
     {
         noodleMat.SetColor("_Color", new Color(.10588f, .45098f, .8588f, val));
     }
-    //fades brown stick
-    void fadeStick(float val)
+    void fadeInStick()
+    {
+        noodle.SetActive(false);
+        stick.SetActive(true);
+        LeanTween.value(grid, setStickVal, 0f, 1f, .5f);
+        LeanTween.delayedCall(1.5f, hideStick);
+    }
+    void setStickVal(float val)
     {
         stickMat.SetColor("_Color", new Color(.2706f, .22745f, .09412f, val));
     }
-    //noodle is brown... cross fade it and stick
-    void fadeInStick()
-    {
-        // noodle.SetActive(false);
-        //quick cross fade the stick and now brown noodle
-        LeanTween.value(grid, fadeNoodle, 1f, 0f, .25f);
-        stick.SetActive(true);
-        //fadeStick(0);//set alpha to 0
-        LeanTween.value(grid, fadeStick, 0f, 1f, .5f);//.setDelay(.25f);        
-        LeanTween.delayedCall(1.5f, hideStick);
-    }
-    
     private void hideStick()
     {
-        LeanTween.value(grid, fadeStick, 1f, 0f, .25f);
-        LeanTween.value(grid, fadeNoodle, 0f, 1f, .5f).setOnComplete(turnNoodleBlue);
+        LeanTween.value(grid, setStickVal, 1f, 0f, .5f).setOnComplete(showNoodle2);
     }
-    
-    private void turnNoodleBlue()
+    private void showNoodle2()
     {
-        stick.SetActive(false);        
-        LeanTween.value(grid, setNoodleVal2, 0f, 1f, 2f);
-    }
-    //turn noodle from brown back to blue
-    void setNoodleVal2(float val)
-    {
-        noodleMat.SetColor("_Color", new Color(.2706f - (.16472f * val), .22745f + (.22353f * val), .09412f + (.76468f * val), 1f));
+        stick.SetActive(false);
+        noodle.SetActive(true);
+        LeanTween.value(grid, setNoodleVal, 0f, 1f, .5f);
     }
 
     public void showFoamCircle()
