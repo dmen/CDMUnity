@@ -58,11 +58,11 @@ public class Manager : MonoBehaviour
 
     void Start()
     {
-        //userSkipped = false;//TESTING
-        //isVRMode = true;
+        userSkipped = false;//TESTING
+        isVRMode = true;
 
-        userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
-        isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
+       // userSkipped = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().skip;
+        //isVRMode = GameObject.Find("PersistentData").GetComponent<PersistentManagaer>().vr;
 
         if (!isVRMode)
         {
@@ -505,7 +505,7 @@ public class Manager : MonoBehaviour
     void playAud24()
     {
         //lux meter chapter is just the 400 - 1 explanation
-       // userSkipped = false; //TESTING
+        //userSkipped = false; //TESTING
         if (userSkipped)
         {
             //thank you for visiting our lab
