@@ -798,7 +798,6 @@ public class GridObjectsManager : MonoBehaviour
         Vector3 floatPosition = new Vector3(objectDestination.x, objectDestination.y - 1f, objectDestination.z);
         noodle.transform.position = floatPosition;
         noodle.SetActive(true);
-        // noodle.GetComponent<Animator>().SetTrigger("noodleMotion");
         LeanTween.move(noodle, objectDestination, 2f).setEase(LeanTweenType.easeOutBack).setOnComplete(waitOne);
     }
     void waitOne()
